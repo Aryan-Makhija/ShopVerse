@@ -32,8 +32,8 @@ export default function RootLayout({ children }) {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       
-     
-      </head> */}
+        </head> */}
+      <link rel="icon" href="/favicon.jpg" />
       <body
       >
         {/* <Navbar></Navbar> */}
@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
           <CartProvider>
             <main className="w-full">
 
-              
+
               <Suspense fallback={<div>Loading product page...</div>}>
                 {children}
               </Suspense>

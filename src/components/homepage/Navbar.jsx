@@ -542,7 +542,7 @@ export const Navbar = () => {
             {/* profile  ,cart , wishlist , mobilemenu  */}
             <div className=" w-50  flex justify-around">
 
-                <div className="hidden lg:block">
+                {/* <div className="hidden lg:block">
 
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
@@ -565,7 +565,7 @@ export const Navbar = () => {
                         </DropdownMenuContent>
                     </DropdownMenu>
 
-                </div>
+                </div> */}
 
                 {/* Mobile menu  */}
                 <div className="block lg:hidden">
