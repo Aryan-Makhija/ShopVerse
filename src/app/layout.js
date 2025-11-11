@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/Provider/ThemeProvider";
 import { CartProvider } from "@/Context/CartContext";
 import { OrderProvider } from "@/Context/OrderContext";
 import { Toaster } from "@/components/ui/sonner";
+import { Suspense } from "react";
 
 
 
@@ -47,7 +48,10 @@ export default function RootLayout({ children }) {
           <CartProvider>
             <main className="w-full">
 
-              {children}
+              
+              <Suspense fallback={<div>Loading product page...</div>}>
+                {children}
+              </Suspense>
               <Toaster />
 
 
