@@ -33,6 +33,7 @@ export function UsersignupForm({
     if (response.ok) {
       toast.success(" User Signup Successfully")
       router.push("/")
+      router.refresh()
     } else if (response.status === 400) {
       toast.error(data.message)
 

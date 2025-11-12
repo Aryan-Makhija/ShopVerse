@@ -110,6 +110,7 @@ export const Navbar = () => {
 
         if (response.ok) {
             toast.success("Logged Out Successfully")
+            router.refresh()
             router.push("/")
         }
 

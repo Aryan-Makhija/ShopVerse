@@ -34,6 +34,7 @@ export function UserloginForm({
     if (response.ok) {
       toast.success("Logged In Successfully")
       router.push("/")
+      router.refresh()
     } else {
       toast.error("Please try Again")
 
