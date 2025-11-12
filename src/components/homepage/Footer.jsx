@@ -6,76 +6,6 @@ const Footer = () => {
     return (
 
 
-        // <div className=" bg-amber-100 dark:bg-muted-foreground
-        //          rounded-xl  w-full   gap-10 flex justify-center items-center p-5   ">
-
-        //     <div className="grid grid-cols-5 gap-10 max-w-full">
-
-        //         <div className=" flex flex-col gap-5">
-        //             <h1>
-        //                 About
-        //             </h1>
-        //             <div className="flex  flex-col ">
-        //                 <a href="#">Contact Us</a>
-        //                 <a href="#">About Us</a>
-        //                 <a href="#">Carrers</a>
-        //                 <a href="#">Press</a>
-        //                 <a href="#">Corporate Information</a>
-        //             </div>
-        //         </div>
-
-        //         <div className=" flex flex-col gap-5">
-        //             <h1>
-        //                 Group Companies
-        //             </h1>
-        //             <div className="flex flex-col">
-        //                 <a href="#">Myntra</a>
-        //                 <a href="#">Cleartrip</a>
-        //                 <a href="#">Shopsy</a>
-        //             </div>
-        //         </div>
-
-        //         <div className=" flex flex-col gap-5">
-        //             <h1>
-        //                 HELP
-        //             </h1>
-        //             <div className="flex flex-col">
-        //                 <a href="#">Payments</a>
-        //                 <a href="#">Shipping</a>
-        //                 <a href="#">Cancellation & Retunrs</a>
-        //                 <a href="#">FAQ</a>
-        //             </div>
-        //         </div>
-        //         <div className=" flex flex-col gap-5">
-        //             <h1>
-        //                 Make Money with US
-        //             </h1>
-        //             <div className=" flex flex-col">
-        //                 <Link href="/DashBoard">Sell on E-Commerce</Link>
-        //                 <Link href="/AdminLogin">Login to your Account</Link>
-        //             </div>
-        //         </div>
-        //         <div className=" flex flex-col gap-5">
-        //             <h1>
-        //                 Social Accounts
-        //             </h1>
-        //             <div className="  flex  gap-3">
-        //                 <a href="#"><TwitterIcon></TwitterIcon></a>
-        //                 <a href="#"><InstagramIcon></InstagramIcon> </a>
-        //                 <a href="#"><FacebookIcon></FacebookIcon> </a>
-        //                 <a href="#"><YoutubeIcon></YoutubeIcon> </a>
-
-        //             </div>
-        //         </div>
-
-
-        //     </div>
-
-
-
-        // </div>
-
-
         <footer className="w-full bg-gradient-to-l from-gray-200 to-gray-50 dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-gray-200 border-t border-gray-200 dark:border-gray-700">
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 sm:py-16">
                 {/* Footer Grid */}
@@ -151,15 +81,33 @@ const Footer = () => {
                         <div className="flex flex-col space-y-2 text-sm">
                             <Link
                                 href="/DashBoard"
+                                legacyBehavior
+                                passHref
                                 className="hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
                             >
-                                Sell on E-Commerce
+
+                                <a target="_blank"
+                                    rel="noopener noreferrer">
+
+                                    Sell on E-Commerce
+
+                                </a>
                             </Link>
                             <Link
                                 href="/AdminLogin"
+                                legacyBehavior
+                                passHref
                                 className="hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
                             >
-                                Login to your Account
+                                <a
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+
+                                >
+
+                                    Login to your Account
+
+                                </a>
                             </Link>
                         </div>
                     </div>

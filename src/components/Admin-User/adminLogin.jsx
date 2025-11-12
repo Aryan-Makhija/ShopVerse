@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
+import { toast } from "sonner"
 
 
 export function AdminLoginForm({
@@ -17,45 +18,56 @@ export function AdminLoginForm({
 
   const [adminlogin, setadminlogin] = useState({ email: "", password: "" })
   const [error, seterror] = useState([])
+
+  const [loading, setLoading] = useState(false);
   // console.log(error)
   const router = useRouter()
   const handelSignup = async (e) => {
     e.preventDefault()
-    const response = await fetch("/api/admin/adminlogin", {
-      method: "POST",
-      body: JSON.stringify(adminlogin)
-    })
+    setLoading(true)
+    try {
+
+      const response = await fetch("/api/admin/adminlogin", {
+        method: "POST",
+        body: JSON.stringify(adminlogin)
+      })
 
 
-    const admin = await fetch("/api/admin/adminProfile", {
-      method: "GET"
-    })
+      const admin = await fetch("/api/admin/adminProfile", {
+        method: "GET"
+      })
 
-    const admindata = await admin.json()
-
-
-
-    const vendor = await fetch("/api/ProductListing/VendorDetails", {
-      method: "GET"
-    })
-    const vendordata = await vendor.json()
-
-
-    const data = await response.json()
-
-    seterror(data.errors)
+      const admindata = await admin.json()
 
 
 
+      const vendor = await fetch("/api/ProductListing/VendorDetails", {
+        method: "GET"
+      })
+      const vendordata = await vendor.json()
 
-    if (vendordata.adminId === admindata._id) {
-      return (
-        router.push("/DashBoard"),
-        router.refresh(),
-        toast.success("Logged In Successfully")
-      )
-    } else {
-      return router.push("/VendorDetails")
+
+      const data = await response.json()
+
+      seterror(data.errors)
+
+
+
+
+      if (vendordata.adminId === admindata._id) {
+
+        return (
+          router.push("/DashBoard"),
+          router.refresh(),
+          toast.success("Logged In Successfully")
+        )
+      } else {
+        return router.push("/VendorDetails")
+      }
+    } catch (err) {
+      console.log(err.message)
+    } finally {
+      setLoading(false)
     }
 
   }
@@ -89,8 +101,18 @@ export function AdminLoginForm({
                 <Input onChange={(e) => setadminlogin({ ...adminlogin, password: e.target.value })} value={adminlogin.password} id="password" type="password" required />
                 <p className="text-sm text-red-400">{error?.password}</p>
               </div>
-              <Button type="" onClick={(e) => handelSignup(e)} className="w-full">
-                Login
+              <Button
+                type="submit"
+                onClick={(e) => { handelSignup(e) }}
+                className="w-full flex items-center justify-center"
+                disabled={loading} // Optional: prevent multiple clicks
+              >
+                {loading ? (
+                  // You can use any spinner you like here
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                ) : (
+                  "Login"
+                )}
               </Button>
 
               <div className="grid grid-cols-3 gap-4">

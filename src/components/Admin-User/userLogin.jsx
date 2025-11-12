@@ -18,26 +18,38 @@ export function UserloginForm({
 
   const [userlogin, setuserlogin] = useState({ email: "", password: "" })
   const [error, seterror] = useState([])
+  const [loading, setLoading] = useState(false)
   // console.log(error)
   const router = useRouter()
   const handelSignup = async (e) => {
+
+
     e.preventDefault()
-    const response = await fetch("/api/user/userlogin", {
-      method: "POST",
-      body: JSON.stringify(userlogin)
-    })
-    console.log(response)
-    const data = await response.json()
+    setLoading(true)
+    try {
 
-    seterror(data.errors)
-    console.log(data.errors)
-    if (response.ok) {
-      toast.success("Logged In Successfully")
-      router.push("/")
-      router.refresh()
-    } else {
-      toast.error("Please try Again")
+      const response = await fetch("/api/user/userlogin", {
+        method: "POST",
+        body: JSON.stringify(userlogin)
+      })
+      console.log(response)
+      const data = await response.json()
 
+      seterror(data.errors)
+      console.log(data.errors)
+      if (response.ok) {
+        toast.success("Logged In Successfully")
+        router.push("/")
+        router.refresh()
+      } else {
+        toast.error("Please try Again")
+
+      }
+
+    } catch (err) {
+      console.log(err.message)
+    } finally {
+      setLoading(false)
     }
 
   }
@@ -71,8 +83,18 @@ export function UserloginForm({
                 <Input onChange={(e) => setuserlogin({ ...userlogin, password: e.target.value })} value={userlogin.password} id="password" type="password" required />
                 <p className="text-sm text-red-400">{error?.password}</p>
               </div>
-              <Button type="" onClick={(e) => handelSignup(e)} className="w-full">
-                Login
+              <Button
+                type="submit"
+                onClick={(e) => { handelSignup(e) }}
+                className="w-full flex items-center justify-center"
+                disabled={loading} // Optional: prevent multiple clicks
+              >
+                {loading ? (
+                  // You can use any spinner you like here
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                ) : (
+                  "Login"
+                )}
               </Button>
 
               <div className="grid grid-cols-3 gap-4">
