@@ -87,7 +87,7 @@ export async function GET() {
         }
 
 
-        return NextResponse.json([wishlist], { message: "cartItem fetched Successfully" }, { status: 200 })
+        return NextResponse.json(wishlist, { message: "cartItem fetched Successfully" }, { status: 200 })
     } catch (err) {
         console.log(err.message)
         return NextResponse.json({ message: "Something went Wrong" }, { status: 400 })

@@ -39,21 +39,23 @@ export function AdminLoginForm({
       method: "GET"
     })
     const vendordata = await vendor.json()
-    console.log()
+
 
     const data = await response.json()
-    // console.log("data", data)
+
     seterror(data.errors)
 
 
-    if (data.errors) {
-      console.log(data.errors)
-    }
+
 
     if (vendordata.adminId === admindata._id) {
-      return router.push("/DashBoard")
-    }else {
-       return router.push("/VendorDetails")
+      return (
+        router.push("/DashBoard"),
+        router.refresh(),
+        toast.success("Logged In Successfully")
+      )
+    } else {
+      return router.push("/VendorDetails")
     }
 
   }

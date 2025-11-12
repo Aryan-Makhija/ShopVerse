@@ -50,6 +50,7 @@ export function UserForgotPassword({
       body: JSON.stringify(verifyotp)
     })
     const data = await response.json()
+    router.refresh()
     toast("Otp Verified Successfully")
     setverify(false)
     setreset(true)
@@ -66,8 +67,8 @@ export function UserForgotPassword({
     })
 
     const data = await response.json()
-    console.log(data)
     toast("Password Reset Sucessfully")
+    router.refresh()
     router.push("/UserLogin")
   }
 

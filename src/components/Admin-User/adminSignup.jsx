@@ -32,6 +32,7 @@ export function AdminSignupForm({
     seterror(data.errors)
     if (response.ok) {
       toast.success("Signup  Successfully")
+      router.refresh()
       router.push("/AdminLogin")
     } else {
       toast.error("Please try Again")

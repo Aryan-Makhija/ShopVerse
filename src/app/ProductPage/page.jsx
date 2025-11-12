@@ -23,7 +23,7 @@ const ProductPage = () => {
     const [selectedVariant, setSelectedVariant] = useState(null)
     const { addToCart, cartItems } = useCart();
 
-    console.log(productdata)
+
     const getProductdetails = async () => {
         const response = await fetch(`/api/AllProducts/${code}`, {
             method: "GET"

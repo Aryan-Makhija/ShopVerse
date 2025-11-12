@@ -21,10 +21,7 @@ export default async function RootLayout({ children }) {
 
         <main>
 
-            <ThemeProvider attribute="class"
-                defaultTheme="system"
-                enableSystem
-                disableTransitionOnChange>
+           
 
                
                 <SidebarProvider defaultOpen={defaultOpen}>
@@ -43,7 +40,7 @@ export default async function RootLayout({ children }) {
 
 
 
-            </ThemeProvider>
+          
 
           
 

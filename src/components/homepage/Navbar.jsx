@@ -74,14 +74,16 @@ export const Navbar = () => {
 
     const [status, setstatus] = useState("")
     const [cartitem, setcartitem] = useState([])
-
     const [wishlist, setwishlist] = useState([])
+
+
     const myorder = async () => {
         const response = await fetch("/api/Order", {
             method: "GET"
         })
 
         const data = await response.json()
+        router.refresh()
         setorder(data)
     }
 
@@ -125,6 +127,7 @@ export const Navbar = () => {
         })
 
         const data = await response.json()
+        router.refresh()
         setcartitem(data)
     }
 
@@ -134,6 +137,7 @@ export const Navbar = () => {
             method: "GET"
         })
         const data = await response.json()
+     
         setwishlist(data)
     }
 

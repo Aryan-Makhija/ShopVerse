@@ -11,7 +11,7 @@ const LatestProducts = () => {
   const [latestdata, setlatestdata] = useState([])
 
 
-  const { setparams } = useParams()
+
   const getproducts = async () => {
 
     const response = await fetch("/api/AlluserProducts/LatestProducts", {

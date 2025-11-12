@@ -12,7 +12,7 @@ import { toast } from "sonner"
 
 const WishList = () => {
     const [wishlist, setwishlist] = useState([])
-    const [wishdata, setdata] = useState([])
+    const [wishdata, setwishdata] = useState([])
 
     const router = useRouter()
 
@@ -22,6 +22,8 @@ const WishList = () => {
         })
 
         const data = await response.json()
+        console.log(data)
+
         setwishlist(data)
     }
 
@@ -44,21 +46,19 @@ const WishList = () => {
             body: JSON.stringify(selectedProduct)
         })
         const data = await response.json()
-        // console.log("cart data", data)
+
         if (response.status === 400) {
-            // toast.error("Please select  the size")
+
             return
         }
 
-        if (!response.ok) {
-            // toast.error("Something went wrong. Please try again.");
-            return;
-        }
-        toast.success("Product added to Cart 🛒")
+        if (response.ok)
+            toast.success("Product added to Cart 🛒")
         deleteItem(wishdata._id)
         window.location.reload()
-        // console.log("productadded", data)
-    };
+    }
+
+
 
 
     const deleteItem = async (productId) => {
@@ -74,7 +74,6 @@ const WishList = () => {
     useEffect(() => {
         handleAddToCart()
     }, [wishdata])
-
 
     useEffect(() => {
         getwishlist()
@@ -147,7 +146,7 @@ const WishList = () => {
 
 
                                             <div className="absolute bottom-3 right-3">
-                                                <button onClick={() => setdata(item)} className="w-full cursor-pointer sm:w-auto px-6 py-3 bg-pink-700 text-white font-semibold rounded-md hover:bg-gray-800 transition">
+                                                <button onClick={() => setwishdata(item)} className="w-full cursor-pointer sm:w-auto px-6 py-3 bg-pink-700 text-white font-semibold rounded-md hover:bg-gray-800 transition">
                                                     Add to Cart
                                                 </button>
 
