@@ -43,12 +43,21 @@ export async function POST(request) {
 
         const res = NextResponse.json({ message: "Logged In" }, { status: 200 })
 
-        res.cookies.set("token", token), {
-            httpOnly: true,
-            maxAge: 60 * 60 * 24, //24h
-            path: "/"
+        // res.cookies.set("token", token), {
+        //     httpOnly: true,
+        //     maxAge: 60 * 60 * 24, //24h
+        //     path: "/"
 
-        }
+        // }
+
+        res.cookies.set("token", token, {
+            httpOnly: true,
+            maxAge: 60 * 60 * 24, // 24h
+            path: "/",
+            sameSite: "strict",
+            secure: process.env.NODE_ENV === "production",
+
+        });
 
         return res;
 
