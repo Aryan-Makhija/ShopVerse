@@ -100,7 +100,7 @@ export async function POST(req) {
             productEntries.push({
                 productId: product._id,
                 productCode,
-                product_name: product.product_name || 'Unknown',
+                product_name: product.productname || 'Unknown',
                 description: product.description || '',
                 price: variant.price,
                 quantity,

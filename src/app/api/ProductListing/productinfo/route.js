@@ -34,10 +34,10 @@ export async function POST(request) {
         //     return NextResponse.json({ message: "Invalid Credentials" }, { status: 400 })
         // }
 
-        const { producttype, category, subcategory, brand, description } = parsedata.data
+        const { producttype, category, subcategory, brand, description, productname } = parsedata.data
 
 
-        const newproduct = await ProductInfo.create({ producttype, category, subcategory, brand, description, adminId })
+        const newproduct = await ProductInfo.create({ producttype, category, subcategory, brand, description, productname, adminId })
         return NextResponse.json(newproduct, { message: "new Product added successfully" }, { status: 200 })
 
 

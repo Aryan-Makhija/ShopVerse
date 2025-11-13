@@ -63,7 +63,8 @@ const ShoppingCart = () => {
             getcartitems()
 
         }, 1000)
-        router.refresh()
+        windows.location.relaod()
+        toast.success("Item Deleted From the Cart")
     }
 
 
@@ -118,7 +119,7 @@ const ShoppingCart = () => {
                         </div> : <div className="w-11/12 max-w-7xl flex flex-col lg:flex-row gap-8">
 
 
-                       
+
 
                             {/* Products Section */}
                             <div className="w-full lg:w-3/5 bg-white border border-gray-200 rounded-xl shadow-2xl p-6 flex flex-col gap-6 max-h-[600px] overflow-y-auto">

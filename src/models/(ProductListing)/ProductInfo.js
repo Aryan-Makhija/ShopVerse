@@ -27,6 +27,10 @@ const ProductInfoSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    productname: {
+        type: String,
+        required: true
+    },
     productCode: {
         type: String
     },

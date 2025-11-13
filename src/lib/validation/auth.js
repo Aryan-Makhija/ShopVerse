@@ -30,7 +30,8 @@ export const productInfoSchema = z.object({
     category: z.string().min(3, "category must be 3 character long ").max(10, "category  too long"),
     subcategory: z.string().min(3, "Subcategory must be 3 character long ").max(10, "Subcategory too long"),
     description: z.string().min(20, " description  must be 30 character long ").max(50, "description  too long"),
-    brand: z.string().min(3, "brand name must me 3 character long").max(10, "brand name too  long")
+    brand: z.string().min(3, "brand name must me 3 character long").max(10, "brand name too  long"),
+    productname: z.string().min(3, "Product name must me 3 character long").max(30, "Prductname name too  long")
 })
 
 

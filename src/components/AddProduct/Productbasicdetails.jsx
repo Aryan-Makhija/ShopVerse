@@ -13,10 +13,10 @@ export function ProductBasicInfo({
   ...props
 }) {
 
-  const [productdetails, setproductdetails] = useState({ producttype: "", category: "", subcategory: "", brand: "", description: "" })
+  const [productdetails, setproductdetails] = useState({ producttype: "", category: "", subcategory: "", brand: "", description: "", productname: "" })
   const [error, seterror] = useState([])
   // console.log(error)
-  
+
 
   const handelform = async (e) => {
     e.preventDefault()
@@ -76,6 +76,11 @@ export function ProductBasicInfo({
                   <p className="text-sm text-red-400">{error?.brand}</p>
                 </div>
                 <div className="grid gap-3">
+                  <Label htmlFor="productname">Product Name</Label>
+                  <Input onChange={(e) => setproductdetails({ ...productdetails, productname: e.target.value })} value={productdetails.productname} id="productname" type="text" placeholder="Iphone15" required />
+                  <p className="text-sm text-red-400">{error?.productname}</p>
+                </div>
+                <div className="grid gap-3">
                   <div className="flex items-center">
                     <Label htmlFor="description">Product Description</Label>
                   </div>
@@ -85,7 +90,7 @@ export function ProductBasicInfo({
                   <p className="text-sm text-red-400">{error?.description}</p>
                 </div>
               </div>
-              <Button  type="" onClick={(e) => handelform(e)} className=" w-full">
+              <Button type="" onClick={(e) => handelform(e)} className=" w-full">
                 Submit
               </Button>
 
