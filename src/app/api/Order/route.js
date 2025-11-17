@@ -151,7 +151,7 @@ export async function POST(req) {
         const emailHTML = `
   <h2>Order Confirmation</h2>
   <p>Dear ${name},</p>
-  <p>Thank you for your order with <strong>Buynest</strong>.</p>
+  <p>Thank you for your order with <strong>ShopVerse</strong>.</p>
   <p><strong>Order ID:</strong> ${orderId}</p>
   <p><strong>Order Date:</strong> ${orderdate}</p>
   <p><strong>Delivery Date:</strong> ${deliverydate}</p>
@@ -170,7 +170,7 @@ export async function POST(req) {
   <p><strong>Total Amount:</strong> ₹${totalAmount}</p>
 
   <p>We appreciate your business and look forward to serving you again.</p>
-  <p>Best Regards,<br/>Buynest Team</p>
+  <p>Best Regards,<br/>ShopVerse Team</p>
 `;
 
         try {
@@ -219,105 +219,3 @@ export async function GET() {
     }
 }
 
-// request body->
-// {
-//   "user": {
-//     "userId": "...",
-//     "name": "John Doe",
-//     "email": "john@example.com",
-//     "phoneNumber": "9876543210"
-//   },
-//   "products": [
-//     {
-//       "productCode": "PROD123",
-//       "size": "M",
-//       "color": "Red"
-//     },
-//     {
-//       "productCode": "PROD456",
-//       "size": "L",
-//       "color": "Blue"
-//     }
-//   ],
-//   "order_details": {
-//     "shipping_address": "123 Main St, NY",
-//     "billing_address": "456 Elm St, NY",
-//     "payment_type": "Online"
-//   }
-// }
-
-
-// orderpage sending details ->
-// import { useCart } from '@/context/CartContext';
-
-// const CheckoutForm = () => {
-//   const { cartItems, clearCart } = useCart();
-//   const [user, setUser] = useState({
-//     name: '',
-//     email: '',
-//     phoneNumber: '',
-//     userId: '',
-//   });
-
-//   const [address, setAddress] = useState({
-//     shipping_address: '',
-//     billing_address: '',
-//     payment_type: 'CashOnDelivery',
-//   });
-
-//   const handlePlaceOrder = async () => {
-//     const orderBody = {
-//       user,
-//       products: cartItems,
-//       order_details: {
-//         ...address,
-//       },
-//     };
-
-//     const res = await fetch('/api/order', {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify(orderBody),
-//     });
-
-//     const data = await res.json();
-
-//     if (res.ok) {
-//       alert('Order placed!');
-//       clearCart();
-//     } else {
-//       console.error(data);
-//       alert('Failed to place order');
-//     }
-//   };
-
-//   return (
-//     <button onClick={handlePlaceOrder}>Place Order</button>
-//   );
-// };
-
-
-
-// add to cart button action ->
-// import { useCart } from '@/context/CartContext';
-
-// const ProductDetail = ({ product }) => {
-//     const { addToCart } = useCart();
-
-//     const handleAddToCart = () => {
-//         const selectedProduct = {
-//             productCode: product.productCode,
-//             size: selectedSize,
-//             color: selectedColor,
-//             quantity: 1,
-//         };
-
-//         addToCart(selectedProduct);
-//     };
-
-//     return (
-//         <button onClick={handleAddToCart}>
-//             Add to Cart
-//         </button>
-//     );
-// };

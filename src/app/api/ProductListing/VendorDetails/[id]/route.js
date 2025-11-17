@@ -13,7 +13,7 @@ export async function PUT(request, { params }) {
 
     try {
         const cookieStore = await cookies()
-        const token = await cookieStore.get("admintoken")?.value
+        const token = cookieStore.get("admintoken")?.value
         if (!token) {
             return NextResponse.json({ message: "Unauthorized" }, { status: 400 })
         }
@@ -29,10 +29,10 @@ export async function PUT(request, { params }) {
 
         const { success, data, error } = parsedata
         if (!success) {
-            return NextResponse.json({ errors: z.flattenError(error).fieldErrors })
+            return NextResponse.json({ errors: z.flattenError(error).fieldErrors }, { status: 400 })
         }
 
-        const newupdate = await VendorModel.findByIdAndUpdate({ _id: id }, update, { new: true })
+        const newupdate = await VendorModel.findOneAndUpdate({ _id: id }, update, { new: true })
 
         return NextResponse.json(newupdate, { message: "Vendor Details updated Sucessfully" }, { status: 200 })
 

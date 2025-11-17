@@ -25,20 +25,20 @@ export function Paymenttype({
           <form className="p-6 md:p-8">
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center text-center">
-                <h1 className="text-2xl font-bold">Product Type</h1>
+                <h1 className="text-2xl font-bold">Payment Type</h1>
 
               </div>
 
               <div className="grid grid-cols-1 gap-4">
                 <div className="grid gap-3">
-                  <Label>ProductType</Label>
+                  <Label>PaymentType</Label>
 
                   <Select
                     onValueChange={(value) =>
                       setpayment((prev) => ({ ...prev, payment_type: value }))
                     }
                   >
-                    <SelectTrigger className="w-[280px]">
+                    <SelectTrigger className="w-full">
                       <SelectValue placeholder="Payment Type" />
                     </SelectTrigger>
                     <SelectContent>

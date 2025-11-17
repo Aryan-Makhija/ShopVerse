@@ -70,7 +70,7 @@ export async function GET() {
             return NextResponse.json({ message: "Vendore Details Not Found" }, { status: 400 })
         }
 
-        return NextResponse.json(vendordetails)
+        return NextResponse.json([vendordetails])
 
     } catch (err) {
         console.log(err.message)

@@ -50,17 +50,12 @@ export function AdminLoginForm({
       const data = await response.json()
 
       seterror(data.errors)
-
-
-
+      if (response.ok) {
+        return toast.success("Logged In Successfully")
+      }
 
       if (vendordata.adminId === admindata._id) {
-
-        return (
-          router.push("/DashBoard"),
-          router.refresh(),
-          toast.success("Logged In Successfully")
-        )
+        return router.push("/DashBoard")
       } else {
         return router.push("/VendorDetails")
       }
@@ -68,6 +63,8 @@ export function AdminLoginForm({
       console.log(err.message)
     } finally {
       setLoading(false)
+      router.refresh()
+
     }
 
   }

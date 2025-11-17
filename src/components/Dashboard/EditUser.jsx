@@ -21,68 +21,43 @@ import {
 } from "@/components/ui/select"
 import { Button } from "../ui/button"
 import { useEffect, useState } from "react"
-
-const formSchema = z.object({
-    username: z.string().min(2, { message: "username must be at least 2 character long" })
-        .max(50),
-    email: z.string().email({ message: "Invalid email address!" }),
-    phone: z.string().min(2),
-    location: z.string().min(2),
-    role: z.enum(["admin", "user"])
-
-})
+import { toast } from "sonner"
 
 
 const EditUser = () => {
-    // const form = useForm < z.infer < typeof formSchema >> ({
-    //     resolver: zodResolver(formSchema),
-    //     deafultValues: {
-    //         username: " ",
-    //         email: "",
-    //         phone: "",
-    //         location: "",
-    //         role: ""
-    //     }
-    // })
-
-
-    const form = useForm({
-        resolver: zodResolver(formSchema),
-        defaultValues: {
-            username: "aryan",
-            email: "aryan@gmail.com",
-            phone: "+91 123456789",
-            location: "India",
-            role: "admin"
-        }
-    });
-
-
     const [vendordata, setvendordata] = useState([])
-    const [error, seterror] = useState()
-    const [vendoreid, setvendorid] = useState()
+    const [error, seterror] = useState([])
+    // const [vendoreid, setvendorid] = useState()
+    const vendoreid = vendordata[0]?._id
+    const [update, setupdate] = useState({ name: "", businessName: "", contactEmail: "", contactPhone: "", address: "" })
 
-    setvendorid(vendordata[0]?._id)
-    const [update, setupdate] = useState({ name: "", buisinessName: "", contactEmail: "", contactPhone: "" })
+
     const vendorDetails = async () => {
         const response = await fetch("/api/ProductListing/VendorDetails", {
             method: "GET"
         })
 
         const data = await response.json()
+
         setvendordata(data)
-        
 
     }
 
-    const updatevendor = async () => {
+    const updatevendor = async (e) => {
+        e.preventDefault()
+
         const response = await fetch(`/api/ProductListing/VendorDetails/${vendoreid}`, {
-            method: "GET",
-            body: update
+            method: "PUT",
+            body: JSON.stringify(update)
         })
 
-         const data = await response.json()
-          seterror(data.errors)
+        const data = await response.json()
+
+        seterror(data.errors)
+
+        if (response.ok) {
+            return toast.success("Admin Profile Update Successfully")
+        }
     }
 
     useEffect(() => {
@@ -113,6 +88,7 @@ const EditUser = () => {
                                                     type="text"
                                                     placeholder={item.name}
                                                     className="border p-2 w-full rounded-md"
+                                                    onChange={(e) => { setupdate({ ...update, name: e.target.value }) }} value={update.name}
                                                 />
                                                 <p className="text-sm text-red-500">{error?.name}</p>
                                             </div>
@@ -120,10 +96,12 @@ const EditUser = () => {
                                             <div className="grid  gap-3">
                                                 <label>Business Name</label>
                                                 <input
-                                                    type="email"
+                                                    type="text"
                                                     placeholder={item.businessName}
                                                     className="border p-2 w-full rounded-md"
+                                                    onChange={(e) => { setupdate({ ...update, businessName: e.target.value }) }} value={update.businessName}
                                                 />
+                                                     <p className="text-sm text-red-500">{error?.businessName}</p>
                                             </div>
                                             <div className="grid  gap-3">
                                                 <label>Email</label>
@@ -131,7 +109,9 @@ const EditUser = () => {
                                                     type="email"
                                                     placeholder={item.contactEmail}
                                                     className="border p-2 w-full rounded-md"
+                                                    onChange={(e) => { setupdate({ ...update, contactEmail: e.target.value }) }} value={update.contactEmail}
                                                 />
+                                                <p className="text-sm text-red-500">{error?.contactEmail}</p>
                                             </div>
 
                                             <div className="grid  gap-3">
@@ -140,14 +120,26 @@ const EditUser = () => {
                                                     type="tel"
                                                     placeholder={item.contactPhone}
                                                     className="border p-2 w-full rounded-md"
+                                                    onChange={(e) => { setupdate({ ...update, contactPhone: e.target.value }) }} value={update.contactPhone}
                                                 />
+                                                <p className="text-sm text-red-500">{error?.contactPhone}</p>
+                                            </div>
+                                            <div className="grid  gap-3">
+                                                <label>Address</label>
+                                                <input
+                                                    type="text"
+                                                    placeholder={item.address}
+                                                    className="border p-2 w-full rounded-md"
+                                                    onChange={(e) => { setupdate({ ...update, address: e.target.value }) }} value={update.address}
+                                                />
+                                                <p className="text-sm text-red-500">{error?.address}</p>
                                             </div>
 
 
                                         </div>
                                     )
                                 })}
-                            <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+                            <button onClick={(e) => updatevendor(e)} type="submit" className="bg-blue-500 text-white p-2 rounded">
                                 Submit
                             </button>
 

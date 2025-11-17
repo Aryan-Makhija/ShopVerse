@@ -40,33 +40,35 @@ export const vendordetails = z.object({
     businessName: z.string().min(10, " businessname must be 3 character long").max(40, "businessName too long"),
     contactEmail: z.string().email("Invalid email address"),
     contactPhone: z.string().min(10, "contactPhone cannot be more than 10 character ").max(10, "contactPhone cannot be more than 10 "),
-    address: z.object({
-        street: z
-            .string()
-            .min(3, "Street must be at least 3 characters long")
-            .max(20, "Street name too long"),
+     address: z.string(),
+    // address: z.object({
+    //     street: z
+    //         .string()
+    //         .min(3, "Street must be at least 3 characters long")
+    //         .max(20, "Street name too long"),
 
-        city: z
-            .string()
-            .min(3, "City must be at least 3 characters long")
-            .max(20, "City name too long"),
+    //     city: z
+    //         .string()
+    //         .min(3, "City must be at least 3 characters long")
+    //         .max(20, "City name too long"),
 
-        state: z
-            .string()
-            .min(3, "State must be at least 3 characters long")
-            .max(20, "State name too long"),
+    //     state: z
+    //         .string()
+    //         .min(3, "State must be at least 3 characters long")
+    //         .max(20, "State name too long"),
 
-        country: z
-            .string()
-            .min(3, "Country must be at least 3 characters long")
-            .max(20, "Country name too long"),
+    //     country: z
+    //         .string()
+    //         .min(3, "Country must be at least 3 characters long")
+    //         .max(20, "Country name too long"),
 
-        postalCode: z
-            .string()
-            .min(6, "Postal code must be 6 characters long")
-            .max(6, "Postal code must be 6 characters long"),
-    }),
+    //     postalCode: z
+    //         .string()
+    //         .min(6, "Postal code must be 6 characters long")
+    //         .max(6, "Postal code must be 6 characters long"),
+    // }),
+
     // verified: z.boolean()
-
+   
 
 })

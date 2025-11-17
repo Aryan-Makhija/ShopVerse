@@ -20,6 +20,7 @@ export function PlaceOrder({
     const [cart, setcart] = useState([])
     const { payment, address, user, ordertotal } = useOrder()
     const router = useRouter()
+    const [loading, setloading] = useState(false)
 
     const getcartdetails = async () => {
         const response = await fetch("/api/CartItems", {
@@ -56,22 +57,30 @@ export function PlaceOrder({
 
 
     const order = async () => {
+        setloading(true)
+        try {
 
-        const response = await fetch("/api/Order", {
-            method: "POST",
-            body: JSON.stringify(orderdetails)
-        })
+            const response = await fetch("/api/Order", {
+                method: "POST",
+                body: JSON.stringify(orderdetails)
+            })
 
-        const data = await response.json()
-        toast("Order Placed Successfully")
-        setTimeout(() => {
+            const data = await response.json()
+            toast("Order Placed Successfully")
             setTimeout(() => {
-                router.refresh()
-            }, 1000);
+                setTimeout(() => {
+                    router.refresh()
+                }, 1000);
 
-            clearcart()
-            router.push("/")
-        }, 2000);
+                clearcart()
+                router.push("/")
+            }, 2000);
+
+        } catch (err) {
+            console.log(err.message)
+        } finally {
+            setloading(false)
+        }
     }
 
 
@@ -168,8 +177,13 @@ export function PlaceOrder({
                                 </div>
 
                             </div>
-                            <Button onClick={() => { order(), handleClick() }} className="w-full relative cursor-pointer bg-pink-600 text-white">
-                                Place Order
+                            <Button onClick={() => { order(), handleClick() }} className="w-full relative cursor-pointer bg-pink-600 text-white" disabled={loading}>
+                                {loading ? (
+                                    // You can use any spinner you like here
+                                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                ) : (
+                                    "Place Order"
+                                )}
                             </Button>
 
                         </div>

@@ -25,21 +25,23 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { AppLineChart } from "@/components/Dashboard/ApplineChart"
 import { useEffect, useState } from "react"
 const AdminPage = () => {
-    const [vendorDetails, setvendorDetails] = useState([])
-    console.log(vendorDetails)
-    const UserDetails = async () => {
+
+    const [vendor, setvendor] = useState([])
+
+    const vendordetails = async () => {
         const response = await fetch("/api/ProductListing/VendorDetails", {
             method: "GET"
         })
         const data = await response.json()
-        setvendorDetails(data)
+        setvendor(data)
 
     }
 
-
     useEffect(() => {
-        UserDetails()
+        vendordetails()
     }, [])
+
+
 
     return (
 
@@ -93,59 +95,45 @@ const AdminPage = () => {
                                 <EditUser></EditUser>
                             </Sheet>
 
+
+
                         </div>
-                        {/* { <div className="space-y-4 mt-4">
-
-                            {
-                                vendorDetails.map((item, index) => {
-                                    return (
 
 
-                                        <div key={index} className=" flex flex-col gap-5 mb-8">
-                                            <div className="flex flex-col gap-2">
-                                                <p className="text-sm text-muted-foreground ">
-                                                    Profile completion
-                                                </p>
-                                                <Progress value={73}></Progress>
-
-                                            </div>
-
-                                            <div className="flex items-center gap-2">
-                                                <span className="font-bold">Username :</span>
-                                                <span >{item.name}</span>
-                                            </div>
-                                            <div className="flex items-center gap-2">
-                                                <span className="font-bold">Business Name:</span>
-                                                <span >{item.businessName}</span>
-                                            </div>
-                                            <div className="flex items-center gap-2">
-                                                <span className="font-bold">Email:</span>
-                                                <span >{item.contactEmail}</span>
-                                            </div>
-                                            <div className="flex items-center gap-2">
-                                                <span className="font-bold">Phone  :</span>
-                                                <span >+91 {item.contactPhone}</span>
-                                            </div>
-                                            { <div className="flex items-center gap-2">
-                                                <span className="font-bold">Address  :</span>
-                                                <span > {item.address.map((add) => {
-                                                    return (
-                                                        <p> {add.city}</p>
-
-                                                    )
-                                                })}.split(" ")</span>
-                                            </div> }
-                                            <div className="flex items-center gap-2">
-                                                <span className="font-bold">Role :</span>
-                                                <span className="bg-white rounded p-2 text-black text-sm">Amdin</span>
-                                            </div>
-                                            <span className="text-muted-foreground">Joined {item.createdAt}</span>
+                        {
+                            vendor.map((item, index) => {
+                                return (
+                                    <div key={index} className="w-full border-2 border-white rounded-lg p-4 mt-5">
+                                        <div className="flex justify-between items-center mb-2">
+                                            <p className="text-white font-semibold">Name</p>
+                                            <p className="text-white font-medium">{item.name}</p>
                                         </div>
-                                    )
-                                })
-                            }
 
-                        </div> } */}
+                                        <div className="flex justify-between items-center mb-2">
+                                            <p className="text-white font-semibold">Business Name</p>
+                                            <p className="text-white font-medium">{item.businessName}</p>
+                                        </div>
+
+                                        <div className="flex justify-between items-center mb-2">
+                                            <p className="text-white font-semibold">Contact Email</p>
+                                            <p className="text-white font-medium">{item.contactEmail}</p>
+                                        </div>
+
+                                        <div className="flex justify-between items-center">
+                                            <p className="text-white font-semibold">Contact Phone</p>
+                                            <p className="text-white font-medium">{item.contactPhone}</p>
+                                        </div>
+                                        <div className="flex justify-between items-center">
+                                            <p className="text-white font-semibold">Address </p>
+                                            <p className="text-white font-medium">{item.address}</p>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+
+
+
                     </div>
                     {/* Card list Container */}
                     <div className="bg-primary-foreground p-4 rounded-lg">

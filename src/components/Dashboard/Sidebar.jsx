@@ -14,14 +14,10 @@ const items = [
   },
   {
     title: "Admin",
-    url: "/DashBoard/admin/admin",
+    url: "/DashBoard/admin",
     icon: Inbox
   },
-  {
-    title: "Login",
-    url: "/DashBoard/payments",
-    icon: Calendar
-  },
+
   {
     title: "Inventory",
     url: "/DashBoard/Inventory",
