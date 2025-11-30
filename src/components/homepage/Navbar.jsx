@@ -137,7 +137,7 @@ export const Navbar = () => {
             method: "GET"
         })
         const data = await response.json()
-     
+
         setwishlist(data)
     }
 
@@ -163,9 +163,12 @@ export const Navbar = () => {
                 <div className="text-3xl font-serif font-bold px-8 py-3 text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600 drop-shadow-lg hidden lg:block">
                     ShopVerse
                 </div>
-                <div className="text-3xl font-serif font-bold px-8 py-3 text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600  block lg:hidden">
-                    <img src="https://i.fbcd.co/products/resized/resized-750-500/sv-letter-design-logos-2-600662b9731f9f6a97ecc281433d6645ce432f5bd252315c0b88529e99edec31.jpg" alt="" className="w-20 h-15" />
-                </div>
+                {/* <div className="text-3xl font-serif font-bold px-4 py-3 text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600 drop-shadow-lg block lg:hidden">
+                    SV
+                </div> */}
+                {/* <div className="text-3xl font-serif font-bold px-8 py-3 text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600  block lg:hidden">
+                    <img src="https://i.fbcd.co/products/resized/resized-750-500/sv-letter-design-logos-2-600662b9731f9f6a97ecc281433d6645ce432f5bd252315c0b88529e99edec31.jpg" alt="" className="w-30 h-15" />
+                </div> */}
             </Link>
 
 
@@ -535,7 +538,10 @@ export const Navbar = () => {
                             className="border px-2 py-1"
                         />
                         <InputGroupAddon>
-                            <SearchIcon />
+                            <SearchIcon className="lg:block hidden" />
+                            <div className="text-3xl font-serif font-bold px-1 py-3 text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600 drop-shadow-lg block lg:hidden">
+                                SV
+                            </div>
                         </InputGroupAddon>
                     </InputGroup>
 
@@ -573,53 +579,7 @@ export const Navbar = () => {
                 </div> */}
 
                 {/* Mobile menu  */}
-                <div className="block lg:hidden">
 
-                    <Sheet>
-                        <SheetTrigger asChild>
-                            <MenuIcon></MenuIcon>
-                        </SheetTrigger>
-
-                        {/* Sidebar Sheet */}
-                        <SheetContent side="left" className="w-72 p-0">
-                            <SheetHeader className="p-4 border-b">
-                                <SheetTitle>Shop Categories</SheetTitle>
-                            </SheetHeader>
-
-                            <nav className="p-2">
-                                <Accordion type="multiple" className="w-full">
-                                    {menuGroups.map((group) => (
-                                        <AccordionItem key={group.title} value={group.title}>
-                                            <AccordionTrigger className="px-3 py-2 text-base font-medium">
-                                                {group.title}
-                                            </AccordionTrigger>
-
-                                            <AccordionContent className="px-3 pb-2">
-                                                <ul className="space-y-1">
-                                                    {group.items.map((item) => (
-                                                        <li key={item}>
-                                                            <SheetClose asChild>
-                                                                <button
-                                                                    className="
-                                                                        flex items-center w-full text-left text-sm px-2 py-1.5 rounded-md hover:bg-accent hover:text-accent-foreground transition
-                                                                "
-                                                                >
-                                                                    <ChevronRight className="mr-2 h-4 w-4 text-muted-foreground" />
-                                                                    {item}
-                                                                </button>
-                                                            </SheetClose>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </AccordionContent>
-                                        </AccordionItem>
-                                    ))}
-                                </Accordion>
-                            </nav>
-                        </SheetContent>
-                    </Sheet>
-
-                </div>
 
 
                 <Link href="/Cart" className="relative inline-block">
@@ -720,6 +680,58 @@ export const Navbar = () => {
                         </Badge>
                     )}
                 </Link>
+
+
+                <div className="block lg:hidden">
+
+                    <Sheet>
+                        <SheetTrigger asChild>
+                            <MenuIcon></MenuIcon>
+                        </SheetTrigger>
+
+                        {/* Sidebar Sheet */}
+                        <SheetContent side="left" className="w-72 p-0">
+                            <SheetHeader className="p-4 border-b">
+                                <SheetTitle>Shop Categories</SheetTitle>
+                            </SheetHeader>
+
+                            <nav className="p-2">
+                                <Accordion type="multiple" className="w-full">
+                                    {menuGroups.map((group) => (
+                                        <AccordionItem key={group.title} value={group.title}>
+                                            <AccordionTrigger className="px-3 py-2 text-base font-medium">
+                                                {group.title}
+                                            </AccordionTrigger>
+
+                                            <AccordionContent className="px-3 pb-2">
+                                                <ul className="space-y-1">
+                                                    {group.items.map((item) => (
+                                                        <li key={item}>
+                                                            <SheetClose asChild>
+                                                                <button
+                                                                    className="
+                                                                        flex items-center w-full text-left text-sm px-2 py-1.5 rounded-md hover:bg-accent hover:text-accent-foreground transition
+                                                                "
+                                                                >
+                                                                    <ChevronRight className="mr-2 h-4 w-4 text-muted-foreground" />
+                                                                    {item}
+                                                                </button>
+                                                            </SheetClose>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </AccordionContent>
+                                        </AccordionItem>
+                                    ))}
+                                </Accordion>
+                            </nav>
+                        </SheetContent>
+                    </Sheet>
+
+                </div>
+
+
+                
             </div>
 
 
