@@ -89,7 +89,7 @@ const Footer = () => {
                                 <a target="_blank"
                                     rel="noopener noreferrer">
 
-                                    Sell on E-Commerce
+                                    Sell on ShopVerse
 
                                 </a>
                             </Link>
@@ -148,7 +148,7 @@ const Footer = () => {
 
                 {/* Divider & Bottom Bar */}
                 <div className="mt-12 border-t border-gray-300 dark:border-gray-700 pt-6 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left text-sm text-gray-600 dark:text-gray-400">
-                    <p>© {new Date().getFullYear()} E-Commerce Inc. All rights reserved.</p>
+                    <p>© {new Date().getFullYear()} ShopVerse Inc. All rights reserved.</p>
                     <div className="mt-4 sm:mt-0 flex gap-4 text-sm">
                         <a href="#" className="hover:text-amber-600 dark:hover:text-amber-400">Privacy Policy</a>
                         <a href="#" className="hover:text-amber-600 dark:hover:text-amber-400">Terms of Service</a>

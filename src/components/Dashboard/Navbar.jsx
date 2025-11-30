@@ -78,7 +78,11 @@ const DashBoradNavbar = () => {
                         <Link href="/DashBoard/admin/admin">
                             <DropdownMenuItem>
                                 <User className="h-[1.2rem] w-[1.2rem] mr-2"></User>
+
+                                <Link href="/DashBoard/admin">
                                 Profile
+                                
+                                </Link>
                             </DropdownMenuItem>
 
                         </Link>

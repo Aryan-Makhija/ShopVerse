@@ -83,7 +83,9 @@ const Myorders = () => {
                           <img src={item?.products[0]?.image} className='object-cover' alt="" />
                         </div>
                         <div className="flex flex-col text-sm sm:text-base">
-                          <p className="font-medium text-gray-800">{item.order_details.product_name}</p>
+                          <p className="font-medium text-gray-800">{item.products.map((product,indexs)=>(
+                            product.product_name
+                          ))}</p>
                           <p className="text-gray-600">
                             ₹{item.order_details.totalPrice} <span className="text-xs">(Qty:1)</span>
                           </p>
