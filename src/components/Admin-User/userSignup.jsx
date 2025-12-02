@@ -28,7 +28,7 @@ export function UsersignupForm({
     })
 
     const data = await response.json()
-    console.log(data)
+
     seterror(data.errors)
     if (response.ok) {
       toast.success(" User Signup Successfully")

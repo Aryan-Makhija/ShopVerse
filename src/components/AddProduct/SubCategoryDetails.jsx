@@ -26,7 +26,7 @@ export function SubcategoryForm({
     })
 
     const data = await response.json()
-    // console.log("data", data)
+
 
     toast("SubCategory submitted Click on next")
 

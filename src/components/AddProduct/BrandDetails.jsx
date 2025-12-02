@@ -17,7 +17,7 @@ export function BrandForm({
   const [productdetails, setproductdetails] = useState({ name: "" })
 
 
-  console.log(productdetails)
+
   const handelform = async (e) => {
     e.preventDefault()
     const response = await fetch("/api/ProductListing/Brand", {
@@ -26,7 +26,7 @@ export function BrandForm({
     })
 
     const data = await response.json()
-    // console.log("data", data)
+
 
     toast("Brand name submitted Click on next")
 

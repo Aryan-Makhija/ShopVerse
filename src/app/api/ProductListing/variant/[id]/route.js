@@ -6,11 +6,6 @@ import ProductInfo from '@/models/(ProductListing)/ProductInfo';
 import Attribute from '@/models/(ProductListing)/Attribute';
 import ProductVariant from '@/models/(ProductListing)/ProductVariant';
 
-// import connectToDb from '@/lib/connectToDb';
-// import AdminSessionModel from '@/models/AdminSession';
-// import ProductInfo from '@/models/ProductInfo';
-// import Attribute from '@/models/Attribute';
-// import ProductVariant from '@/models/ProductVariant';
 
 export async function GET(req, { params }) {
   await connectToDb();
@@ -54,9 +49,6 @@ export async function GET(req, { params }) {
       const attrId = attribute._id.toString();
       const relatedVariant = variantMap[attrId] || null;
 
-      // Optional console log for debugging
-      // console.log('Attribute:', attribute);
-      // console.log('Related Variant:', relatedVariant);
 
       return {
         attribute,
@@ -78,25 +70,6 @@ export async function GET(req, { params }) {
 
 
 
-// {
-//   productCode:"1133443"
-//   type:"clotthing",
-//   Category:"Mens",
-//   Subcategory:"t-shirts",
-//   brand:"nike",
-//   size:"xl",
-//   color:"red",
-//   quantity:"10"
-// }
-
-
-// producttype->name=type
-// category->name=categogry
-// subcateogry->name=subcategory
-// brand->name=brand,
-// attribute->size=size,
-// attribute->color=color,
-// prodcutvariant->quantity->=quantity
 
 
 

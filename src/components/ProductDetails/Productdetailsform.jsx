@@ -49,7 +49,7 @@ export function ProductdetForm({
   const [productdata, setproductdata] = useState([])
 
   const [attributevalue, setattributevalue] = useState([])
-  console.log("attributevalue", attributevalue)
+
   const [variant, setvariant] = useState({ price: "", discountPrice: "", currency: "", isAvailable: "", quantity: "" })
   const getproductdetails = async () => {
     const response = await fetch(`/api/AllProducts/${code}`, {
@@ -74,7 +74,7 @@ export function ProductdetForm({
   }, [])
 
   const [data, setdata] = useState([]);
-  console.log(data)
+ 
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(`/api/ProductListing/variant/${code}`); // Adjust as needed

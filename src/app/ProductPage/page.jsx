@@ -78,7 +78,7 @@ const ProductPage = () => {
             description: productdata[0]?.info?.description,
         };
 
-        // console.log(productdata)
+
         const response = await fetch("/api/CartItems", {
             method: "POST",
             body: JSON.stringify(selectedProduct)
@@ -96,7 +96,6 @@ const ProductPage = () => {
         }
         toast.success("Product added to Cart 🛒")
 
-        // console.log("productadded", data)
     };
 
 
@@ -114,7 +113,7 @@ const ProductPage = () => {
             description: productdata[0]?.info?.description,
         };
 
-        // console.log(productdata)
+      
         const response = await fetch("/api/WishList", {
             method: "POST",
             body: JSON.stringify(selectedProduct)
@@ -139,7 +138,7 @@ const ProductPage = () => {
             method: "GET"
         })
         const data = await response.json()
-        // console.log(data)
+   
     }
 
 

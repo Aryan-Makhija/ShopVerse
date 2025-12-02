@@ -10,7 +10,7 @@ export async function POST(request) {
     try {
         const details = await request.json()
 
-        console.log(details)
+ 
         const { email, otp } = details
         const user = await userModel.findOne({
             email: email,

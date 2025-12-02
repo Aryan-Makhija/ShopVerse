@@ -20,7 +20,7 @@ export function AdminLoginForm({
   const [error, seterror] = useState([])
 
   const [loading, setLoading] = useState(false);
-  // console.log(error)
+
   const router = useRouter()
   const handelSignup = async (e) => {
     e.preventDefault()

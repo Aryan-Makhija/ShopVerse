@@ -33,7 +33,7 @@ export function UserForgotPassword({
     })
 
     const data = await response.json()
-    // console.log(data)
+
     setverify(true)
     setsendotp(false)
     toast("OTP Send to your Email")

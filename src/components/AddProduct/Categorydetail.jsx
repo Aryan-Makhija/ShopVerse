@@ -26,7 +26,7 @@ export function CategoryForm({
     })
 
     const data = await response.json()
-    // console.log("data", data)
+
 
     toast("Category submitted Click on next")
 

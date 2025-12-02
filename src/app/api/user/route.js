@@ -18,7 +18,7 @@ export async function POST(request) {
 
 
         const { name, email, password } = parsedata.data
-        // { console.log(parsedata.data) }
+      
         const user = await userModel.findOne({ email })
         if (user) {
             return Response.json({

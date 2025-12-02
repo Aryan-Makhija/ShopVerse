@@ -19,55 +19,6 @@ export async function GET() {
 
     await connectToDb()
 
-    // try {
-
-    //     const cookieStore = await cookies()
-    //     const token = cookieStore.get("admintoken")?.value
-    //     const admin = await AdminSessionModel.findOne({ token })
-
-    //     const adminId = admin.adminId
-
-
-
-    //     const [productInfo, producttype, category, subcategory, brand, attribute, attributevalue, productvariant, materialcare, returnpolicy, productimage] = await Promise.all([
-    //         ProductInfo.find({ adminId }),
-    //         ProductType.find({ adminId }),
-    //         Category.find({ adminId }),
-    //         Subcategory.find({ adminId }),
-    //         Brand.find({ adminId }),
-    //         Attribute.find({ adminId }),
-    //         AttributeValue.find({ adminId }),
-    //         ProductVariant.find({ adminId }),
-    //         MaterialCare.find({ adminId }),
-    //         ReturnPolicy.find({ adminId }),
-    //         ProductImage.find({ adminId }),
-    //     ]);
-
-    //     const productDetails = [
-    //         productInfo,
-    //         producttype,
-    //         category,
-    //         subcategory,
-    //         brand,
-    //         attribute,
-    //         attributevalue,
-    //         productvariant,
-    //         materialcare,
-    //         returnpolicy,
-    //         productimage
-    //     ];
-
-
-    //     return NextResponse.json(productDetails)
-
-    // } catch (err) {
-    //     console.log(err.message)
-
-    //     return NextResponse.json({ message: "Something went wrong" }, { status: 400 })
-
-    // }
-
-
 
     try {
         const cookieStore = await cookies()

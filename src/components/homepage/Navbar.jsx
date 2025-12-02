@@ -53,7 +53,7 @@ export const Navbar = () => {
     ];
     const [search, setSearch] = useState("");
     const router = useRouter();
-    // console.log(search)
+ 
 
 
     const handleSubmit = (e) => {

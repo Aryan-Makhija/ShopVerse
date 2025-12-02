@@ -234,7 +234,7 @@ export default function ExpandableCardDemo() {
                         className="p-4 flex flex-col  hover:bg-neutral-50  dark:hover:bg-neutral-800 rounded-xl cursor-pointer">
                         <div className="flex gap-4 flex-col  w-full">
                             {/* <motion.div layoutId={`image - ${card.title} - ${id}`}>
-                                {console.log(card.src)}
+                                {.log(card.src)}
                                 <Carousel>
                                     <CarouselContent>
                                         {card.src.map((item) => (

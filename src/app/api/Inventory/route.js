@@ -155,20 +155,3 @@ export async function POST(request) {
 
 
 
-
-// const inventoryItems = await Inventory.find({ adminId: specificAdminId })
-//     .populate({
-//         path: "productType",
-//         select: "name",
-//         match: { adminId: specificAdminId }
-//     })
-//     .populate({
-//         path: "category",
-//         select: "name",
-//         match: { adminId: specificAdminId }
-//     })
-//     .populate({
-//         path: "brand",
-//         select: "name",
-//         match: { adminId: specificAdminId }
-//     });

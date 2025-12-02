@@ -16,7 +16,7 @@ export async function DELETE(_, { params }) {
         }
         const { id } = await params
 
-        console.log(id)
+  
         await CartItems.findByIdAndDelete(id)
 
         return NextResponse.json({ message: "CartItem deleted success" }, { status: 200 })

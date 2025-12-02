@@ -23,7 +23,7 @@ const ShoppingCart = () => {
     const [loading, setloading] = useState(true)
 
 
-    // console.log(ordertotal)
+  
     const router = useRouter()
 
 

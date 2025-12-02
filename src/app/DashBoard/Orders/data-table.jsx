@@ -60,7 +60,7 @@ export function DataTable({ columns }) {
     try {
       const res = await fetch("/api/Order/AdminOrders");
       const json = await res.json();
-      //  console.log(json)
+     
       const flattened = flattenOrders(json);
       setData(flattened);
     } catch (err) {

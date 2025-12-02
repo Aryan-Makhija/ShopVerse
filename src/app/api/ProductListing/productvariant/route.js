@@ -44,15 +44,4 @@ export async function POST(request) {
 
 
 
-// searching types
-// | Filter Level         | Examples                      | Comes From                     |
-// | -------------------- | ----------------------------- | ------------------------------ |
-// | Attribute-based      | Color, Size, Material         | `Attribute` + `AttributeValue` |
-// | Price                | ₹500 – ₹1000                  | `ProductVariant.price`         |
-// | Discount             | 20% off, 50% off              | `price` vs `discountPrice`     |
-// | Brand                | Adidas, Nike                  | `ProductInfo.brand`            |
-// | Stock / Availability | In Stock, Out of Stock        | `ProductVariant.quantity`      |
-// | Ratings              | 4★ and up                     | `Review` model                 |
-// | Delivery             | 1-day delivery, COD available | Shipping config                |
-// | Category             | Electronics > Mobile          | `ProductInfo.category`         |
-// | Tags                 | New Arrival, Trending         | `ProductInfo.tags`             |
+

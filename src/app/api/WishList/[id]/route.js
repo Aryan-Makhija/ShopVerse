@@ -17,7 +17,6 @@ export async function DELETE(_, { params }) {
         }
         const { id } = await params
 
-        // console.log(id)
         await Wishlist.findByIdAndDelete(id)
 
         return NextResponse.json({ message: "Wishlist deleted successfully" }, { status: 200 })

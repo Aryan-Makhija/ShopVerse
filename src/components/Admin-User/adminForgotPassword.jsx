@@ -33,7 +33,7 @@ export function AdminForgotPassword({
     })
 
     const data = await response.json()
-    // console.log(data)
+
     setverify(true)
     setsendotp(false)
     toast("OTP Send to your Email")
@@ -66,7 +66,7 @@ export function AdminForgotPassword({
     })
 
     const data = await response.json()
-    console.log(data)
+  
     toast("Password Reset Sucessfully")
     router.push("/UserLogin")
   }

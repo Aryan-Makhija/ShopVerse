@@ -33,8 +33,6 @@ export function AttributeVaraintForm({
   const [valueBlocks, setValueBlocks] = useState([]);
 
 
-  // console.log("attribute", attribute)
-  // console.log("valueBlocks", valueBlock)
   const handleValueChange = (field, value) => {
     setValueBlock((prev) => ({
       ...prev,
@@ -89,7 +87,7 @@ export function AttributeVaraintForm({
     data.append("upload_preset", `${process.env.NEXT_PUBLIC_VITE_PRESET}`);
     data.append("cloud_name", `${process.env.NEXT_PUBLIC_VITE_CLOUDNAME}`);
 
-    console.log("PRESET", process.env.NEXT_PUBLIC_VITE_PRESET)
+  
     try {
       const res = await axios.post(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_VITE_CLOUDNAME}/image/upload`, data)
       return res.data.secure_url;
@@ -138,7 +136,7 @@ export function AttributeVaraintForm({
     })
 
     const data = await response.json()
-    // console.log("data", data)
+
 
 
 
@@ -151,8 +149,7 @@ export function AttributeVaraintForm({
     })
 
     const data = await response.json()
-    // console.log("data", data)
-    // console.log(valueBlock)
+
     toast("Product Attributes added Successfully")
 
   }

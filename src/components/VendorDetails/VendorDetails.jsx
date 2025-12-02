@@ -17,9 +17,9 @@ export function VendorDetailsForm({
   const [vendordetails, setvendordetails] = useState({ name: "", businessName: "", contactEmail: "", contactPhone: "", address: { street: "", city: "", state: "", country: "", postalCode: "" }, verified: "" })
 
   const [error, seterror] = useState([])
-  // console.log(error)
+ 
   const router = useRouter()
-  // console.log(vendordetails)
+  
 
   const RegisterVendor = async (e) => {
     e.preventDefault()
@@ -29,10 +29,10 @@ export function VendorDetailsForm({
     })
 
     const data = await response.json()
-    // console.log(data)
+
     seterror(data.errors)
     if (data.error) {
-      console.log(data.error)
+    
     } else {
       return router.push("/DashBoard")
 

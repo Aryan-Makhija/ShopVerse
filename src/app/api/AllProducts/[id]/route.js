@@ -19,7 +19,7 @@ export async function GET(_, { params }) {
     try {
         const { id } = await params;
         const product = await ProductInfo.findOne({ productCode: id });
-        // console.log("product", product)
+  
         if (!product) {
             return NextResponse.json({ message: "Product Not Found" }, { status: 400 });
         }

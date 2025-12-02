@@ -22,8 +22,7 @@ const WishList = () => {
         })
 
         const data = await response.json()
-        console.log(data)
-
+ 
         setwishlist(data)
     }
 
@@ -40,7 +39,7 @@ const WishList = () => {
             description: wishdata.description,
         };
 
-        // console.log(productdata)
+
         const response = await fetch("/api/CartItems", {
             method: "POST",
             body: JSON.stringify(selectedProduct)

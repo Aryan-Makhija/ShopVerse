@@ -29,58 +29,7 @@ export async function GET() {
 
         const adminId = admin.adminId;
 
-        // Step 1: Get all products for the admin
-        // const productInfos = await ProductInfo.find({ adminId });
-
-        // const allFlattenedProducts = [];
-
-        // for (const product of productInfos) {
-        //   const productId = product._id;
-
-        //   // Step 2: Fetch related models
-        //   const [type, category, subcategory, brand] = await Promise.all([
-        //     ProductType.findOne({ productId }),
-        //     Category.findOne({ productId }),
-        //     Subcategory.findOne({ productId }),
-        //     Brand.findOne({ productId }),
-        //   ]);
-
-        //   const attributes = await Attribute.find({ adminId, productId }).lean();
-        //   const variants = await ProductVariant.find({ adminId, productId }).lean();
-
-        //   // Map attributes by _id for easy lookup
-        //   const attrMap = {};
-        //   for (const attr of attributes) {
-        //     attrMap[attr._id.toString()] = attr;
-        //   }
-
-        //   // Flattened array for this product
-        //   for (const variant of variants) {
-        //     const attrId = variant.attribute?.toString();
-
-        //     if (!attrId || !attrMap[attrId]) continue;
-
-        //     const attrName = attrMap[attrId]?.name?.toLowerCase();
-        //     const attrValue = variant.value;
-
-        //     const baseProductInfo = {
-        //       productCode: product.productCode,
-        //       type: type?.name || "",
-        //       category: category?.name || "",
-        //       subcategory: subcategory?.name || "",
-        //       brand: brand?.name || "",
-        //       quantity: variant.quantity || "0"
-        //     };
-
-        //     // Dynamically add attribute (like size/color)
-        //     const fullProduct = {
-        //       ...baseProductInfo,
-        //       [attrName]: attrValue
-        //     };
-
-        //     allFlattenedProducts.push(fullProduct);
-
-
+       
         const productInfos = await ProductInfo.find({ adminId });
 
         const result = [];

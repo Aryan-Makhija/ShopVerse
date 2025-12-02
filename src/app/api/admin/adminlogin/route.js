@@ -25,7 +25,6 @@ export async function POST(request) {
 
         const { email, password } = parsedata.data
 
-        // { console.log(parsedata.data) }
         const admin = await adminModel.findOne({ email })
 
         const comparepassword = await bcrypt.compare(password, admin.password)

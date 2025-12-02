@@ -26,7 +26,7 @@ export function TypeForm({
     })
 
     const data = await response.json()
-    // console.log("data", data)
+
 
     toast("Product Type submitted Click on next")
 

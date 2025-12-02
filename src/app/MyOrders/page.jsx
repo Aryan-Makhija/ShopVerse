@@ -16,7 +16,7 @@ const Myorders = () => {
     })
 
     const data = await response.json()
-    console.log(data)
+    
     setorder(data)
   }
 

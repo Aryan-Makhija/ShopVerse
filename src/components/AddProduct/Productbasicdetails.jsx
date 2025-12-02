@@ -15,7 +15,7 @@ export function ProductBasicInfo({
 
   const [productdetails, setproductdetails] = useState({ producttype: "", category: "", subcategory: "", brand: "", description: "", productname: "" })
   const [error, seterror] = useState([])
-  // console.log(error)
+
 
 
   const handelform = async (e) => {
@@ -26,7 +26,7 @@ export function ProductBasicInfo({
     })
 
     const data = await response.json()
-    // console.log("data", data)
+
     seterror(data.errors)
 
     if (!data.errors) {

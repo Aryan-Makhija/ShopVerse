@@ -96,8 +96,7 @@ export const columns = [
 
                         const data = await res.json();
                         router.refresh()
-                        // console.log("Updated status:", status);
-                        // console.log("Server response:", data);
+         
                         toast.success("Order status updated");
                     } catch (error) {
                         console.error("Error updating status:", error);

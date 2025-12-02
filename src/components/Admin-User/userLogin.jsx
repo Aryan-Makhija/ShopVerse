@@ -19,7 +19,7 @@ export function UserloginForm({
   const [userlogin, setuserlogin] = useState({ email: "", password: "" })
   const [error, seterror] = useState([])
   const [loading, setLoading] = useState(false)
-  // console.log(error)
+
   const router = useRouter()
   const handelSignup = async (e) => {
 
@@ -32,11 +32,11 @@ export function UserloginForm({
         method: "POST",
         body: JSON.stringify(userlogin)
       })
-      console.log(response)
+    
       const data = await response.json()
 
       seterror(data.errors)
-      console.log(data.errors)
+ 
       if (response.ok) {
         toast.success("Logged In Successfully")
         router.push("/")
