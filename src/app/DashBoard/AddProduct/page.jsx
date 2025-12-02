@@ -31,7 +31,7 @@ const Addproduct = () => {
                         onStepChange={(step) => {
                             // console.log(step);
                         }}
-                        onFinalStepCompleted={() => .log("All steps completed!")}
+                        onFinalStepCompleted={() => console.log("All steps completed!")}
                         backButtonText="Previous"
                         nextButtonText="Next"
 
