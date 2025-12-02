@@ -14,7 +14,7 @@ const WishList = () => {
     const [wishlist, setwishlist] = useState([])
     const [wishdata, setwishdata] = useState([])
 
-    const router = useRouter()
+   
 
     const getwishlist = async () => {
         const response = await fetch("/api/WishList", {
