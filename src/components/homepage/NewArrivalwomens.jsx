@@ -6,6 +6,7 @@ import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader,
 import { Label } from "@/components/ui/label"
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Skeleton } from "../ui/skeleton";
 
 
 
@@ -21,6 +22,7 @@ export function NewArrivalwomens() {
         })
 
         const data = await response.json()
+
         setwomensdata(data)
     }
 
@@ -29,116 +31,98 @@ export function NewArrivalwomens() {
         getproducts()
     }, [])
     return (
-        <div className=" flex  flex-wrap
-         gap-15 justify-center items-center  ">
+        <div className="   flex w-full flex-wrap justify-center items-center gap-15 
+        ">
 
-            <Link href="/ProductPage">
-               {
-                              womensdata.map((item) => {
-              
-                                 
-                                  return (
-              
-                                      < Card className="w-[250px] rounded-lg overflow-hidden shadow-lg border hover:shadow-xl transition-shadow duration-300 shadow-orange-200" >
-                                          <CardHeader className="p-0">
-                                              <img
-                                                  src={item?.variants?.[0].image?.[0]}
-                                                  alt="Mens T-shirt"
-                                                  className="w-full h-60 object-cover"
-                                              />
-                                          </CardHeader>
-              
-                                          <CardContent className="p-4">
-                                              <h2 className="text-lg font-semibold text-gray-800">{item.category?.name} {item.subcategory?.name}</h2>
-                                              <p className="text-sm text-gray-500 mb-2">Brand: {item.brand?.name}</p>
-              
-                                              <div className="flex items-center justify-between mt-3">
-                                                  <span className="text-lg font-bold text-green-600">₹{item.variants?.[0].price}</span>
-                                                  <span className="text-yellow-500 text-sm">★★★★☆</span>
-                                              </div>
-                                          </CardContent>
-              
-                                      </Card>
-                                  )
-                              })
-                          }
-            </Link>
+            {womensdata.length === 0 ? (
+                [1, 2, 3, 4].map(() => (
 
-            <Card className="w-[250px] grid rounded-lg overflow-hidden shadow-lg border hover:shadow-xl transition-shadow duration-300 shadow-orange-200">
-                <CardHeader className="p-0">
-                    <img
-                        src="https://static.vecteezy.com/system/resources/thumbnails/028/244/679/small/white-t-shirt-mockup-male-t-shirt-with-short-sleeves-front-back-view-realistic-3d-mock-up-ai-generated-photo.jpg"
-                        alt="Mens T-shirt"
-                        className="w-full h-60 object-cover"
-                    />
-                </CardHeader>
-
-                <CardContent className="p-4">
-                    <h2 className="text-lg font-semibold text-gray-800">Men's T-Shirt</h2>
-                    <p className="text-sm text-gray-500 mb-2">Brand: Roadster</p>
-
-                    <div className="flex items-center justify-between mt-3">
-                        <span className="text-lg font-bold text-green-600">₹500</span>
-                        <span className="text-yellow-500 text-sm">★★★★☆</span>
+                    <div className="flex flex-col space-y-3">
+                        <Skeleton className="h-[330px] w-[250px] rounded-xl" />
+                        <div className="space-y-2">
+                            <Skeleton className="h-4 w-[250px]" />
+                            <Skeleton className="h-4 w-[200px]" />
+                        </div>
                     </div>
-                </CardContent>
-                {/* 
-                <CardFooter className="p-4 border-t">
-                    <button className="w-full bg-blue-600 text-white text-sm font-medium py-2 rounded hover:bg-blue-700 transition-colors duration-200">
-                        Add to Cart
-                    </button>
-                </CardFooter> */}
-            </Card>
-            <Card className="w-[250px] grid rounded-lg overflow-hidden shadow-lg border hover:shadow-xl transition-shadow duration-300 shadow-orange-200">
-                <CardHeader className="p-0">
-                    <img
-                        src="https://static.vecteezy.com/system/resources/thumbnails/028/244/679/small/white-t-shirt-mockup-male-t-shirt-with-short-sleeves-front-back-view-realistic-3d-mock-up-ai-generated-photo.jpg"
-                        alt="Mens T-shirt"
-                        className="w-full h-60 object-cover"
-                    />
-                </CardHeader>
+                ))
+            ) : (
+                womensdata.map((item) => {
 
-                <CardContent className="p-4">
-                    <h2 className="text-lg font-semibold text-gray-800">Men's T-Shirt</h2>
-                    <p className="text-sm text-gray-500 mb-2">Brand: Roadster</p>
 
-                    <div className="flex items-center justify-between mt-3">
-                        <span className="text-lg font-bold text-green-600">₹500</span>
-                        <span className="text-yellow-500 text-sm">★★★★☆</span>
-                    </div>
-                </CardContent>
-                {/* 
-                <CardFooter className="p-4 border-t">
-                    <button className="w-full bg-blue-600 text-white text-sm font-medium py-2 rounded hover:bg-blue-700 transition-colors duration-200">
-                        Add to Cart
-                    </button>
-                </CardFooter> */}
-            </Card>
-            <Card className="w-[250px] grid rounded-lg overflow-hidden shadow-lg border hover:shadow-xl transition-shadow duration-300 shadow-orange-200">
-                <CardHeader className="p-0">
-                    <img
-                        src="https://static.vecteezy.com/system/resources/thumbnails/028/244/679/small/white-t-shirt-mockup-male-t-shirt-with-short-sleeves-front-back-view-realistic-3d-mock-up-ai-generated-photo.jpg"
-                        alt="Mens T-shirt"
-                        className="w-full h-60 object-cover"
-                    />
-                </CardHeader>
+                    return (
+                        <Link href={`/ProductPage?productCode=${item.productCode}`}>
 
-                <CardContent className="p-4">
-                    <h2 className="text-lg font-semibold text-gray-800">Men's T-Shirt</h2>
-                    <p className="text-sm text-gray-500 mb-2">Brand: Roadster</p>
+                            {/* < Card className="w-[250px] rounded-lg overflow-hidden shadow-lg border hover:shadow-xl transition-shadow duration-300 shadow-orange-200" >
+                                    <CardHeader className="p-0">
+                                        <img
+                                            src={item?.variants?.[0].image?.[0]}
+                                            alt="Mens T-shirt"
+                                            className="w-full h-60 object-cover"
+                                        />
+                                    </CardHeader>
 
-                    <div className="flex items-center justify-between mt-3">
-                        <span className="text-lg font-bold text-green-600">₹500</span>
-                        <span className="text-yellow-500 text-sm">★★★★☆</span>
-                    </div>
-                </CardContent>
-                {/* 
-                <CardFooter className="p-4 border-t">
-                    <button className="w-full bg-blue-600 text-white text-sm font-medium py-2 rounded hover:bg-blue-700 transition-colors duration-200">
-                        Add to Cart
-                    </button>
-                </CardFooter> */}
-            </Card>
+                                    <CardContent className="p-4">
+                                        <h2 className="text-lg font-semibold text-gray-800">{item.category?.name} {item.subcategory?.name}</h2>
+                                        <p className="text-sm text-gray-500 mb-2">Brand: {item.brand?.name}</p>
+
+                                        <div className="flex items-center justify-between mt-3">
+                                            <span className="text-lg font-bold text-green-600">₹{item.variants?.[0].price}</span>
+                                            <span className="text-yellow-500 text-sm">★★★★☆</span>
+                                        </div>
+                                    </CardContent>
+
+                                </Card> */}
+
+
+                            <Card className="group relative w-[250px] rounded-xl overflow-hidden border bg-white shadow-md transition-all duration-300 hover:shadow-pink-300 hover:-translate-y-1 hover:border-pink-300">
+
+                                {/* Image Section */}
+                                <div className="relative">
+                                    <img
+                                        src={item?.variants?.[0].image?.[0]}
+                                        alt={item.category?.name}
+                                        className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-110"
+                                    />
+
+                                    {/* Hover Buttons */}
+                                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+                                        <button className="px-3 py-2 bg-white text-pink-600 text-sm rounded-lg font-medium shadow-md hover:bg-pink-50 transition">
+                                            Quick View
+                                        </button>
+                                        <button className="px-3 py-2 bg-pink-600 text-white text-sm rounded-lg font-medium shadow-md hover:bg-pink-700 transition">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+
+                                {/* Content */}
+                                <CardContent className="p-4">
+                                    <h2 className="text-lg font-semibold text-gray-800 group-hover:text-pink-600 transition">
+                                        {item.category?.name} {item.subcategory?.name}
+                                    </h2>
+
+                                    <p className="text-sm text-gray-500 mb-2">Brand: {item.brand?.name}</p>
+
+                                    <div className="flex items-center justify-between mt-3">
+                                        <span className="text-lg font-bold text-pink-600">
+                                            ₹{item.variants?.[0].price}
+                                        </span>
+                                        <span className="text-yellow-500 text-sm">★★★★☆</span>
+                                    </div>
+                                </CardContent>
+
+                            </Card>
+
+                        </Link>
+                    )
+                })
+            )
+            }
+
+
+
+
+
 
         </div>
     );

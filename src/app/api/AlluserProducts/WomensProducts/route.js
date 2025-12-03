@@ -16,7 +16,7 @@ export async function GET() {
     try {
         // Step 1: Find subcategories with "Mens" in the name
         const mensSubcategories = await Category.find({
-            name: { $regex: /womens/i } // case-insensitive match
+            name: { $regex: /women/i } // case-insensitive match
         });
 
         if (mensSubcategories.length === 0) {

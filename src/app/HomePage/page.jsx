@@ -170,7 +170,7 @@ const Home = () => {
 
 
 
-                        <div className="flex justify-center items-center w-full ">
+                        <div className="flex justify-center items-center flex-wrap w-full ">
                             <NewArrivalwomens></NewArrivalwomens>
 
                         </div>
