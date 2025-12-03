@@ -62,7 +62,7 @@ export function NewArrivalmens() {
                                     />
 
                                     {/* Hover Buttons */}
-                                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+                                    <div className="absolute w-full h-60 inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
                                         <button className="px-3 py-2 bg-white text-pink-600 text-sm rounded-lg font-medium shadow-md hover:bg-pink-50 transition">
                                             Quick View
                                         </button>

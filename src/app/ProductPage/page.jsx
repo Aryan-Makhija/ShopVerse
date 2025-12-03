@@ -1,7 +1,9 @@
 "use client"
 
 import Footer from "@/components/homepage/Footer";
+import LatestProducts from "@/components/homepage/LatestProducts";
 import { Navbar } from "@/components/homepage/Navbar"
+import { NewArrivalmens } from "@/components/homepage/NewArrivalmens";
 import { NewArrivalwomens } from "@/components/homepage/NewArrivalwomens";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Lens } from "@/components/ui/lens";
@@ -22,6 +24,7 @@ const ProductPage = () => {
     const [selectedAttribute, setSelectedAttribute] = useState(null)
     const [selectedVariant, setSelectedVariant] = useState(null)
     const { addToCart, cartItems } = useCart();
+    const [name, setname] = useState("")
 
 
     const getProductdetails = async () => {
@@ -31,6 +34,7 @@ const ProductPage = () => {
 
         const data = await response.json()
         setproductdata(data)
+        setname(data[0].category.name)
     }
 
     useEffect(() => {
@@ -113,7 +117,7 @@ const ProductPage = () => {
             description: productdata[0]?.info?.description,
         };
 
-      
+
         const response = await fetch("/api/WishList", {
             method: "POST",
             body: JSON.stringify(selectedProduct)
@@ -138,9 +142,8 @@ const ProductPage = () => {
             method: "GET"
         })
         const data = await response.json()
-   
-    }
 
+    }
 
 
 
@@ -181,6 +184,9 @@ const ProductPage = () => {
                         </BreadcrumbList>
                     </Breadcrumb>
                 </div>
+
+
+
                 {productdata.map((item, index) => (
                     <div
                         key={index}
@@ -207,6 +213,7 @@ const ProductPage = () => {
                             <div className="space-y-2">
                                 <h1 className="text-3xl font-bold text-gray-900">
                                     {item.category?.name} {item.subcategory?.name}
+
                                 </h1>
                                 <p className="text-lg text-gray-600">{item.info?.description}</p>
                                 <p className="text-sm text-yellow-500">⭐ 4.5 (200 reviews)</p>
@@ -302,18 +309,24 @@ const ProductPage = () => {
 
                 <div className=" h-full w-full   flex-col gap-10 flex justify-center items-center p-5   ">
                     <h1 className="text-3xl font-semibold font-serif">
-                        New Arrivales for Mens
+                        New Arrivales for {name}
                     </h1>
 
 
                     <div className="flex justify-center  items-center w-full ">
-                        <NewArrivalwomens></NewArrivalwomens>
+
+                        {name === "Women" || "Mens" ? (name === "Women" ?
+                            <NewArrivalwomens></NewArrivalwomens> : <NewArrivalmens></NewArrivalmens>) : <LatestProducts></LatestProducts>}
 
                     </div>
 
                 </div>
 
             </div>
+
+
+
+
             <div>
                 <Footer></Footer>
             </div>
