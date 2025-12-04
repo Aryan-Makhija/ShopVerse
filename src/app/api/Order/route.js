@@ -144,7 +144,7 @@ export async function POST(req) {
         const email = user.email;
         const orderId = newOrder._id;
         const orderdate = new Date(newOrder.order_details.orderdate).toDateString();
-        const deliverydate =new Date(newOrder.order_details.delivery_date).toDateString();
+        const deliverydate = new Date(newOrder.order_details.delivery_date).toDateString();
         const shippingAddress = newOrder.order_details.shipping_address;
         const totalAmount = newOrder.order_details.totalPrice;
 
@@ -204,7 +204,13 @@ export async function GET() {
 
         const userId = userdetails.userId
 
-        const product = await OrderModel.find({ "user.userId": userId }).select("-user -createdAt -updatedAt -__v ").sort({ createdAt: -1 }).lean();
+        const product = await OrderModel.find({
+            "user.userId": userId,
+            "order_details.order_status": { $ne: "Cancel" }
+        })
+            .select("-user -createdAt -updatedAt -__v")
+            .sort({ createdAt: -1 })
+            .lean();
 
         if (!product) {
             return NextResponse.json({ message: "No Order Found for thi userid" }, { status: 400 })

@@ -239,7 +239,7 @@ const ProductPage = () => {
                                             <button
                                                 key={attr._id}
                                                 onClick={() => handleColorSelect(attr.color)}
-                                                className={`w-8 h-8 rounded-full border-2 ${selectedColor === attr.color
+                                                className={`w-8 h-8 rounded-full bg-${attr.color.toLowerCase()}-600 border-2 ${selectedColor === attr.color
                                                     ? 'ring-2 ring-black'
                                                     : 'border-gray-300'
                                                     } ${attr.class}`}
