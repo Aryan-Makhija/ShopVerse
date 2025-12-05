@@ -6,6 +6,7 @@ import { Navbar } from "@/components/homepage/Navbar"
 import { NewArrivalmens } from "@/components/homepage/NewArrivalmens";
 import { NewArrivalwomens } from "@/components/homepage/NewArrivalwomens";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Lens } from "@/components/ui/lens";
 import { useCart } from "@/Context/CartContext";
 import { useSearchParams } from "next/navigation";
@@ -190,10 +191,10 @@ const ProductPage = () => {
                 {productdata.map((item, index) => (
                     <div
                         key={index}
-                        className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 p-6 md:p-10"
+                        className=" w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 p-6 md:p-10"
                     >
                         {/* 📸 Image Gallery */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="  hidden  lg:grid grid-cols-1 sm:grid-cols-2 gap-4 ">
                             {selectedVariant?.image?.map((img, i) => (
                                 <div key={i} className="w-full h-80 bg-gray-200 rounded-lg overflow-hidden">
                                     <Lens>
@@ -205,6 +206,32 @@ const ProductPage = () => {
                                     </Lens>
                                 </div>
                             ))}
+                        </div>
+
+
+                        <div className="lg:hidden block">
+                            <Carousel>
+                                <CarouselContent>
+                                    {selectedVariant?.image?.map((img, i) => (
+                                        <CarouselItem>
+
+                                            <div key={i} className="w-full h-80 bg-gray-200 rounded-lg overflow-hidden">
+                                                <Lens>
+                                                    <img
+                                                        src={img}
+                                                        alt={`Product Image ${i}`}
+                                                        className="w-full h-full object-cover"
+                                                    />
+                                                </Lens>
+                                            </div>
+                                        </CarouselItem>
+                                    ))}
+
+                                </CarouselContent>
+                                <CarouselPrevious />
+                                <CarouselNext />
+                            </Carousel>
+
                         </div>
 
                         {/* 📦 Product Details */}

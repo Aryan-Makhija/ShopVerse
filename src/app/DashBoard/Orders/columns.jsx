@@ -67,6 +67,7 @@ export const columns = [
                 const productid = row.original._id;
                 const proid = row.original.productId;
                 const isDelivered = currentStatus === "Delivered";
+                const cancel = currentStatus === "Cancel"
 
                 const [status, setStatus] = useState(currentStatus);
                 const router = useRouter()
@@ -95,9 +96,17 @@ export const columns = [
                         });
 
                         const data = await res.json();
+
                         router.refresh()
-         
-                        toast.success("Order status updated");
+                        if (res.status === 200) {
+                            toast.success("Order Status Updated")
+                        } else {
+                            toast.error("Something went Wrong")
+                        }
+
+                        
+
+
                     } catch (error) {
                         console.error("Error updating status:", error);
                         toast.error("Failed to update order status");
@@ -108,9 +117,10 @@ export const columns = [
 
                 return (
                     <Select
+
                         value={currentStatus}
                         onValueChange={setStatus}
-                        disabled={isDelivered}
+                        disabled={isDelivered || cancel}
                     >
                         <SelectTrigger className="w-[140px]">
                             <SelectValue placeholder={currentStatus} />

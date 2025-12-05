@@ -16,7 +16,7 @@ import {
 import { Marquee } from "@/components/ui/marquee"
 import { Separator } from "@/components/ui/separator"
 import Autoplay from "embla-carousel-autoplay"
-import { FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from "lucide-react"
+import { FacebookIcon, InstagramIcon, RotateCcw, ShieldCheck, Tags, TwitterIcon, YoutubeIcon } from "lucide-react"
 import React, { useRef } from "react"
 
 const Home = () => {
@@ -165,7 +165,7 @@ const Home = () => {
                     <Separator />
                     <div className=" h-full w-full   flex-col gap-10 flex justify-center items-center p-5   ">
                         <h1 className="text-center font-serif text-2xl sm:text-5xl md:text-4xl font-semibold text-gray-900 tracking-tight">
-                         New Arrivals for        <span className="  text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600 drop-shadow-lg">Womens</span>
+                            New Arrivals for        <span className="  text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600 drop-shadow-lg">Womens</span>
                         </h1>
 
 
@@ -189,38 +189,44 @@ const Home = () => {
                         </div>
                     </div>
                     <Separator></Separator>
-                    <div className=" h-full w-full  flex-col gap-10 flex justify-center items-center p-5   ">
-                        <h1 className="text-3xl font-semibold font-serif">
-                            Security And Return Policy
+                
+
+                    <div className="w-full flex flex-col items-center gap-8 p-5 bg-white">
+
+                        <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 font-serif text-center">
+                            Your Security & Return Assurance
                         </h1>
+                        <p className="text-gray-500 text-sm sm:text-base text-center max-w-2xl">
+                            We ensure safe shopping, trusted brands, and a smooth return experience for every customer.
+                        </p>
 
+                        <section className="w-full bg-primary-foreground py-8 px-4 sm:px-8 lg:px-12 border rounded-xl shadow-sm">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
 
-                        <div className="flex justify-center items-center w-full  ">
-                            <section className="w-full bg-primary-foreground py-6 px-4 sm:px-6 lg:px-12 border-t">
-                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
-                                    <div className="flex flex-col items-center">
-                                        <img src="https://img.freepik.com/premium-vector/shop-with-confidence-icon-vector-image-can-be-used-web-store_120816-226489.jpg" alt="Secure Shopping" className="w-60 h-60 mb-2" />
-                                        <h3 className="text-sm font-semibold">Shop with Confidence</h3>
-                                        <p className="text-xs text-gray-500">Secure checkout & genuine products</p>
-                                    </div>
-
-                                    <div className="flex flex-col items-center">
-                                        <img src="https://png.pngtree.com/png-vector/20240402/ourmid/pngtree-vector-illustration-of-the-best-brand-label-good-for-product-packaging-png-image_12257729.png" alt="Top Brands" className="w-60 h-60 mb-2" />
-                                        <h3 className="text-sm font-semibold">Top Brands</h3>
-                                        <p className="text-xs text-gray-500">100+ trusted brands in one place</p>
-                                    </div>
-                                    <div className="flex flex-col items-center">
-                                        <img src="https://as2.ftcdn.net/jpg/03/90/63/79/1000_F_390637943_VlSei8Z4xogEvEoYL3eKl3HR726FlDr7.jpg" alt="Easy Returns" className="w-60 h-60 mb-2" />
-                                        <h3 className="text-sm font-semibold">Easy Returns</h3>
-                                        <p className="text-xs text-gray-500">7-day hassle-free return policy</p>
-                                    </div>
-
+                                {/* Secure Shopping */}
+                                <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                                    <ShieldCheck className="w-12 h-12 text-pink-600 mb-4" />
+                                    <h3 className="text-lg font-semibold text-gray-800">Secure Shopping</h3>
+                                    <p className="text-sm text-gray-500 mt-1">Encrypted checkout & 100% genuine products</p>
                                 </div>
-                            </section>
 
-                        </div>
+                                {/* Top Brands */}
+                                <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                                    <Tags className="w-12 h-12 text-pink-600 mb-4" />
+                                    <h3 className="text-lg font-semibold text-gray-800">Premium Brands</h3>
+                                    <p className="text-sm text-gray-500 mt-1">Choose from 100+ verified and trusted brands</p>
+                                </div>
+
+                                {/* Easy Returns */}
+                                <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                                    <RotateCcw className="w-12 h-12 text-pink-600 mb-4" />
+                                    <h3 className="text-lg font-semibold text-gray-800">Easy Returns</h3>
+                                    <p className="text-sm text-gray-500 mt-1">7-day no-questions-asked return policy</p>
+                                </div>
+
+                            </div>
+                        </section>
                     </div>
-
 
 
                 </div>

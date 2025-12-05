@@ -26,6 +26,7 @@ const Myorders = () => {
 
     const data = await response.json()
 
+
     setorder(data)
   }
 
@@ -242,6 +243,7 @@ const Myorders = () => {
                     <div className="w-full md:w-1/2 flex justify-between items-center">
                       <div className="flex gap-4 items-center">
                         <div className="w-16 h-16 bg-gray-200 rounded-md flex items-center justify-center text-sm text-gray-500">
+
                           <img src={item?.products[0]?.image} className='object-cover' alt="" />
                         </div>
                         <div className="flex flex-col text-sm sm:text-base">

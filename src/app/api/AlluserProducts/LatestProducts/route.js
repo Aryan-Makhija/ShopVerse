@@ -17,7 +17,7 @@ export async function GET() {
         // Get latest 5 products based on creation date
         const latestProducts = await ProductInfo.find()
             .sort({ createdAt: -1 })
-            .limit(5);
+            .limit(4);
 
         const enrichedProducts = await Promise.all(
             latestProducts.map(async (product) => {

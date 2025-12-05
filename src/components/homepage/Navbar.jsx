@@ -5,6 +5,8 @@ import { GoHeartFill } from "react-icons/go";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import { Button } from "../ui/button";
 import { ChevronRight, CrossIcon, LogOut, MenuIcon, Moon, MoreHorizontal, SearchIcon, Settings, Sun, User } from "lucide-react";
+import {  Mail, UserCircle, LogIn } from "lucide-react";
+
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
@@ -53,7 +55,7 @@ export const Navbar = () => {
     ];
     const [search, setSearch] = useState("");
     const router = useRouter();
- 
+
 
 
     const handleSubmit = (e) => {
@@ -523,7 +525,7 @@ export const Navbar = () => {
             {/* Search Input  */}
             <div>
                 <form onSubmit={handleSubmit}>
-                    <InputGroup>
+                    <InputGroup >
                         <InputGroupInput
                             type="text"
                             placeholder="Search products..."
@@ -538,7 +540,7 @@ export const Navbar = () => {
                             className="border px-2 py-1"
                         />
                         <InputGroupAddon>
-                            <SearchIcon className="lg:block hidden" />
+                            <SearchIcon className="lg:block hidden align-center mr-2" />
                             <div className="text-3xl font-serif font-bold px-1 py-3 text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600 drop-shadow-lg block lg:hidden">
                                 SV
                             </div>
@@ -619,7 +621,7 @@ export const Navbar = () => {
 
                         <Link href="">
                             <DropdownMenuItem asChild>
-                                <Sheet asChild>
+                                {/* <Sheet asChild>
                                     <SheetTrigger onClick={userprofile} className="flex gap-2"><User className="h-[1.2rem] w-[1.2rem] mr-2"></User>Profile</SheetTrigger>
                                     <SheetContent>
                                         <SheetHeader>
@@ -648,6 +650,80 @@ export const Navbar = () => {
 
                                             </SheetDescription>
                                         </SheetHeader>
+                                    </SheetContent>
+                                </Sheet> */}
+                                <Sheet asChild>
+                                    <SheetTrigger
+                                        onClick={userprofile}
+                                        className="flex items-center gap-2 cursor-pointer hover:text-pink-600 transition"
+                                    >
+                                        <User className="h-[1.2rem] w-[1.2rem]" />
+                                        Profile
+                                    </SheetTrigger>
+
+                                    <SheetContent className="p-6 flex flex-col">
+                                        <SheetHeader>
+                                            <SheetTitle className="text-2xl font-semibold text-gray-800">My Profile</SheetTitle>
+                                            <SheetDescription className="text-gray-500">
+                                                Manage your account, view details, and access quick actions.
+                                            </SheetDescription>
+                                        </SheetHeader>
+
+                                        {/* CONTENT */}
+                                        <div className="mt-6 flex-1 overflow-auto">
+                                            {profile.length > 0 ? (
+                                                profile.map((item, index) => (
+                                                    <div
+                                                        key={index}
+                                                        className="flex flex-col items-center gap-6 p-6 bg-white rounded-xl shadow-md border max-w-md mx-auto"
+                                                    >
+                                                        <div className="w-24 h-24 rounded-full bg-gradient-to-br from-pink-500 to-pink-300 flex items-center justify-center shadow-md">
+                                                            <UserCircle className="text-white w-14 h-14" />
+                                                        </div>
+
+                                                        <div className="w-full text-center">
+                                                            <p className="text-gray-500 text-xs uppercase tracking-wide">Email</p>
+                                                            <p className="text-lg font-medium text-gray-800 flex items-center justify-center gap-2 mt-1">
+                                                                <Mail className="w-4 h-4 text-gray-500" /> {item.email}
+                                                            </p>
+                                                        </div>
+
+                                                        <div className="w-full text-center">
+                                                            <p className="text-gray-500 text-xs uppercase tracking-wide">Name</p>
+                                                            <p className="text-xl font-semibold text-gray-900">{item.name}</p>
+                                                        </div>
+                                                    </div>
+                                                ))
+                                            ) : (
+                                                // EMPTY PROFILE (Not Logged In)
+                                                <div className="flex flex-col items-center justify-center h-full text-center mt-10">
+                                                    <UserCircle className="w-20 h-20 text-gray-400 mb-4" />
+                                                    <h2 className="text-xl font-semibold text-gray-800">You're not logged in</h2>
+                                                    <p className="text-gray-500 mt-2 mb-4">
+                                                        Please log in to view and manage your profile details.
+                                                    </p>
+                                                    <button
+                                                        onClick={() => router.push("/UserLogin")}
+                                                        className="px-5 py-2 bg-pink-600 text-white rounded-lg shadow hover:bg-pink-700 transition"
+                                                    >
+                                                        <LogIn className="w-4 h-4 inline mr-2" />
+                                                        Login
+                                                    </button>
+                                                </div>
+                                            )}
+                                        </div>
+
+                                        {/* FOOTER ACTIONS */}
+                                        {profile.length > 0 && (
+                                            <div className="mt-6 border-t pt-4">
+                                                <button
+                                                    onClick={logout}
+                                                    className="w-full flex items-center justify-center gap-2 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 transition"
+                                                >
+                                                    <LogOut className="w-4 h-4" /> Logout
+                                                </button>
+                                            </div>
+                                        )}
                                     </SheetContent>
                                 </Sheet>
 
@@ -731,7 +807,7 @@ export const Navbar = () => {
                 </div>
 
 
-                
+
             </div>
 
 
