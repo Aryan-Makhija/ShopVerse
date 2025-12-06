@@ -202,7 +202,7 @@ const ProductPage = () => {
                                         <img
                                             src={img}
                                             alt={`Product Image ${i}`}
-                                            className="w-full h-full object-cover"
+                                            className="w-full h-80 object-cover"
                                         />
                                     </Lens>
                                 </div>
