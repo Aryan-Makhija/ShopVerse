@@ -14,6 +14,7 @@ export function NewArrivalmens() {
 
     const [mensdata, setmensdata] = useState([])
 
+    
     const getproducts = async () => {
 
         const response = await fetch("/api/AlluserProducts/MensProducts", {
@@ -136,7 +137,7 @@ export function NewArrivalmens() {
 
                             <CardContent className="p-3 sm:p-4">
                                 <h2 className="text-sm sm:text-md md:text-lg font-semibold text-gray-800 group-hover:text-pink-600 transition">
-                                    {item.category?.name} {item.subcategory?.name}
+                                    {item.productname}
                                 </h2>
 
                                 <p className="text-xs sm:text-sm text-gray-500 mb-1 sm:mb-2">
