@@ -38,19 +38,25 @@ export function ProductdetForm({
   className,
   ...props
 }) {
+
+
   const params = useSearchParams()
+
   const code = params.get("productno")
 
+
+  
   const [isEditable, setIsEditable] = useState(false);
+  const [productdata, setproductdata] = useState([])
+  const [attributevalue, setattributevalue] = useState([])
+  const [variant, setvariant] = useState({ price: "", discountPrice: "", currency: "", isAvailable: "", quantity: "" })
+  const [data, setdata] = useState([]);
 
   const handleEditClick = () => {
     setIsEditable(!isEditable);
   };
-  const [productdata, setproductdata] = useState([])
 
-  const [attributevalue, setattributevalue] = useState([])
 
-  const [variant, setvariant] = useState({ price: "", discountPrice: "", currency: "", isAvailable: "", quantity: "" })
   const getproductdetails = async () => {
     const response = await fetch(`/api/AllProducts/${code}`, {
       method: "GET"
@@ -65,25 +71,35 @@ export function ProductdetForm({
       size: attribute.size,
       color: attribute.color,
     }));
-    setattributevalue( attributes );
+    setattributevalue(attributes);
   }
+
+
+
+  const fetchData = async () => {
+
+    try {
+      const res = await fetch(`/api/ProductListing/variant/${code}`, {
+        method: "GET"
+      }); // Adjust as needed
+      const result = await res.json();
+      setdata(result);
+    } catch (err) {
+      console.log(err.message)
+    }
+  };
 
   useEffect(() => {
     getproductdetails(),
-      savevalue()
+      savevalue(),
+      fetchData()
   }, [])
 
-  const [data, setdata] = useState([]);
- 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(`/api/ProductListing/variant/${code}`); // Adjust as needed
-      const result = await res.json();
-      setdata(result);
-    };
 
-    fetchData();
-  }, []);
+
+  // useEffect(() => {
+
+  // }, []);
 
 
 

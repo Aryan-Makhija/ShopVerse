@@ -11,8 +11,8 @@ export async function GET(req, { params }) {
   await connectToDb();
 
   try {
-    const cookieStore = cookies();
-    const token = await cookieStore.get('admintoken')?.value;
+    const cookieStore = await  cookies();
+    const token =  cookieStore.get('admintoken')?.value;
 
     if (!token) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
