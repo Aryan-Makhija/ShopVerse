@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label"
 import { useState } from "react"
 import { toast } from "sonner"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select"
+import { Loader2Icon } from "lucide-react"
 
 
 export function MaterialForm({
@@ -16,19 +17,31 @@ export function MaterialForm({
 
   const [productdetails, setproductdetails] = useState({ material: "", instructions: "" })
 
-
+  const [loader, setloader] = useState(false)
+  const [disable, setdisable] = useState(false)
 
   const handelform = async (e) => {
     e.preventDefault()
-    const response = await fetch("/api/ProductListing/materialandcare", {
-      method: "POST",
-      body: JSON.stringify(productdetails)
-    })
 
-    const data = await response.json()
-  
+     setloader(true)
+     setdisable(true)
 
-    toast("Material and Care Submitted Click on next")
+     try{
+       const response = await fetch("/api/ProductListing/materialandcare", {
+         method: "POST",
+         body: JSON.stringify(productdetails)
+       })
+   
+       const data = await response.json()
+     
+   
+       toast("Material and Care Submitted Click on next")
+
+     }catch(err){
+       console.log(err.message)
+     }finally{
+       setloader(false)
+     }
 
 
     setproductdetails({ material: "", instrucions: "" })
@@ -68,10 +81,11 @@ export function MaterialForm({
 
 
 
-              <Button type="" onClick={(e) => handelform(e)} className="w-full">
+              <Button type="" onClick={(e) => handelform(e)} disabled={disable} className=" w-full flex gap-2">
+                {loader ? <Loader2Icon className="animate-spin"></Loader2Icon> : ""}
+
                 Submit
               </Button>
-
 
 
             </div>

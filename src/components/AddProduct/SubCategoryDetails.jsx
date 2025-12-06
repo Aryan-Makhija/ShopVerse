@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useState } from "react"
 import { toast } from "sonner"
+import { Loader2Icon } from "lucide-react"
 
 
 
@@ -16,19 +17,31 @@ export function SubcategoryForm({
 
   const [productdetails, setproductdetails] = useState({ name: "" })
 
-
+  const [loader, setloader] = useState(false)
+  const [disable, setdisable] = useState(false)
 
   const handelform = async (e) => {
     e.preventDefault()
-    const response = await fetch("/api/ProductListing/subcategory", {
-      method: "POST",
-      body: JSON.stringify(productdetails)
-    })
+    setloader(true)
+    setdisable(true)
+    try {
 
-    const data = await response.json()
+      const response = await fetch("/api/ProductListing/subcategory", {
+        method: "POST",
+        body: JSON.stringify(productdetails)
+      })
 
+      const data = await response.json()
+      if (response.status = 200) {
 
-    toast("SubCategory submitted Click on next")
+        toast("SubCategory submitted Click on next")
+      }
+
+    } catch (err) {
+      console.log(er.message)
+    } finally {
+      setloader(false)
+    }
 
 
 
@@ -54,7 +67,9 @@ export function SubcategoryForm({
                 </div>
               </div>
 
-              <Button type="" onClick={(e) => handelform(e)} className="w-full">
+              <Button type="" onClick={(e) => handelform(e)} disabled={disable} className=" w-full flex gap-2">
+                {loader ? <Loader2Icon className="animate-spin"></Loader2Icon> : ""}
+
                 Submit
               </Button>
             </div>

@@ -12,7 +12,7 @@ export async function GET(req, { params }) {
 
   try {
     const cookieStore = cookies();
-    const token = cookieStore.get('admintoken')?.value;
+    const token = await cookieStore.get('admintoken')?.value;
 
     if (!token) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

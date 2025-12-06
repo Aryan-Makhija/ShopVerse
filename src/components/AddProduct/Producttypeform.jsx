@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label"
 import { useState } from "react"
 import { toast } from "sonner"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select"
+import { Loader2Icon } from "lucide-react"
 
 
 export function TypeForm({
@@ -15,21 +16,35 @@ export function TypeForm({
 }) {
 
   const [productdetails, setproductdetails] = useState({ name: "", description: "" })
+  const [loader, setloader] = useState(false)
+  const [disable, setdisable] = useState(false)
 
 
 
   const handelform = async (e) => {
+
+
     e.preventDefault()
-    const response = await fetch("/api/ProductListing/producttype", {
-      method: "POST",
-      body: JSON.stringify(productdetails)
-    })
+    setloader(true)
+    setdisable(true)
+    try {
+      const response = await fetch("/api/ProductListing/producttype", {
+        method: "POST",
+        body: JSON.stringify(productdetails)
+      })
 
-    const data = await response.json()
+      const data = await response.json()
+ 
+      if (response.status === 200) {
+        toast("Product Type submitted Click on next")
+      }
 
 
-    toast("Product Type submitted Click on next")
-
+    } catch (err) {
+      console.log(err.message)
+    } finally {
+      setloader(false)
+    }
 
 
   }
@@ -52,7 +67,7 @@ export function TypeForm({
                   {/* <Input onChange={(e) => setproductdetails({ ...productdetails, producttype: e.target.value })} value={productdetails.producttype} id="producttype" type="text" placeholder="clothing/electronics" required /> */}
                   {/* <p className="text-sm text-red-400">{error?.producttype}</p> */}
 
-                  <Select
+                  {/* <Select
                     onValueChange={(value) =>
                       setproductdetails((prev) => ({ ...prev, name: value }))
                     }
@@ -66,7 +81,9 @@ export function TypeForm({
                       <SelectItem value="Shoes">Shoes</SelectItem>
                       <SelectItem value="Households">Households</SelectItem>
                     </SelectContent>
-                  </Select>
+                  </Select> */}
+
+                  <Input onChange={(e) => setproductdetails({ ...productdetails, name: e.target.value })} value={productdetails.producttype} id="name" type="text" placeholder="clothing/Accessory" required />
                 </div>
                 <div className="grid gap-3">
                   <div className="flex items-center">
@@ -82,7 +99,9 @@ export function TypeForm({
 
 
 
-              <Button type="" onClick={(e) => handelform(e)} className="w-full">
+              <Button type="" onClick={(e) => handelform(e)} disabled={disable} className=" w-full flex gap-2">
+                {loader ? <Loader2Icon className="animate-spin"></Loader2Icon> : ""}
+
                 Submit
               </Button>
 

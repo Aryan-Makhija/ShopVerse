@@ -34,6 +34,7 @@ const ProductPage = () => {
         })
 
         const data = await response.json()
+     
         setproductdata(data)
         setname(data[0].category.name)
     }
@@ -239,7 +240,7 @@ const ProductPage = () => {
                             {/* 🏷️ Title & Description */}
                             <div className="space-y-2">
                                 <h1 className="text-3xl font-bold text-gray-900">
-                                    {item.category?.name} {item.subcategory?.name}
+                                    {item.info.productname}
 
                                 </h1>
                                 <p className="text-lg text-gray-600">{item.info?.description}</p>
@@ -266,7 +267,7 @@ const ProductPage = () => {
                                             <button
                                                 key={attr._id}
                                                 onClick={() => handleColorSelect(attr.color)}
-                                                className={`w-8 h-8 rounded-full bg-${attr.color.toLowerCase()}-600 border-2 ${selectedColor === attr.color
+                                                className={`w-8 h-8 rounded-full bg-${attr.color.toLowerCase()}-900 border-2 ${selectedColor === attr.color
                                                     ? 'ring-2 ring-black'
                                                     : 'border-gray-300'
                                                     } ${attr.class}`}

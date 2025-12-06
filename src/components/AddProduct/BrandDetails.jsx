@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useState } from "react"
 import { toast } from "sonner"
+import { Loader2Icon } from "lucide-react"
 
 
 
@@ -16,19 +17,31 @@ export function BrandForm({
 
   const [productdetails, setproductdetails] = useState({ name: "" })
 
-
+  const [loader, setloader] = useState(false)
+  const [disable, setdisable] = useState(false)
 
   const handelform = async (e) => {
     e.preventDefault()
-    const response = await fetch("/api/ProductListing/Brand", {
-      method: "POST",
-      body: JSON.stringify(productdetails)
-    })
 
-    const data = await response.json()
+     setloader(true)
+     setdisable(true)
 
+     try{
 
-    toast("Brand name submitted Click on next")
+       const response = await fetch("/api/ProductListing/Brand", {
+         method: "POST",
+         body: JSON.stringify(productdetails)
+       })
+   
+       const data = await response.json()
+   
+   
+       toast("Brand name submitted Click on next")
+     }catch(err){
+       console.log(err.message)
+     }finally{
+      setloader(false)
+     }
 
 
 
@@ -54,7 +67,9 @@ export function BrandForm({
                 </div>
               </div>
 
-              <Button type="" onClick={(e) => handelform(e)} className="w-full">
+             <Button type="" onClick={(e) => handelform(e)} disabled={disable} className=" w-full flex gap-2">
+                {loader ? <Loader2Icon className="animate-spin"></Loader2Icon> : ""}
+
                 Submit
               </Button>
             </div>

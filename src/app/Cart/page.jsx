@@ -23,7 +23,7 @@ const ShoppingCart = () => {
     const [loading, setloading] = useState(true)
 
 
-  
+
     const router = useRouter()
 
 
@@ -129,20 +129,23 @@ const ShoppingCart = () => {
                                 {cart.map((item, index) => {
                                     return (
                                         < div key={index} className="w-full border border-blue-100 rounded-lg p-4 flex gap-4 shadow-md bg-white hover:bg-blue-50 transition-all duration-300" >
+                                          
 
-                                            <div className="w-2/6 h-32 bg-gray-200 rounded-md overflow-hidden">
-                                                <img src={item.image} className="w-full h-full object-cover object-center" alt="" />
-                                            </div>
-                                            <div className="w-4/6 flex flex-col justify-between">
-                                                <p className="font-semibold text-lg text-indigo-700">{item.category} </p>
-                                                <p className="text-gray-600 text-sm">{item.description}</p>
-                                                <p className="text-gray-600 text-sm">Size : <span>{item.size}</span></p>
-                                                <p className="text-gray-600 text-sm"> Color :<span>{item.color}</span></p>
-                                                <p className="text-gray-600 text-sm"> Quantity :<span className="text-blue-800 font-bold">{item.quantity}</span></p>
-                                                <p className="text-green-600 font-semibold">₹{item.price}</p>
+                                                <div className="w-2/6 h-32 bg-gray-200 rounded-md overflow-hidden">
+                                                    <img src={item.image} className="w-full h-full object-cover object-center" alt="" />
+                                                </div>
+                                                <div className="w-4/6 flex flex-col justify-between">
+                                                    <p className="font-semibold text-lg text-indigo-700">{item.category
+                                                    } </p>
+                                                    <p className="text-gray-600 text-sm">{item.description}</p>
+                                                    <p className="text-gray-600 text-sm">Size : <span>{item.size}</span></p>
+                                                    <p className="text-gray-600 text-sm"> Color :<span>{item.color}</span></p>
+                                                    <p className="text-gray-600 text-sm"> Quantity :<span className="text-blue-800 font-bold">{item.quantity}</span></p>
+                                                    <p className="text-green-600 font-semibold">₹{item.price}</p>
 
-                                                <p className="text-yellow-500 text-sm">★★★★☆</p>
-                                            </div>
+                                                    <p className="text-yellow-500 text-sm">★★★★☆</p>
+                                                </div>
+                                           
                                             <div onClick={() => deleteitem(item._id)} className="flex items-start">
                                                 <Trash2 className="text-red-500 cursor-pointer hover:scale-110 hover:text-red-700 transition-transform duration-200" />
                                             </div>

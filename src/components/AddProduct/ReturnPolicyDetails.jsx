@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label"
 import { useState } from "react"
 import { toast } from "sonner"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select"
+import { Loader2Icon } from "lucide-react"
 
 
 export function ReturnForm({
@@ -15,27 +16,39 @@ export function ReturnForm({
 }) {
 
   const [productdetails, setproductdetails] = useState({ returnabel: "", exchangeabel: "", exchangewithin: "" })
-
+  const [loader, setloader] = useState(false)
+  const [disable, setdisable] = useState(false)
 
 
   const handelform = async (e) => {
     e.preventDefault()
-    const response = await fetch("/api/ProductListing/returnpolicy", {
-      method: "POST",
-      body: JSON.stringify(productdetails)
-    })
 
-    const data = await response.json()
+    setloader(true)
+    setdisable(true)
+
+    try {
+
+      const response = await fetch("/api/ProductListing/returnpolicy", {
+        method: "POST",
+        body: JSON.stringify(productdetails)
+      })
+
+      const data = await response.json()
+      toast("Material and Care Submitted Click on next")
+    } catch (err) {
+      console.log(err.message)
+    } finally {
+      setloader(false)
+    }
 
 
-    toast("Material and Care Submitted Click on next")
 
 
   }
 
 
   const day = [
-    "1", "2", "3", "4", "5", "6", "7"
+    "1", "2", "3", "4", "5", "6", "7", "Non"
   ]
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
@@ -112,7 +125,7 @@ export function ReturnForm({
                       {day.map((item) => {
                         return (
 
-                          <SelectItem  value={item} > {item} day</SelectItem>
+                          <SelectItem value={item} > {item} day</SelectItem>
 
                         )
                       })}
@@ -127,7 +140,9 @@ export function ReturnForm({
 
 
 
-              <Button type="" onClick={(e) => handelform(e)} className="w-full">
+              <Button type="" onClick={(e) => handelform(e)} disabled={disable} className=" w-full flex gap-2">
+                {loader ? <Loader2Icon className="animate-spin"></Loader2Icon> : ""}
+
                 Submit
               </Button>
 

@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useState } from "react"
 import { toast } from "sonner"
+import { Loader2Icon } from "lucide-react"
 
 
 
@@ -16,19 +17,36 @@ export function CategoryForm({
 
   const [productdetails, setproductdetails] = useState({ name: "" })
 
-
+  const [loader, setloader] = useState(false)
+  const [disable, setdisable] = useState(false)
 
   const handelform = async (e) => {
     e.preventDefault()
-    const response = await fetch("/api/ProductListing/category", {
-      method: "POST",
-      body: JSON.stringify(productdetails)
-    })
 
-    const data = await response.json()
+    setloader(true)
+    setdisable(true)
+
+    try {
+      const response = await fetch("/api/ProductListing/category", {
+        method: "POST",
+        body: JSON.stringify(productdetails)
+      })
+
+      const data = await response.json()
 
 
-    toast("Category submitted Click on next")
+      if (response.status === 200) {
+
+        toast("Category submitted Click on next")
+      } else {
+        toast.error("Something Went Wrong")
+      }
+
+    } catch (err) {
+      console.log(err.message)
+    } finally {
+      setloader(false)
+    }
 
 
 
@@ -53,8 +71,9 @@ export function CategoryForm({
 
                 </div>
               </div>
+              <Button type="" onClick={(e) => handelform(e)} disabled={disable} className=" w-full flex gap-2">
+                {loader ? <Loader2Icon className="animate-spin"></Loader2Icon> : ""}
 
-              <Button type="" onClick={(e) => handelform(e)} className="w-full">
                 Submit
               </Button>
             </div>

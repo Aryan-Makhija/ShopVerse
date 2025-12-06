@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useState } from "react"
 import { toast } from "sonner"
+import { Loader2Icon } from "lucide-react"
 
 
 export function ProductBasicInfo({
@@ -16,22 +17,35 @@ export function ProductBasicInfo({
   const [productdetails, setproductdetails] = useState({ producttype: "", category: "", subcategory: "", brand: "", description: "", productname: "" })
   const [error, seterror] = useState([])
 
+  const [loader, setloader] = useState(false)
+  const [disable, setdisable] = useState(false)
 
 
   const handelform = async (e) => {
+
     e.preventDefault()
-    const response = await fetch("/api/ProductListing/productinfo", {
-      method: "POST",
-      body: JSON.stringify(productdetails)
-    })
+    setloader(true)
+    setdisable(true)
+    try {
 
-    const data = await response.json()
+      const response = await fetch("/api/ProductListing/productinfo", {
+        method: "POST",
+        body: JSON.stringify(productdetails)
+      })
 
-    seterror(data.errors)
+      const data = await response.json()
 
-    if (!data.errors) {
+      seterror(data.errors)
 
-      toast("Product details submitted Click on next")
+      if (!data.errors) {
+
+        toast("Product details submitted Click on next")
+      }
+
+    } catch (err) {
+      console.log(err.message)
+    } finally {
+      setloader(false)
     }
 
   }
@@ -90,7 +104,9 @@ export function ProductBasicInfo({
                   <p className="text-sm text-red-400">{error?.description}</p>
                 </div>
               </div>
-              <Button type="" onClick={(e) => handelform(e)} className=" w-full">
+              <Button type="" onClick={(e) => handelform(e)} disabled={disable} className=" w-full flex gap-2">
+                {loader ? <Loader2Icon className="animate-spin"></Loader2Icon> : ""}
+
                 Submit
               </Button>
 
