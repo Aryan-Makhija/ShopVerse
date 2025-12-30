@@ -27,10 +27,10 @@ const Home = () => {
     return (
         <div className="w-full">
 
-            <div className="bg-primary-foreground min-h-screen  flex flex-col items-center justify-center p-4 sm:p-6 md:p-10 border-2 w-full gap-40">
+            <div className="bg-primary-foreground min-h-screen  flex flex-col items-center justify-center p-4 sm:p-6 md:p-10 border-2 w-full gap-40  ">
 
 
-                <div className="w-full max-w-md sm:max-w-md md:max-w-4xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-7xl ">
+                <div className="w-full max-w-md sm:max-w-md md:max-w-5xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-7xl ">
 
                     <div className="w-full rounded ">
 
@@ -135,9 +135,9 @@ const Home = () => {
                         </div>
 
                     </div>
-                    <Separator></Separator>
+                    {/* <Separator></Separator> */}
 
-                    <div className=" h-full w-full  flex-col gap-10 flex justify-center items-center p-5   ">
+                    <div className=" h-full w-full  flex-col gap-8 flex justify-center items-center p-5   ">
                         <h1 className="text-center font-serif text-2xl sm:text-5xl md:text-4xl font-semibold text-gray-900 tracking-tight">
                             Latest       <span className="  text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600 drop-shadow-lg">Arrivals</span>
                         </h1>
@@ -149,7 +149,7 @@ const Home = () => {
 
                         </div>
                     </div>
-                    <Separator />
+                    {/* <Separator /> */}
                     <div className=" h-full w-full  flex-col gap-10 flex justify-center items-center p-5   ">
                         <h1 className="text-center font-serif text-2xl sm:text-5xl md:text-4xl font-semibold text-gray-900 tracking-tight">
                             New Arrivals for       <span className="  text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600 drop-shadow-lg">Mens</span>
@@ -162,7 +162,7 @@ const Home = () => {
 
                         </div>
                     </div>
-                    <Separator />
+                    {/* <Separator /> */}
                     <div className=" h-full w-full   flex-col gap-10 flex justify-center items-center p-5   ">
                         <h1 className="text-center font-serif text-2xl sm:text-5xl md:text-4xl font-semibold text-gray-900 tracking-tight">
                             New Arrivals for        <span className="  text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600 drop-shadow-lg">Womens</span>
@@ -176,7 +176,7 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <Separator />
+                    {/* <Separator /> */}
 
                     <div className=" h-full w-full  flex-col gap-10 flex justify-center items-center p-5   ">
                         <h1 className="text-3xl font-semibold font-serif">

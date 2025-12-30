@@ -34,8 +34,8 @@ export function NewArrivalwomens() {
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:flex lg:flex-wrap lg:justify-center md:gap-15 gap-6">
 
             {womensdata.length === 0 ? (
-                [1, 2, 3, 4].map(() => (
-                    <div className="flex flex-col space-y-3 w-full max-w-[180px] sm:max-w-[200px] md:max-w-[230px] lg:w-[250px]">
+                [1, 2, 3, 4].map((index) => (
+                    <div key={index} className="flex flex-col space-y-3 w-full max-w-[180px] sm:max-w-[200px] md:max-w-[230px] lg:w-[250px]">
                         <Skeleton className="h-[250px] sm:h-[280px] md:h-[300px] lg:h-[330px] w-full rounded-xl" />
                         <div className="space-y-2">
                             <Skeleton className="h-4 w-full" />
@@ -46,7 +46,7 @@ export function NewArrivalwomens() {
             ) : (
                 womensdata.map((item, index) => (
                     <Link href={`/ProductPage?productCode=${item.productCode}`} key={index}>
-                        <Card className="group relative w-full max-w-[180px] sm:max-w-[200px] md:max-w-[250px] lg:w-[280px] rounded-xl overflow-hidden border bg-white shadow-md transition-all duration-300 hover:shadow-pink-300 hover:-translate-y-1 hover:border-pink-300">
+                        <Card className="group relative w-full max-w-[180px] sm:max-w-[200px] md:max-w-[240px] lg:w-[280px] rounded-xl overflow-hidden border bg-white shadow-md transition-all duration-300 hover:shadow-pink-300 hover:-translate-y-1 hover:border-pink-300">
 
                             <div className="relative">
                                 <img

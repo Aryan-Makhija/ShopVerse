@@ -584,9 +584,9 @@ export const Navbar = () => {
 
 
 
-                <Link href="/Cart" className="relative inline-block">
+                <Link href="/Cart" className="relative inline-block   justify-center items-center">
                     {/* Icon */}
-                    <IoBag className="w-7 h-7 text-pink-400" />
+                    <IoBag className="  md:w-7 md:h-7 w-6 h-6 text-pink-400" />
 
                     {/* Badge */}
                     {cartitem.length > 0 && (
@@ -746,8 +746,8 @@ export const Navbar = () => {
                 </DropdownMenu>
 
 
-                <Link href="/WishList" className="relative inline-block">
-                    <GoHeartFill className="w-7 h-7 text-rose-600" />
+                <Link href="/WishList" className="relative inline-block justify-center  items-center">
+                    <GoHeartFill className=" md:w-7 md:h-7 h-6 w-6 text-rose-600" />
                     {wishlist.length > 0 && (
                         <Badge
                             className="absolute -top-1 -right-2 rounded-full text-[10px] px-1.5 py-0.5 bg-red-500 text-white"
@@ -762,7 +762,7 @@ export const Navbar = () => {
 
                     <Sheet>
                         <SheetTrigger asChild>
-                            <MenuIcon></MenuIcon>
+                            <MenuIcon ></MenuIcon>
                         </SheetTrigger>
 
                         {/* Sidebar Sheet */}
