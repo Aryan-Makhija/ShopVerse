@@ -9,6 +9,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Lens } from "@/components/ui/lens";
 import { useCart } from "@/Context/CartContext";
+import { Loader } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -34,7 +35,7 @@ const ProductPage = () => {
         })
 
         const data = await response.json()
-     
+
         setproductdata(data)
         setname(data[0].category.name)
     }
@@ -187,152 +188,161 @@ const ProductPage = () => {
                     </Breadcrumb>
                 </div>
 
+                {
+                    productdata.length === 0 ? <div className="w-full flex justify-center items-center "><Loader className="w-15 h-15 animate-spin "></Loader></div> :
+                        <div>
 
-
-                {productdata.map((item, index) => (
-                    <div
-                        key={index}
-                        className=" w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 p-6 md:p-10"
-                    >
-                        {/* 📸 Image Gallery */}
-                        <div className="  hidden  lg:grid grid-cols-1 sm:grid-cols-2 gap-4 ">
-                            {selectedVariant?.image?.map((img, i) => (
-                                <div key={i} className="w-full h-80 bg-gray-200 rounded-lg overflow-hidden">
-                                    <Lens>
-                                        <img
-                                            src={img}
-                                            alt={`Product Image ${i}`}
-                                            className="w-full h-80 object-cover"
-                                        />
-                                    </Lens>
-                                </div>
-                            ))}
-                        </div>
-
-
-                        <div className="lg:hidden block">
-                            <Carousel>
-                                <CarouselContent>
-                                    {selectedVariant?.image?.map((img, i) => (
-                                        <CarouselItem>
-
-                                            <div key={i} className="w-full h-80 bg-gray-200 rounded-lg overflow-hidden">
-                                                <Lens>
-                                                    <img
-                                                        src={img}
-                                                        alt={`Product Image ${i}`}
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </Lens>
-                                            </div>
-                                        </CarouselItem>
-                                    ))}
-
-                                </CarouselContent>
-                                <CarouselPrevious />
-                                <CarouselNext />
-                            </Carousel>
-
-                        </div>
-
-                        {/* 📦 Product Details */}
-                        <div className="border p-6 rounded-lg shadow-sm space-y-6">
-                            {/* 🏷️ Title & Description */}
-                            <div className="space-y-2">
-                                <h1 className="text-3xl font-bold text-gray-900">
-                                    {item.info.productname}
-
-                                </h1>
-                                <p className="text-lg text-gray-600">{item.info?.description}</p>
-                                <p className="text-sm text-yellow-500">⭐ 4.5 (200 reviews)</p>
-                            </div>
-
-                            {/* 💰 Price Section */}
-                            <div className="border-t pt-4 space-y-3">
-                                <div className="flex items-center gap-4">
-                                    <span className="text-2xl font-bold text-gray-900">
-                                        ₹{selectedVariant?.price ?? '0'}
-                                    </span>
-                                    <span className="line-through text-gray-400">
-                                        ₹{selectedVariant?.discountPrice ?? '0'}
-                                    </span>
-                                    <span className="text-orange-500 font-semibold text-lg">50% OFF</span>
-                                </div>
-
-                                {/* 🎨 Color Selection */}
-                                <div>
-                                    <h3 className="text-sm font-medium text-gray-700 mb-2">Select Color</h3>
-                                    <div className="flex gap-3">
-                                        {item.attribute.map((attr) => (
-                                            <button
-                                                key={attr._id}
-                                                onClick={() => handleColorSelect(attr.color)}
-                                                className={`w-8 h-8 rounded-full bg-${attr.color.toLowerCase()}-900 border-2 ${selectedColor === attr.color
-                                                    ? 'ring-2 ring-black'
-                                                    : 'border-gray-300'
-                                                    } ${attr.class}`}
-                                                title={attr.color}
-                                            />
-                                        ))}
-                                    </div>
-                                    <p className="text-sm mt-1 text-gray-600">Selected: {selectedColor}</p>
-                                </div>
-
-                                {/* 📏 Size Selection */}
-                                <div>
-                                    <h3 className="text-sm font-medium text-gray-700 mb-2">Select Size</h3>
-                                    <div className="flex gap-2">
-                                        {item.attribute
-                                            .filter((a) => a.color === selectedColor)
-                                            .map((attr) => (
-                                                <button
-                                                    key={attr.size}
-                                                    onClick={() => handleSizeSelect(attr.size)}
-                                                    className={`px-4 py-1 border rounded-md text-sm font-medium ${selectedSize === attr.size
-                                                        ? 'bg-black text-white border-black'
-                                                        : 'border-gray-300 text-gray-700'
-                                                        }`}
-                                                >
-                                                    {attr.size}
-                                                </button>
+                            {
+                                productdata.map((item, index) => (
+                                    <div
+                                        key={index}
+                                        className=" w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 p-6 md:p-10"
+                                    >
+                                        {/* 📸 Image Gallery */}
+                                        <div className="  hidden  lg:grid grid-cols-1 sm:grid-cols-2 gap-4 ">
+                                            {selectedVariant?.image?.map((img, i) => (
+                                                <div key={i} className="w-full h-80 bg-gray-200 rounded-lg overflow-hidden">
+                                                    <Lens>
+                                                        <img
+                                                            src={img}
+                                                            alt={`Product Image ${i}`}
+                                                            className="w-full h-80 object-cover"
+                                                        />
+                                                    </Lens>
+                                                </div>
                                             ))}
+                                        </div>
+
+
+                                        <div className="lg:hidden block">
+                                            <Carousel>
+                                                <CarouselContent>
+                                                    {selectedVariant?.image?.map((img, i) => (
+                                                        <CarouselItem>
+
+                                                            <div key={i} className="w-full h-80 bg-gray-200 rounded-lg overflow-hidden">
+                                                                <Lens>
+                                                                    <img
+                                                                        src={img}
+                                                                        alt={`Product Image ${i}`}
+                                                                        className="w-full h-full object-cover"
+                                                                    />
+                                                                </Lens>
+                                                            </div>
+                                                        </CarouselItem>
+                                                    ))}
+
+                                                </CarouselContent>
+                                                <CarouselPrevious />
+                                                <CarouselNext />
+                                            </Carousel>
+
+                                        </div>
+
+                                        {/* 📦 Product Details */}
+                                        <div className="border p-6 rounded-lg shadow-sm space-y-6">
+                                            {/* 🏷️ Title & Description */}
+                                            <div className="space-y-2">
+                                                <h1 className="text-3xl font-bold text-gray-900">
+                                                    {item.info.productname}
+
+                                                </h1>
+                                                <p className="text-lg text-gray-600">{item.info?.description}</p>
+                                                <p className="text-sm text-yellow-500">⭐ 4.5 (200 reviews)</p>
+                                            </div>
+
+                                            {/* 💰 Price Section */}
+                                            <div className="border-t pt-4 space-y-3">
+                                                <div className="flex items-center gap-4">
+                                                    <span className="text-2xl font-bold text-gray-900">
+                                                        ₹{selectedVariant?.price ?? '0'}
+                                                    </span>
+                                                    <span className="line-through text-gray-400">
+                                                        ₹{selectedVariant?.discountPrice ?? '0'}
+                                                    </span>
+                                                    <span className="text-orange-500 font-semibold text-lg">50% OFF</span>
+                                                </div>
+
+                                                {/* 🎨 Color Selection */}
+                                                <div>
+                                                    <h3 className="text-sm font-medium text-gray-700 mb-2">Select Color</h3>
+                                                    <div className="flex gap-3">
+                                                        {item.attribute.map((attr) => (
+                                                            <button
+                                                                key={attr._id}
+                                                                onClick={() => handleColorSelect(attr.color)}
+                                                                className={`w-8 h-8 rounded-full bg-${attr.color.toLowerCase()}-900 border-2 ${selectedColor === attr.color
+                                                                    ? 'ring-2 ring-black'
+                                                                    : 'border-gray-300'
+                                                                    } ${attr.class}`}
+                                                                title={attr.color}
+                                                            />
+                                                        ))}
+                                                    </div>
+                                                    <p className="text-sm mt-1 text-gray-600">Selected: {selectedColor}</p>
+                                                </div>
+
+                                                {/* 📏 Size Selection */}
+                                                <div>
+                                                    <h3 className="text-sm font-medium text-gray-700 mb-2">Select Size</h3>
+                                                    <div className="flex gap-2">
+                                                        {item.attribute
+                                                            .filter((a) => a.color === selectedColor)
+                                                            .map((attr) => (
+                                                                <button
+                                                                    key={attr.size}
+                                                                    onClick={() => handleSizeSelect(attr.size)}
+                                                                    className={`px-4 py-1 border rounded-md text-sm font-medium ${selectedSize === attr.size
+                                                                        ? 'bg-black text-white border-black'
+                                                                        : 'border-gray-300 text-gray-700'
+                                                                        }`}
+                                                                >
+                                                                    {attr.size}
+                                                                </button>
+                                                            ))}
+                                                    </div>
+                                                    <p className="text-sm mt-1 text-gray-600">Selected: {selectedSize}</p>
+                                                </div>
+
+                                                {/* 🛒 Action Buttons */}
+                                                <div className="flex flex-col sm:flex-row gap-4 mt-6">
+                                                    <button onClick={handleAddToCart} className="w-full cursor-pointer sm:w-auto px-6 py-3 bg-pink-700 text-white font-semibold rounded-md hover:bg-gray-800 transition">
+                                                        Add to Cart
+                                                    </button>
+                                                    <button onClick={handleWishList} className="w-full cursor-pointer sm:w-auto px-6 py-3 border border-gray-300 text-gray-800 font-semibold rounded-md hover:border-black transition">
+                                                        ❤️ Add to Wishlist
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            {/* 📄 Additional Info */}
+                                            <div className="pt-4 space-y-3 text-sm text-gray-700">
+                                                <div>
+                                                    <h4 className="font-semibold">Product Details</h4>
+                                                    <p>
+                                                        {item.info.description}
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <h4 className="font-semibold">Material & Care</h4>
+                                                    <p>
+                                                        {item.materialCare.material} {item.materialCare.instructions}
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <h4 className="font-semibold">Return Policy</h4>
+                                                    <p>Easy {item.returnPolicy.exchangewithin} days Return policy. No questions asked.</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <p className="text-sm mt-1 text-gray-600">Selected: {selectedSize}</p>
-                                </div>
+                                ))
+                            }
 
-                                {/* 🛒 Action Buttons */}
-                                <div className="flex flex-col sm:flex-row gap-4 mt-6">
-                                    <button onClick={handleAddToCart} className="w-full cursor-pointer sm:w-auto px-6 py-3 bg-pink-700 text-white font-semibold rounded-md hover:bg-gray-800 transition">
-                                        Add to Cart
-                                    </button>
-                                    <button onClick={handleWishList} className="w-full cursor-pointer sm:w-auto px-6 py-3 border border-gray-300 text-gray-800 font-semibold rounded-md hover:border-black transition">
-                                        ❤️ Add to Wishlist
-                                    </button>
-                                </div>
-                            </div>
-
-                            {/* 📄 Additional Info */}
-                            <div className="pt-4 space-y-3 text-sm text-gray-700">
-                                <div>
-                                    <h4 className="font-semibold">Product Details</h4>
-                                    <p>
-                                        {item.info.description}
-                                    </p>
-                                </div>
-                                <div>
-                                    <h4 className="font-semibold">Material & Care</h4>
-                                    <p>
-                                        {item.materialCare.material} {item.materialCare.instructions}
-                                    </p>
-                                </div>
-                                <div>
-                                    <h4 className="font-semibold">Return Policy</h4>
-                                    <p>Easy {item.returnPolicy.exchangewithin} days Return policy. No questions asked.</p>
-                                </div>
-                            </div>
                         </div>
-                    </div>
-                ))}
+                }
+
+
 
 
                 <div className=" h-full w-full   flex-col gap-10 flex justify-center items-center p-5   ">

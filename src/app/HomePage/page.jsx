@@ -32,98 +32,166 @@ const Home = () => {
 
                 <div className="w-full max-w-md sm:max-w-md md:max-w-5xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-7xl ">
 
-                    <div className="w-full rounded ">
 
+                    <div className="w-full overflow-hidden">
                         <Carousel
-
                             plugins={[plugin.current]}
                             opts={{
-                                loop: true, // ensures infinite looping
+                                loop: true,
                             }}
                         >
                             <CarouselContent>
-                                <CarouselItem className="w-full rounded">
-                                    <div className="relative w-full h-[450px]">
+
+                                <CarouselItem  className="w-full">
+                                    <div className="relative w-full 
+            h-[220px] 
+            sm:h-[300px] 
+            md:h-[380px] 
+            lg:h-[450px]">
+
+                                        {/* Hero Image */}
                                         <img
                                             src="https://cms.landmarkshops.in/cdn-cgi/image/w=1232,q=85,fit=cover/MAX-Friday/MAX2.O/MAX-Uber-HP-Desktop-HeroBanner3-22OCT25A.png"
-                                            className="w-full h-full object-cover rounded"
                                             alt="Hero Banner"
+                                            className="w-full h-full object-cover object-center
+              sm:rounded-xl"
                                         />
 
-                                        <div className="absolute  bottom-1 left-20">
+                                        {/* Overlay Gradient (optional but recommended) */}
+                                        {/* <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" /> */}
 
-                                            {/* <TagLine className="" /> */}
+                                        {/* Tagline / CTA */}
+                                        <div className="absolute 
+              bottom-4 left-4 
+              sm:bottom-8 sm:left-8 
+              lg:left-20">
+
+                                            {/* <TagLine /> */}
                                         </div>
                                     </div>
-
                                 </CarouselItem>
-                                <CarouselItem className="w-full rounded">
-                                    <div className="relative w-full h-[450px]">
+                                <CarouselItem  className="w-full">
+                                    <div className="relative w-full 
+            h-[220px] 
+            sm:h-[300px] 
+            md:h-[380px] 
+            lg:h-[450px]">
+
+                                        {/* Hero Image */}
                                         <img
                                             src="https://max.a.bigcontent.io/v1/static/Hero-DT-Eng-100924-Men"
-                                            className="w-full h-full object-cover rounded"
                                             alt="Hero Banner"
+                                            className="w-full h-full object-cover object-center
+              sm:rounded-xl"
                                         />
 
-                                        <div className="absolute  bottom-1 left-20">
+                                        {/* Overlay Gradient (optional but recommended) */}
+                                        
 
-                                            {/* <TagLine className="" /> */}
+                                        {/* Tagline / CTA */}
+                                        <div className="absolute 
+              bottom-4 left-4 
+              sm:bottom-8 sm:left-8 
+              lg:left-20">
+
+                                            {/* <TagLine /> */}
                                         </div>
                                     </div>
-
                                 </CarouselItem>
-                                <CarouselItem className="w-full rounded">
-                                    <div className="relative w-full h-[450px]">
+                                <CarouselItem  className="w-full">
+                                    <div className="relative w-full 
+            h-[220px] 
+            sm:h-[300px] 
+            md:h-[380px] 
+            lg:h-[450px]">
+
+                                        {/* Hero Image */}
                                         <img
                                             src="https://media.maxfashion.com/i/max/1x2-New%20In-DT-En-201025-V2"
-                                            className="w-full h-full object-cover object-center rounded"
                                             alt="Hero Banner"
+                                            className="w-full h-full object-cover object-center
+              sm:rounded-xl"
                                         />
 
-                                        <div className="absolute  bottom-1 left-20">
+                                        {/* Overlay Gradient (optional but recommended) */}
+                                    
 
-                                            {/* <TagLine className="" /> */}
+                                        {/* Tagline / CTA */}
+                                        <div className="absolute 
+              bottom-4 left-4 
+              sm:bottom-8 sm:left-8 
+              lg:left-20">
+
+                                            {/* <TagLine /> */}
                                         </div>
                                     </div>
-
                                 </CarouselItem>
-                                <CarouselItem className="w-full rounded">
-                                    <div className="relative w-full h-[450px]">
+                                <CarouselItem  className="w-full">
+                                    <div className="relative w-full 
+            h-[220px] 
+            sm:h-[300px] 
+            md:h-[380px] 
+            lg:h-[450px]">
+
+                                        {/* Hero Image */}
                                         <img
                                             src="https://www.meijer.com/content/dam/meijer/digital/web-and-graphics/2022/clothing/site-assets/common-identity/09-september/D-CommonID-Hero-2x1-20220925.jpg"
-                                            className="w-full h-full object-cover object-center rounded"
                                             alt="Hero Banner"
+                                            className="w-full h-full object-cover object-center
+              sm:rounded-xl"
                                         />
 
-                                        <div className="absolute  bottom-1 left-20">
+                                        {/* Overlay Gradient (optional but recommended) */}
+                                       
 
-                                            {/* <TagLine className="" /> */}
+                                        {/* Tagline / CTA */}
+                                        <div className="absolute 
+              bottom-4 left-4 
+              sm:bottom-8 sm:left-8 
+              lg:left-20">
+
+                                            {/* <TagLine /> */}
                                         </div>
                                     </div>
-
                                 </CarouselItem>
-                                <CarouselItem className="w-full rounded">
-                                    <div className="relative w-full h-[450px]">
+                                <CarouselItem  className="w-full">
+                                    <div className="relative w-full 
+            h-[220px] 
+            sm:h-[300px] 
+            md:h-[380px] 
+            lg:h-[450px]">
+
+                                        {/* Hero Image */}
                                         <img
                                             src="https://cms.landmarkshops.in/cdn-cgi/image/w=1232,q=85,fit=cover/MAX-Friday/MAX2.O/MAX-Uber-HP-Desktop-HeroBanner1-22OCT25.png"
-                                            className="w-full h-full object-cover object-center rounded"
                                             alt="Hero Banner"
+                                            className="w-full h-full object-cover object-center
+              sm:rounded-xl"
                                         />
 
-                                        <div className="absolute  bottom-1 left-20">
+                                        {/* Overlay Gradient (optional but recommended) */}
+                                      
 
-                                            {/* <TagLine className="" /> */}
+                                        {/* Tagline / CTA */}
+                                        <div className="absolute 
+              bottom-4 left-4 
+              sm:bottom-8 sm:left-8 
+              lg:left-20">
+
+                                            {/* <TagLine /> */}
                                         </div>
                                     </div>
-
                                 </CarouselItem>
 
                             </CarouselContent>
-                            {/* <CarouselPrevious />
-                            <CarouselNext /> */}
-                        </Carousel>
 
+                            {/* Uncomment for desktop navigation */}
+                            {/* <CarouselPrevious className="hidden lg:flex" />
+    <CarouselNext className="hidden lg:flex" /> */}
+                        </Carousel>
                     </div>
+
+                 
 
                     <div className=" h-full w-full  flex-col gap-10 flex justify-center items-center p-5   ">
                         <h1 className="text-center font-serif text-2xl sm:text-5xl md:text-4xl font-semibold text-gray-900 tracking-tight">
@@ -189,7 +257,7 @@ const Home = () => {
                         </div>
                     </div>
                     <Separator></Separator>
-                
+
 
                     <div className="w-full flex flex-col items-center gap-8 p-5 bg-white">
 
