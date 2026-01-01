@@ -4,7 +4,7 @@ import { RiAccountPinCircleFill } from "react-icons/ri";
 import { GoHeartFill } from "react-icons/go";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import { Button } from "../ui/button";
-import { ChevronRight, CrossIcon, LogOut, MenuIcon, Moon, MoreHorizontal, SearchIcon, Settings, Sun, User } from "lucide-react";
+import { Box, ChevronRight, CrossIcon, LogOut, MenuIcon, Moon, MoreHorizontal, SearchIcon, Settings, Sun, User } from "lucide-react";
 import {  Mail, UserCircle, LogIn } from "lucide-react";
 
 import { useTheme } from "next-themes";
@@ -600,7 +600,7 @@ export const Navbar = () => {
 
 
                 <DropdownMenu className="w-40 h-30">
-                    <DropdownMenuTrigger><Avatar>
+                    <DropdownMenuTrigger><Avatar >
                         <AvatarImage src="https://github.com/shadcn.png" />
                         <AvatarFallback>CN</AvatarFallback>
                     </Avatar></DropdownMenuTrigger>
@@ -611,7 +611,7 @@ export const Navbar = () => {
 
 
                         <Link href="/UserLogin">
-                            <DropdownMenuItem>
+                            <DropdownMenuItem className=" ml-[-6px] ">
 
                                 <Button className=" bg-pink-500 hover:bg-white border-2 hover:text-pink-500 hover:border-pink-500 cursor-pointer">
                                     Login / Signup
@@ -733,13 +733,13 @@ export const Navbar = () => {
                         </Link>
 
                         <Link href="/MyOrders">
-                            <DropdownMenuItem >
-                                <IconMenuOrder className=" flex h-[1.2rem] w-[1.2rem] mr-2"></IconMenuOrder>
+                            <DropdownMenuItem className="flex gap-2 ml-[-6px] font-semibold" >
+                                <Box className="h-[1.2rem] w-[1.2rem] "></Box>
                                 My Orders
                             </DropdownMenuItem>
                         </Link>
-                        <DropdownMenuItem onClick={logout} variant="destructive" >
-                            <LogOut className="h-[1.2rem] w-[1.2rem] mr-2"></LogOut>
+                        <DropdownMenuItem onClick={logout} variant="destructive"className="flex gap-2 ml-[-5px] font-semibold" >
+                            <LogOut className="h-[1.2rem] w-[1.2rem]"></LogOut>
                             Logout</DropdownMenuItem>
 
                     </DropdownMenuContent>
