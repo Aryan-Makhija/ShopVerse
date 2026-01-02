@@ -5,7 +5,7 @@ import { GoHeartFill } from "react-icons/go";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import { Button } from "../ui/button";
 import { Box, ChevronRight, CrossIcon, LogOut, MenuIcon, Moon, MoreHorizontal, SearchIcon, Settings, Sun, User } from "lucide-react";
-import {  Mail, UserCircle, LogIn } from "lucide-react";
+import { Mail, UserCircle, LogIn } from "lucide-react";
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -250,7 +250,7 @@ export const Navbar = () => {
                         </div>
 
                     </MenuItem>
-
+           
 
                     <MenuItem setActive={setActive} active={active} item="Womens">
                         <p className="text-xl align-center text-pink-700 font-semibold">Womens</p>
@@ -451,8 +451,9 @@ export const Navbar = () => {
                     </MenuItem>
 
 
-                    <MenuItem setActive={setActive} active={active} item="Electronics">
-                        <p className="text-xl align-center text-pink-700 font-semibold">Electronics</p>
+                    <MenuItem setActive={setActive} active={active} item="Electronics" >
+                        <p className="text-xl align-center text-pink-700 font-semibold ">Electronics</p>
+
                         <div className="bg-white shadow-lg rounded-lg p-8 max-w-6xl mx-auto mt-10">
                             <div className="flex gap-10 justify-between items-start flex-wrap">
 
@@ -738,7 +739,7 @@ export const Navbar = () => {
                                 My Orders
                             </DropdownMenuItem>
                         </Link>
-                        <DropdownMenuItem onClick={logout} variant="destructive"className="flex gap-2 ml-[-5px] font-semibold" >
+                        <DropdownMenuItem onClick={logout} variant="destructive" className="flex gap-2 ml-[-5px] font-semibold" >
                             <LogOut className="h-[1.2rem] w-[1.2rem]"></LogOut>
                             Logout</DropdownMenuItem>
 

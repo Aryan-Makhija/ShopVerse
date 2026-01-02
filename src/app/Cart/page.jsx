@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { useOrder } from "@/Context/OrderContext"
 import { IconShoppingCart } from "@tabler/icons-react"
 
-import { DeleteIcon, Loader2, Trash2 } from "lucide-react"
+import { DeleteIcon, Loader, Loader2, Trash2 } from "lucide-react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useContext, useEffect, useState } from "react"
@@ -23,7 +23,7 @@ const ShoppingCart = () => {
     const [loading, setloading] = useState(true)
 
 
-
+    
     const router = useRouter()
 
 
@@ -64,6 +64,7 @@ const ShoppingCart = () => {
 
         }, 1000)
         windows.location.relaod()
+        ro
         toast.success("Item Deleted From the Cart")
     }
 
@@ -72,13 +73,13 @@ const ShoppingCart = () => {
         getcartitems()
     }, [])
 
-    if (loading) {
-        return (
-            <div className="flex justify-center items-center py-20">
-                <Loader2 className="animate-spin h-6 w-6 text-gray-500" />
-            </div>
-        );
-    }
+    // if (loading) {
+    //     return (
+    //         <div className="flex justify-center items-center py-20">
+    //             <Loader2 className="animate-spin h-6 w-6 text-gray-500" />
+    //         </div>
+    //     );
+    // }
 
     return (
         <div className="min-h-screen bg-primary-foreground max-w-screen">
@@ -116,47 +117,125 @@ const ShoppingCart = () => {
 
                             </Link>
 
-                        </div> : <div className="w-11/12 max-w-7xl flex flex-col lg:flex-row gap-8">
+                        </div> :
+                        ""
+                }
+
+                {
+                    cart.length !== 0 ?
+
+
+                        <div className="w-11/12 max-w-7xl flex flex-col lg:flex-row gap-8">
 
 
 
 
                             {/* Products Section */}
-                            <div className="w-full lg:w-3/5 bg-white border border-gray-200 rounded-xl shadow-2xl p-6 flex flex-col gap-6 max-h-[600px] overflow-y-auto">
-                                {/* Product Card */}
 
-                                <p>Total Cart Items : {cart.length}</p>
+                            <div className="
+  w-full lg:w-3/5
+  bg-white border border-gray-200 rounded-xl shadow-2xl
+  p-4 sm:p-6
+  flex flex-col gap-4 sm:gap-6
+  max-h-[70vh] lg:max-h-[600px]
+  overflow-y-auto
+">
+                                <p className="text-sm sm:text-base font-medium">
+                                    Total Cart Items : {cart.length}
+                                </p>
+
                                 {cart.map((item, index) => {
                                     return (
-                                        < div key={index} className="w-full border border-blue-100 rounded-lg p-4 flex gap-4 shadow-md bg-white hover:bg-blue-50 transition-all duration-300" >
-                                          
+                                        <Link href={`/ProductPage?productCode=${item.productCode}`} key={index}>
 
-                                                <div className="w-2/6 h-32 bg-gray-200 rounded-md overflow-hidden">
-                                                    <img src={item.image} className="w-full h-full object-cover object-center" alt="" />
+                                            <div
+                                                key={index}
+                                                className="
+                                w-full border border-blue-100 rounded-lg
+                                                                          p-3 sm:p-4
+                                                        flex flex-col sm:flex-row
+                                                                          gap-4
+                     shadow-md bg-white hover:bg-blue-50
+                                                                                transition-all duration-300
+                                                                            relative
+        "
+                                            >
+                                                {/* Image */}
+                                                <div className="
+          w-full sm:w-2/6
+          h-40 sm:h-32
+          bg-gray-200 rounded-md overflow-hidden
+        ">
+                                                    <img
+                                                        src={item.image}
+                                                        alt=""
+                                                        className="w-full h-full object-cover object-center"
+                                                    />
                                                 </div>
-                                                <div className="w-4/6 flex flex-col justify-between">
-                                                    <p className="font-semibold text-lg text-indigo-700">{item.category
-                                                    } </p>
-                                                    <p className="text-gray-600 text-sm">{item.description}</p>
-                                                    <p className="text-gray-600 text-sm">Size : <span>{item.size}</span></p>
-                                                    <p className="text-gray-600 text-sm"> Color :<span>{item.color}</span></p>
-                                                    <p className="text-gray-600 text-sm"> Quantity :<span className="text-blue-800 font-bold">{item.quantity}</span></p>
-                                                    <p className="text-green-600 font-semibold">₹{item.price}</p>
 
-                                                    <p className="text-yellow-500 text-sm">★★★★☆</p>
+                                                {/* Product Info */}
+                                                <div className="w-full sm:w-4/6 flex flex-col gap-1 sm:gap-2">
+                                                    <p className="font-semibold text-base sm:text-lg text-indigo-700">
+                                                        {item.category}
+                                                    </p>
+
+                                                    <p className="text-gray-600 text-xs sm:text-sm line-clamp-2">
+                                                        {item.description}
+                                                    </p>
+
+                                                    <p className="text-gray-600 text-xs sm:text-sm">
+                                                        Size : <span>{item.size}</span>
+                                                    </p>
+
+                                                    <p className="text-gray-600 text-xs sm:text-sm">
+                                                        Color : <span>{item.color}</span>
+                                                    </p>
+
+                                                    <p className="text-gray-600 text-xs sm:text-sm">
+                                                        Quantity :
+                                                        <span className="text-blue-800 font-bold ml-1">
+                                                            {item.quantity}
+                                                        </span>
+                                                    </p>
+
+                                                    <p className="text-green-600 font-semibold text-sm sm:text-base">
+                                                        ₹{item.price}
+                                                    </p>
+
+                                                    <p className="text-yellow-500 text-xs sm:text-sm">
+                                                        ★★★★☆
+                                                    </p>
                                                 </div>
-                                           
-                                            <div onClick={() => deleteitem(item._id)} className="flex items-start">
-                                                <Trash2 className="text-red-500 cursor-pointer hover:scale-110 hover:text-red-700 transition-transform duration-200" />
+
+                                                {/* Delete Icon */}
+                                                <div
+                                                    onClick={(e) => {
+                                                        e.preventDefault();   // ⛔ stops Link navigation
+                                                        e.stopPropagation();  // ⛔ stops bubbling
+                                                        deleteitem(item._id);
+                                                    }}
+                                                    className="
+            absolute sm:static
+            top-2 right-2 sm:top-auto sm:right-auto
+             bg-white w-12 h-11 justify-center
+            flex items-center rounded-full
+          "
+                                                >
+                                                    <Trash2
+                                                        className="
+              text-red-500 cursor-pointer
+              hover:scale-110 hover:text-red-700
+              transition-transform duration-200
+            "
+                                                    />
+                                                </div>
                                             </div>
-                                        </div>
-                                    )
 
+                                        </Link>
+                                    );
                                 })}
-
-                                {/* Add more product cards dynamically here */}
-
                             </div>
+
 
                             {/* Cart Details Section */}
                             <div className="w-full lg:w-2/5 bg-white border border-gray-200 rounded-xl shadow-2xl p-6 flex flex-col gap-6">
@@ -190,8 +269,20 @@ const ShoppingCart = () => {
                                 </Link>
                             </div>
 
+                        </div> :
+
+
+                        <div className="flex justify-center items-center">
+
+                            {
+                                loading === true ?
+                                    <Loader className="w-15 h-15 animate-spin"></Loader> : ""
+                            }
+
+
                         </div>
                 }
+
 
             </div>
 
