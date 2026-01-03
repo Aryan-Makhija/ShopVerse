@@ -614,7 +614,7 @@ export const Navbar = () => {
                         <Link href="/UserLogin">
                             <DropdownMenuItem className=" ml-[-6px] ">
 
-                                <Button className=" bg-pink-500 hover:bg-white border-2 hover:text-pink-500 hover:border-pink-500 cursor-pointer">
+                                <Button className=" bg-pink-500 hover:bg-white hover:border-2 hover:text-pink-500 hover:border-pink-500 cursor-pointer">
                                     Login / Signup
                                 </Button>
                             </DropdownMenuItem>
@@ -734,9 +734,9 @@ export const Navbar = () => {
                         </Link>
 
                         <Link href="/MyOrders">
-                            <DropdownMenuItem className="flex gap-2 ml-[-6px] font-semibold" >
-                                <Box className="h-[1.2rem] w-[1.2rem] "></Box>
-                                My Orders
+                            <DropdownMenuItem className="flex gap-2 ml-[-6px] hover:text-pink-500 cursor-pointer transition" >
+                                <Box className="h-[1.2rem] w-[1.2rem] hover:text-pink-500  transition"></Box>
+                                My Orders 
                             </DropdownMenuItem>
                         </Link>
                         <DropdownMenuItem onClick={logout} variant="destructive" className="flex gap-2 ml-[-5px] font-semibold" >
