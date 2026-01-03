@@ -73,7 +73,7 @@ const Productdetails = () => {
     return (
         <div className="bg-muted relative flex min-h-svh flex-col items-center justify-center gap-10 p-6 md:p-10">
 
-            <Button onClick={() => setOpen(true)} className="absolute top-5 right-5 bg-red-200 text-red-600 hover:bg-red-300 ">
+            <Button onClick={() => setOpen(true)} className="absolute top-5 right-5 bg-red-200 text-red-600 hover:bg-red-300 md:block hidden ">
                 Delete Product
             </Button>
             <AnimatePresence>
@@ -109,7 +109,7 @@ const Productdetails = () => {
                                 </p>
 
                                 {/* Buttons */}
-                                <div className="flex gap-3 mt-6">
+                                <div className="flex gap-3 mt-6 ">
                                     <button
                                         onClick={() => setOpen(false)}
                                         className="w-full py-2.5 rounded-lg border border-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 transition"
