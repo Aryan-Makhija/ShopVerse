@@ -45,7 +45,16 @@ export function NewArrivalwomens() {
                 ))
             ) : (
                 womensdata.map((item, index) => (
-                    <Link href={`/ProductPage?productCode=${item.productCode}`} key={index}>
+                    <Link href={`/ProductPage?productCode=${item.productCode}`} key={index}
+                    
+                    legacyBehavior
+                    passHref
+                    >
+
+                        <a target="_blank"
+                        rel=" noopener norereffer"
+                        >
+
                         <Card className="group relative w-full max-w-[180px] sm:max-w-[200px] md:max-w-[240px] lg:w-[280px] rounded-xl overflow-hidden border bg-white shadow-md transition-all duration-300 hover:shadow-pink-300 hover:-translate-y-1 hover:border-pink-300">
 
                             <div className="relative">
@@ -83,6 +92,7 @@ export function NewArrivalwomens() {
                             </CardContent>
 
                         </Card>
+                        </a>
                     </Link>
                 ))
             )}
