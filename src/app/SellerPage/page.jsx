@@ -95,7 +95,7 @@ const Sellerpage = () => {
                                 className="mt-10 flex flex-wrap gap-4"
                             >
                                 <Link
-                                    href="/DashBoard"
+                                    href="/AdminLogin"
                                     className="px-7 py-3 rounded-lg bg-gray-900 text-white text-sm font-semibold hover:bg-gray-800 transition"
                                 >
                                     Seller Login

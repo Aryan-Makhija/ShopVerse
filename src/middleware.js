@@ -22,7 +22,7 @@ export const middleware = (request) => {
 
     // If no token and trying to access /DashBoard => Redirect to /AdminLogin
     if (!token && pathname === "/DashBoard") {
-        return NextResponse.redirect(new URL("/AdminLogin", request.url));
+        return NextResponse.redirect(new URL("/SellerPage", request.url));
     }
 
     // If token exists and trying to access /AdminLogin or /AdminSignup => Redirect to /DashBoard
@@ -49,5 +49,5 @@ export const middleware = (request) => {
 };
 
 export const config = {
-    matcher: ["/DashBoard", "/AdminLogin", "/AdminSignup", "/UserLogin", "/UserSignup", "/Cart", "/MyOrders", "/WishList"],
+    matcher: ["/DashBoard", "/AdminLogin", "/AdminSignup", "/UserLogin", "/UserSignup", "/Cart", "/MyOrders", "/WishList","/SellerPage"],
 };

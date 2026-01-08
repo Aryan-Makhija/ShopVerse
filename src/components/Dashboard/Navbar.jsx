@@ -34,7 +34,7 @@ const DashBoradNavbar = () => {
         const data = await response.json()
         router.refresh()
         if (!data.error) {
-            return router.push("/AdminLogin")
+            return router.push("/")
         }
 
     }
