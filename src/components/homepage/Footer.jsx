@@ -80,7 +80,7 @@ const Footer = () => {
                         </h1>
                         <div className="flex flex-col space-y-2 text-sm">
                             <Link
-                                href="/DashBoard"
+                                href="/SellerPage"
                                 legacyBehavior
                                 passHref
                                 className="hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
