@@ -101,36 +101,43 @@ const AdminPage = () => {
 
 
                         {
-                            vendor.map((item, index) => {
-                                return (
-                                    <div key={index} className="w-full border-2 border-white rounded-lg p-4 mt-5">
-                                        <div className="flex justify-between items-center mb-2">
-                                            <p className="text-white font-semibold">Name</p>
-                                            <p className="text-white font-medium">{item.name}</p>
-                                        </div>
+                            vendor.length === 0 ?
+                                <div className="text-2xl text-white ">Vendor Data Not Filled !</div> : <div>
+                                    {
+                                        vendor.map((item, index) => {
+                                            return (
+                                                <div key={index} className="w-full border-2 border-white rounded-lg p-4 mt-5">
+                                                    <div className="flex justify-between items-center mb-2">
+                                                        <p className="text-white font-semibold">Name</p>
+                                                        <p className="text-white font-medium">{item.name}</p>
+                                                    </div>
 
-                                        <div className="flex justify-between items-center mb-2">
-                                            <p className="text-white font-semibold">Business Name</p>
-                                            <p className="text-white font-medium">{item.businessName}</p>
-                                        </div>
+                                                    <div className="flex justify-between items-center mb-2">
+                                                        <p className="text-white font-semibold">Business Name</p>
+                                                        <p className="text-white font-medium">{item.businessName}</p>
+                                                    </div>
 
-                                        <div className="flex justify-between items-center mb-2">
-                                            <p className="text-white font-semibold">Contact Email</p>
-                                            <p className="text-white font-medium">{item.contactEmail}</p>
-                                        </div>
+                                                    <div className="flex justify-between items-center mb-2">
+                                                        <p className="text-white font-semibold">Contact Email</p>
+                                                        <p className="text-white font-medium">{item.contactEmail}</p>
+                                                    </div>
 
-                                        <div className="flex justify-between items-center">
-                                            <p className="text-white font-semibold">Contact Phone</p>
-                                            <p className="text-white font-medium">{item.contactPhone}</p>
-                                        </div>
-                                        <div className="flex justify-between items-center">
-                                            <p className="text-white font-semibold">Address </p>
-                                            <p className="text-white font-medium">{item.address}</p>
-                                        </div>
-                                    </div>
-                                )
-                            })
+                                                    <div className="flex justify-between items-center mb-2">
+                                                        <p className="text-white font-semibold">Contact Phone</p>
+                                                        <p className="text-white font-medium">{item.contactPhone}</p>
+                                                    </div>
+                                                    <div className="flex justify-between items-center">
+                                                        <p className="text-white font-semibold">Address </p>
+                                                        <p className="text-white font-medium">{item.address}</p>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
                         }
+
+
 
 
 
