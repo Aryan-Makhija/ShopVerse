@@ -30,7 +30,7 @@ const DashBoradNavbar = () => {
         const response = await fetch("/api/admin/adminLogout", {
             method: "GET"
         })
-
+        setTheme('light'); // or 'light'
         const data = await response.json()
         router.refresh()
         if (!data.error) {
@@ -80,8 +80,8 @@ const DashBoradNavbar = () => {
                                 <User className="h-[1.2rem] w-[1.2rem] mr-2"></User>
 
                                 <Link href="/DashBoard/admin">
-                                Profile
-                                
+                                    Profile
+
                                 </Link>
                             </DropdownMenuItem>
 

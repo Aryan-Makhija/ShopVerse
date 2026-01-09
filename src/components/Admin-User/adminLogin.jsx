@@ -32,6 +32,11 @@ export function AdminLoginForm({
         body: JSON.stringify(adminlogin)
       })
 
+      if (!response.ok) {
+        seterror(data.errors)
+        return
+      }
+      toast.success("Logged In Successfully")
 
       const admin = await fetch("/api/admin/adminProfile", {
         method: "GET"
@@ -49,10 +54,7 @@ export function AdminLoginForm({
 
       const data = await response.json()
 
-      seterror(data.errors)
-      if (response.ok) {
-        return toast.success("Logged In Successfully")
-      }
+
 
       if (vendordata.adminId === admindata._id) {
         return router.push("/DashBoard")

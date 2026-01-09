@@ -8,6 +8,8 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { cookies } from "next/headers";
 import { Toaster } from "@/components/ui/sonner";
 import ContextApi from "@/Context/ContextApi";
+import LoaderPage from "@/components/homepage/Loader";
+import { Suspense } from "react";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -32,8 +34,8 @@ export default async function RootLayout({ children }) {
         <main>
 
             <ThemeProvider attribute="class"
-                defaultTheme="system"
-                enableSystem
+                defaultTheme="dark"
+                enableSystem={false}
                 disableTransitionOnChange>
                 <ContextApi>
 
@@ -44,7 +46,10 @@ export default async function RootLayout({ children }) {
                             <DashBoradNavbar></DashBoradNavbar>
 
                             <div className="px-4">
+                                <Suspense fallback={<LoaderPage></LoaderPage>}>
+
                                 {children}
+                                </Suspense>
                                 <Toaster></Toaster>
                             </div>
                         </main>

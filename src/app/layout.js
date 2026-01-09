@@ -7,6 +7,7 @@ import { CartProvider } from "@/Context/CartContext";
 import { OrderProvider } from "@/Context/OrderContext";
 import { Toaster } from "@/components/ui/sonner";
 import { Suspense } from "react";
+import LoaderPage from "@/components/homepage/Loader";
 
 
 
@@ -49,7 +50,7 @@ export default function RootLayout({ children }) {
             <main className="w-full">
 
 
-              <Suspense fallback={<div>Loading product page...</div>}>
+              <Suspense fallback={<LoaderPage></LoaderPage>}>
                 {children}
               </Suspense>
               <Toaster />

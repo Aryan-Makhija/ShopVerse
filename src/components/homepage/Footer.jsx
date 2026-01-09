@@ -79,36 +79,43 @@ const Footer = () => {
                             Make Money with Us
                         </h1>
                         <div className="flex flex-col space-y-2 text-sm">
-                            <Link
-                                href="/DashBoard"
-                                legacyBehavior
-                                passHref
-                                className="hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
-                            >
 
-                                <a target="_blank"
+                            <div className='hover:text-amber-600 dark:hover:text-amber-400 text-pink-500 transition-colors'>
+
+
+
+                                <a
+                                    href="/DashBoard"
+                                    target="_blank"
                                     rel="noopener noreferrer">
 
                                     Sell on ShopVerse
 
                                 </a>
-                            </Link>
-                            <Link
-                                href="/AdminLogin"
-                                legacyBehavior
-                                passHref
-                                className="hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
-                            >
-                                <a
-                                    target="_blank"
-                                    rel="noopener noreferrer"
 
+                            </div>
+
+
+                            <div className="hover:text-amber-600 dark:hover:text-amber-400 text-pink-500 transition-colors">
+
+                                <Link
+                                    href="/AdminLogin"
+                                    legacyBehavior
+                                    passHref
+                                    className="hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
                                 >
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
 
-                                    Login to your Account
+                                    >
 
-                                </a>
-                            </Link>
+                                        Login to your Account
+
+                                    </a>
+                                </Link>
+                            </div>
+
                         </div>
                     </div>
 
