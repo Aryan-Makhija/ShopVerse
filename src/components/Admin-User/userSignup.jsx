@@ -78,6 +78,7 @@ export function UsersignupForm({
                 <p className="text-sm text-red-500">
                   {error?.password}
                 </p>
+                {error?.password ? "" : <p className="text-gray-600 text-sm">Enter at least 8 characters, with uppercase, lowercase, and a number</p>}
               </div>
               <Button type="" onClick={(e) => handelSignup(e)} className="w-full">
                 Create New Account
