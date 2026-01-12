@@ -72,7 +72,7 @@ export const techlogos = [
 
 export function Branding() {
   return (
-    <div style={{ height: '200px', position: 'relative', overflow: 'hidden' }}>
+    <div className="h-[200px] relative overflow-hidden  flex justify-center items-center w-full">
       <LogoLoop
         logos={techlogos}
         speed={100}

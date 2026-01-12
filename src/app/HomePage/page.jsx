@@ -42,7 +42,7 @@ const Home = () => {
                         >
                             <CarouselContent>
 
-                                <CarouselItem  className="w-full">
+                                <CarouselItem className="w-full">
                                     <div className="relative w-full 
             h-[220px] 
             sm:h-[300px] 
@@ -70,7 +70,7 @@ const Home = () => {
                                         </div>
                                     </div>
                                 </CarouselItem>
-                                <CarouselItem  className="w-full">
+                                <CarouselItem className="w-full">
                                     <div className="relative w-full 
             h-[220px] 
             sm:h-[300px] 
@@ -86,7 +86,7 @@ const Home = () => {
                                         />
 
                                         {/* Overlay Gradient (optional but recommended) */}
-                                        
+
 
                                         {/* Tagline / CTA */}
                                         <div className="absolute 
@@ -98,7 +98,7 @@ const Home = () => {
                                         </div>
                                     </div>
                                 </CarouselItem>
-                                <CarouselItem  className="w-full">
+                                <CarouselItem className="w-full">
                                     <div className="relative w-full 
             h-[220px] 
             sm:h-[300px] 
@@ -114,7 +114,7 @@ const Home = () => {
                                         />
 
                                         {/* Overlay Gradient (optional but recommended) */}
-                                    
+
 
                                         {/* Tagline / CTA */}
                                         <div className="absolute 
@@ -126,7 +126,7 @@ const Home = () => {
                                         </div>
                                     </div>
                                 </CarouselItem>
-                                <CarouselItem  className="w-full">
+                                <CarouselItem className="w-full">
                                     <div className="relative w-full 
             h-[220px] 
             sm:h-[300px] 
@@ -142,7 +142,7 @@ const Home = () => {
                                         />
 
                                         {/* Overlay Gradient (optional but recommended) */}
-                                       
+
 
                                         {/* Tagline / CTA */}
                                         <div className="absolute 
@@ -154,7 +154,7 @@ const Home = () => {
                                         </div>
                                     </div>
                                 </CarouselItem>
-                                <CarouselItem  className="w-full">
+                                <CarouselItem className="w-full">
                                     <div className="relative w-full 
             h-[220px] 
             sm:h-[300px] 
@@ -170,7 +170,7 @@ const Home = () => {
                                         />
 
                                         {/* Overlay Gradient (optional but recommended) */}
-                                      
+
 
                                         {/* Tagline / CTA */}
                                         <div className="absolute 
@@ -191,18 +191,31 @@ const Home = () => {
                         </Carousel>
                     </div>
 
-                 
 
-                    <div className=" h-full w-full  flex-col gap-10 flex justify-center items-center p-5   ">
+                    {/* for mobile */}
+                    <div
+                        className="
+    w-screen sm:w-full
+    relative sm:static
+    left-1/2 sm:left-auto
+    -ml-[50vw] sm:ml-0
+    -mr-[50vw] sm:mr-0
+    flex flex-col gap-10 justify-center items-center p-1
+  "
+                    >
                         <h1 className="text-center font-serif text-2xl sm:text-5xl md:text-4xl font-semibold text-gray-900 tracking-tight">
-                            Discover Top        <span className="  text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600 drop-shadow-lg">Brands</span>
+                            Discover Top{" "}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600 drop-shadow-lg">
+                                Brands
+                            </span>
                         </h1>
 
-                        <div className="flex justify-center items-center w-full  ">
-                            <Branding></Branding>
+                        <div className="w-full flex justify-center items-center">
+                            <Branding />
                         </div>
-
                     </div>
+
+
                     {/* <Separator></Separator> */}
 
                     <div className=" h-full w-full  flex-col gap-8 flex justify-center items-center p-1   ">
