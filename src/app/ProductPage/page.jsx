@@ -171,7 +171,7 @@ const ProductPage = () => {
                 {/* breadcrums */}
             </div>
 
-            <div className="bg-primary-foreground min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 md:p-10  w-full gap-10">
+            <div className="bg-primary-foreground min-h-screen flex flex-col items-center  p-4 sm:p-6 md:p-10  w-full gap-10">
 
                 {/* Main content wrapper: responsive grid */}
                 <div className=" w-full flex justify-start ">
@@ -345,9 +345,9 @@ const ProductPage = () => {
 
 
 
-                <div className=" h-full w-full   flex-col gap-10 flex justify-center items-center p-5   ">
-                    <h1 className="text-3xl font-semibold font-serif">
-                        New Arrivales for {name}
+                <div className=" h-full w-full   flex-col gap-10 flex justify-center items-center p-1  ">
+                    <h1 className="text-center font-serif text-2xl sm:text-5xl md:text-4xl font-semibold text-gray-900 tracking-tight">
+                       Explore More      <span className="  text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600 drop-shadow-lg">{name}</span> Products
                     </h1>
 
 
