@@ -49,7 +49,7 @@ const Home = () => {
             md:h-[380px] 
             lg:h-[450px]">
 
-                                        {/* Hero Image */}
+                                       
                                         <img
                                             src="https://cms.landmarkshops.in/cdn-cgi/image/w=1232,q=85,fit=cover/MAX-Friday/MAX2.O/MAX-Uber-HP-Desktop-HeroBanner3-22OCT25A.png"
                                             alt="Hero Banner"
@@ -57,16 +57,15 @@ const Home = () => {
               sm:rounded-xl"
                                         />
 
-                                        {/* Overlay Gradient (optional but recommended) */}
-                                        {/* <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" /> */}
+                                        
 
-                                        {/* Tagline / CTA */}
+                                   
                                         <div className="absolute 
               bottom-4 left-4 
               sm:bottom-8 sm:left-8 
               lg:left-20">
 
-                                            {/* <TagLine /> */}
+                                        
                                         </div>
                                     </div>
                                 </CarouselItem>
@@ -77,7 +76,7 @@ const Home = () => {
             md:h-[380px] 
             lg:h-[450px]">
 
-                                        {/* Hero Image */}
+                                
                                         <img
                                             src="https://max.a.bigcontent.io/v1/static/Hero-DT-Eng-100924-Men"
                                             alt="Hero Banner"
@@ -85,16 +84,13 @@ const Home = () => {
               sm:rounded-xl"
                                         />
 
-                                        {/* Overlay Gradient (optional but recommended) */}
-
-
-                                        {/* Tagline / CTA */}
+                                   
                                         <div className="absolute 
               bottom-4 left-4 
               sm:bottom-8 sm:left-8 
               lg:left-20">
 
-                                            {/* <TagLine /> */}
+                                          
                                         </div>
                                     </div>
                                 </CarouselItem>
@@ -105,7 +101,7 @@ const Home = () => {
             md:h-[380px] 
             lg:h-[450px]">
 
-                                        {/* Hero Image */}
+                                 
                                         <img
                                             src="https://media.maxfashion.com/i/max/1x2-New%20In-DT-En-201025-V2"
                                             alt="Hero Banner"
@@ -113,16 +109,13 @@ const Home = () => {
               sm:rounded-xl"
                                         />
 
-                                        {/* Overlay Gradient (optional but recommended) */}
-
-
-                                        {/* Tagline / CTA */}
+                               
                                         <div className="absolute 
               bottom-4 left-4 
               sm:bottom-8 sm:left-8 
               lg:left-20">
 
-                                            {/* <TagLine /> */}
+                                      
                                         </div>
                                     </div>
                                 </CarouselItem>
@@ -133,7 +126,7 @@ const Home = () => {
             md:h-[380px] 
             lg:h-[450px]">
 
-                                        {/* Hero Image */}
+                                 
                                         <img
                                             src="https://www.meijer.com/content/dam/meijer/digital/web-and-graphics/2022/clothing/site-assets/common-identity/09-september/D-CommonID-Hero-2x1-20220925.jpg"
                                             alt="Hero Banner"
@@ -141,16 +134,12 @@ const Home = () => {
               sm:rounded-xl"
                                         />
 
-                                        {/* Overlay Gradient (optional but recommended) */}
-
-
-                                        {/* Tagline / CTA */}
+                                    
                                         <div className="absolute 
               bottom-4 left-4 
               sm:bottom-8 sm:left-8 
               lg:left-20">
 
-                                            {/* <TagLine /> */}
                                         </div>
                                     </div>
                                 </CarouselItem>
@@ -161,7 +150,7 @@ const Home = () => {
             md:h-[380px] 
             lg:h-[450px]">
 
-                                        {/* Hero Image */}
+                                 
                                         <img
                                             src="https://cms.landmarkshops.in/cdn-cgi/image/w=1232,q=85,fit=cover/MAX-Friday/MAX2.O/MAX-Uber-HP-Desktop-HeroBanner1-22OCT25.png"
                                             alt="Hero Banner"
@@ -169,30 +158,23 @@ const Home = () => {
               sm:rounded-xl"
                                         />
 
-                                        {/* Overlay Gradient (optional but recommended) */}
-
-
-                                        {/* Tagline / CTA */}
                                         <div className="absolute 
               bottom-4 left-4 
               sm:bottom-8 sm:left-8 
               lg:left-20">
 
-                                            {/* <TagLine /> */}
                                         </div>
                                     </div>
                                 </CarouselItem>
 
                             </CarouselContent>
 
-                            {/* Uncomment for desktop navigation */}
-                            {/* <CarouselPrevious className="hidden lg:flex" />
-    <CarouselNext className="hidden lg:flex" /> */}
+                           
                         </Carousel>
                     </div>
 
 
-                    {/* for mobile */}
+                 
                     <div
                         className="
     w-screen sm:w-full

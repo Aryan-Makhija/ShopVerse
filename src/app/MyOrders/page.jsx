@@ -7,6 +7,8 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from 'sonner'
+import FooterNavbar from '@/components/homepage/FooterNav'
+import Footer from '@/components/homepage/Footer'
 
 
 
@@ -304,7 +306,8 @@ const Myorders = () => {
 
       </div>
 
-
+      <FooterNavbar></FooterNavbar>
+      <Footer></Footer>
     </div>
 
 

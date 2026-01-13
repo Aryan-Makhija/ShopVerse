@@ -2,6 +2,8 @@
 "use client"
 
 
+import Footer from "@/components/homepage/Footer";
+import FooterNavbar from "@/components/homepage/FooterNav";
 import { Navbar } from "@/components/homepage/Navbar";
 import Stepper, { Step } from "@/components/OrderStepper";
 import { AddressDetails } from "@/components/OrderSteps/AddressDetails";
@@ -60,6 +62,8 @@ const OrderPage = () => {
           </div>
         </div>
       </div>
+<FooterNavbar></FooterNavbar>
+      <Footer></Footer>
     </div>
   )
 }

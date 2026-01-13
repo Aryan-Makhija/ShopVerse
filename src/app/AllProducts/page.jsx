@@ -2,6 +2,7 @@
 "use client"
 
 import DashBoardSidebar from "@/components/Dashboard/Sidebar"
+import FooterNavbar from "@/components/homepage/FooterNav"
 import { Navbar } from "@/components/homepage/Navbar"
 import { NewArrivalwomens } from "@/components/homepage/NewArrivalwomens"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
@@ -16,7 +17,7 @@ import { useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 
 
-const brandOptions = ['Nike', 'Adidas', 'Puma', 'Roadster', 'HRX',"levis"];
+const brandOptions = ['Nike', 'Adidas', 'Puma', 'Roadster', 'HRX', "levis"];
 const colorOptions = ['Red', 'Blue', 'Black', 'White', 'Purple'];
 
 const AllProductsPage = () => {
@@ -70,7 +71,7 @@ const AllProductsPage = () => {
         try {
             const res = await fetch(`/api/filter?${params.toString()}`);
             const data = await res.json();
-   
+
             setProducts(data);
         } catch (err) {
             console.error("Filter fetch error:", err);
@@ -157,7 +158,7 @@ const AllProductsPage = () => {
 
                 {/* Product Listing */}
                 <main className="flex-1 p-6">
-                    <div className="flex flex-wrap gap-10 justify-center items-center">
+                    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:flex lg:flex-wrap lg:justify-center md:gap-15 gap-3   w-full">
                         {products.length === 0 ? (
                             <p>No products found.</p>
                         ) : (
@@ -169,26 +170,52 @@ const AllProductsPage = () => {
                                     passHref
                                 >
                                     <a target="_blank" rel="noopener noreferrer">
-                                        <Card className="w-[250px] rounded-lg overflow-hidden shadow-lg border hover:shadow-xl transition-shadow duration-300 shadow-orange-200">
-                                            <CardHeader className="p-0">
+                                       
+                                        <Card
+                                            className="
+                                            group relative w-full
+                                            max-w-[180px] sm:max-w-[300px] md:max-w-[240px] lg:w-[280px]
+                                            h-[280px] sm:h-auto
+                                            rounded-xl overflow-hidden border bg-white shadow-md
+                                            transition-all duration-300 hover:shadow-pink-300 hover:-translate-y-1 hover:border-pink-300
+                                            flex flex-col
+                                          "
+                                        >
+                                            {/* Image */}
+                                            <div className="relative w-full h-[140px] sm:h-56 md:h-60 overflow-hidden">
                                                 <img
-                                                    src={item?.variants?.[0]?.image?.[0]}
-                                                    alt="Product"
-                                                    className="w-full h-60 object-cover"
+                                                    src={item?.variants?.[0].image?.[0]}
+                                                    alt={item.category?.name}
+                                                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                                                 />
-                                            </CardHeader>
-                                            <CardContent className="p-4">
-                                                <h2 className="text-lg font-semibold text-gray-800">
-                                                    {item.category?.name} {item.subcategory?.name}
-                                                </h2>
-                                                <p className="text-sm text-gray-500 mb-2">
-                                                    Brand: {item.brand?.name}
-                                                </p>
-                                                <div className="flex items-center justify-between mt-3">
-                                                    <span className="text-lg font-bold text-green-600">
-                                                        ₹{item.variants?.[0]?.price}
+
+                                                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+                                                    <button className="px-3 py-2 bg-white text-pink-600 text-xs sm:text-sm rounded-lg font-medium shadow-md hover:bg-pink-50 transition">
+                                                        Quick View
+                                                    </button>
+                                                    <button className="px-3 py-2 bg-pink-600 text-white text-xs sm:text-sm rounded-lg font-medium shadow-md hover:bg-pink-700 transition">
+                                                        Add to Cart
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            {/* Content */}
+                                            <CardContent className="p-3 sm:p-4 flex flex-col flex-1 justify-between">
+                                                <div>
+                                                    <h2 className="text-sm sm:text-md md:text-lg font-semibold text-gray-800 group-hover:text-pink-600 transition line-clamp-2">
+                                                        {item.productname}
+                                                    </h2>
+
+                                                    <p className="text-xs sm:text-sm text-gray-500 mt-1 line-clamp-1">
+                                                        Brand: {item.brand?.name}
+                                                    </p>
+                                                </div>
+
+                                                <div className="flex items-center justify-between mt-2">
+                                                    <span className="text-sm sm:text-lg font-bold text-pink-600">
+                                                        ₹{item.variants?.[0].price}
                                                     </span>
-                                                    <span className="text-yellow-500 text-sm">★★★★☆</span>
+                                                    <span className="text-yellow-500 text-xs sm:text-sm">★★★★☆</span>
                                                 </div>
                                             </CardContent>
                                         </Card>
@@ -199,6 +226,8 @@ const AllProductsPage = () => {
                     </div>
                 </main>
             </div>
+
+            <FooterNavbar></FooterNavbar>
         </div>
     );
 };

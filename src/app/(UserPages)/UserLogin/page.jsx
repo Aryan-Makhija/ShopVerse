@@ -1,4 +1,5 @@
 import { UserloginForm } from '@/components/Admin-User/userLogin'
+import FooterNavbar from '@/components/homepage/FooterNav'
 import { Navbar } from '@/components/homepage/Navbar'
 import { IconArrowLeftFromArc } from '@tabler/icons-react'
 import { ArrowLeftSquare } from 'lucide-react'
@@ -15,6 +16,7 @@ const UserLoginPage = () => {
                     <UserloginForm></UserloginForm>
                 </div>
             </div>
+            <FooterNavbar></FooterNavbar>
         </div>
     )
 }

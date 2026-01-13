@@ -1,5 +1,6 @@
 "use client"
 
+import FooterNavbar from "@/components/homepage/FooterNav"
 import { Navbar } from "@/components/homepage/Navbar"
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
 import { Button } from "@/components/ui/button"
@@ -195,6 +196,8 @@ const WishList = () => {
 
 
             </div>
+
+            <FooterNavbar></FooterNavbar>
         </div>
 
 

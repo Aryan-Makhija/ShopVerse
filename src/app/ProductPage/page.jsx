@@ -1,6 +1,7 @@
 "use client"
 
 import Footer from "@/components/homepage/Footer";
+import FooterNavbar from "@/components/homepage/FooterNav";
 import LatestProducts from "@/components/homepage/LatestProducts";
 import { Navbar } from "@/components/homepage/Navbar"
 import { NewArrivalmens } from "@/components/homepage/NewArrivalmens";
@@ -347,7 +348,7 @@ const ProductPage = () => {
 
                 <div className=" h-full w-full   flex-col gap-10 flex justify-center items-center p-1  ">
                     <h1 className="text-center font-serif text-2xl sm:text-5xl md:text-4xl font-semibold text-gray-900 tracking-tight">
-                       Explore More      <span className="  text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600 drop-shadow-lg">{name}</span> Products
+                        Explore More      <span className="  text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600 drop-shadow-lg">{name}</span> Products
                     </h1>
 
 
@@ -364,7 +365,7 @@ const ProductPage = () => {
 
 
 
-
+            <FooterNavbar></FooterNavbar>
             <div>
                 <Footer></Footer>
             </div>

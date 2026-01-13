@@ -6,7 +6,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { Button } from "../ui/button";
 import { Box, ChevronRight, CrossIcon, LogOut, MenuIcon, Moon, MoreHorizontal, SearchIcon, Settings, Sun, User } from "lucide-react";
 import { Mail, UserCircle, LogIn } from "lucide-react";
-
+import React from "react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
@@ -14,10 +14,7 @@ import { InputGroup, InputGroupAddon, InputGroupInput } from "../ui/input-group"
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { IconDotsVertical, IconMenuOrder } from "@tabler/icons-react";
 
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import {
     Sheet,
     SheetClose,
@@ -29,6 +26,7 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet"
 import { Badge } from "../ui/badge";
+
 import StaggeredMenu from "../StaggeredMenu";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import { toast } from "sonner";
@@ -178,7 +176,7 @@ export const Navbar = () => {
 
 
             {/* Menu Item div  */}
-            <div className=" hidden lg:block   ">
+            <div className=" hidden xl:block   ">
                 <Menu setActive={setActive}>
 
 
@@ -250,7 +248,7 @@ export const Navbar = () => {
                         </div>
 
                     </MenuItem>
-           
+
 
                     <MenuItem setActive={setActive} active={active} item="Womens">
                         <p className="text-xl align-center text-pink-700 font-semibold">Womens</p>
@@ -524,7 +522,7 @@ export const Navbar = () => {
 
 
             {/* Search Input  */}
-            <div>
+            {/* <div>
                 <form onSubmit={handleSubmit}>
                     <InputGroup >
                         <InputGroupInput
@@ -550,79 +548,131 @@ export const Navbar = () => {
 
                 </form>
 
+            </div> */}
+
+            <div className="">
+                <form
+                    onSubmit={handleSubmit}
+                    className="w-[200px] sm:w-[280px] mx-2"
+                >
+                    <div className="relative flex items-center border rounded-full overflow-hidden shadow-sm bg-white focus-within:ring-2 focus-within:ring-pink-500 transition">
+
+                        {/* Brand Logo SV */}
+                        <div className="absolute left-2 flex items-center pointer-events-none">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600 font-bold text-sm sm:text-lg font-serif">
+                                SV
+                            </span>
+                        </div>
+
+                        {/* Input */}
+                        <input
+                            type="text"
+                            placeholder="Search products..."
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter") {
+                                    e.preventDefault();
+                                    handleSubmit(e);
+                                }
+                            }}
+                            className="
+          w-full
+          pl-8 sm:pl-10
+          pr-9
+          py-1.5
+          text-sm sm:text-base
+          outline-none
+          border-none
+          placeholder-gray-400
+        "
+                        />
+
+                        {/* Search Button */}
+                        <button
+                            type="submit"
+                            className="
+          absolute right-1
+          flex items-center justify-center
+          px-2 py-1.5
+          bg-pink-500 hover:bg-pink-600
+          text-white
+          rounded-full
+          transition
+        "
+                        >
+                            <SearchIcon className="h-4 w-4 sm:h-5 sm:w-5" />
+                        </button>
+
+                    </div>
+                </form>
             </div>
 
 
+
+
+
+
+
             {/* profile  ,cart , wishlist , mobilemenu  */}
-            <div className=" w-50  flex justify-around">
+            <div className=" w-40  flex justify-around">
 
-                {/* <div className="hidden lg:block">
 
-                    <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <Button variant="outline" size="icon">
-                                <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-                                <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-                                <span className="sr-only">Toggle theme</span>
-                            </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                            <DropdownMenuItem onClick={() => setTheme("light")}>
-                                Light
-                            </DropdownMenuItem>
-                            <DropdownMenuItem onClick={() => setTheme("dark")}>
-                                Dark
-                            </DropdownMenuItem>
-                            <DropdownMenuItem onClick={() => setTheme("system")}>
-                                System
-                            </DropdownMenuItem>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
-
-                </div> */}
 
                 {/* Mobile menu  */}
 
 
-
-                <Link href="/Cart" className="relative inline-block   justify-center items-center">
-                    {/* Icon */}
-                    <IoBag className="  md:w-7 md:h-7 w-6 h-6 text-pink-400" />
-
-                    {/* Badge */}
-                    {cartitem.length > 0 && (
-                        <Badge
-                            className="absolute -top-1 -right-2 rounded-full text-[10px] px-1.5 py-0.5 bg-red-500 text-white"
-                        >
-                            {cartitem.length}
-                        </Badge>
-                    )}
-                </Link>
+                <div className=" flex justify-around items-center md:gap-9 gap-2 w-full">
 
 
-                <DropdownMenu className="w-40 h-30">
-                    <DropdownMenuTrigger><Avatar >
-                        <AvatarImage src="https://github.com/shadcn.png" />
-                        <AvatarFallback>CN</AvatarFallback>
-                    </Avatar></DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-70 h-70">
-                        <DropdownMenuLabel>Welcome</DropdownMenuLabel>
-                        <DropdownMenuLabel className="text-sm ">To access and manage account</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
+                    <Link href="/Cart" className="relative inline-block   justify-center items-center">
+                        {/* Icon */}
+                        <IoBag className="  md:w-7 md:h-7 w-6 h-6 text-pink-400" />
+
+                        {/* Badge */}
+                        {cartitem.length > 0 && (
+                            <Badge
+                                className="absolute -top-1 -right-2 rounded-full text-[10px] px-1.5 py-0.5 bg-red-500 text-white"
+                            >
+                                {cartitem.length}
+                            </Badge>
+                        )}
+                    </Link>
+
+                    <Link href="/WishList" className=" relative inline-block justify-center  items-center">
+                        <GoHeartFill className=" md:w-7 md:h-7 h-6 w-6 text-rose-600" />
+                        {wishlist.length > 0 && (
+                            <Badge
+                                className="absolute -top-1 -right-2 rounded-full text-[10px] px-1.5 py-0.5 bg-red-500 text-white"
+                            >
+                                {wishlist.length}
+                            </Badge>
+                        )}
+                    </Link>
+
+                    <DropdownMenu className="w-40 h-30 ">
+                        <DropdownMenuTrigger><Avatar className="md:w-7 md:h-7 w-6 h-6 " >
+                            <AvatarImage src="https://github.com/shadcn.png" />
+                            <AvatarFallback>CN</AvatarFallback>
+                        </Avatar></DropdownMenuTrigger>
+                        <DropdownMenuContent className="w-70 h-70">
+                            <DropdownMenuLabel>Welcome</DropdownMenuLabel>
+                            <DropdownMenuLabel className="text-sm ">To access and manage account</DropdownMenuLabel>
+                            <DropdownMenuSeparator />
 
 
-                        <Link href="/UserLogin">
-                            <DropdownMenuItem className=" ml-[-6px] ">
+                            <Link href="/UserLogin">
+                                <DropdownMenuItem className=" ml-[-6px] ">
 
-                                <Button className=" bg-pink-500 hover:bg-white hover:border-2 hover:text-pink-500 hover:border-pink-500 cursor-pointer">
-                                    Login / Signup
-                                </Button>
-                            </DropdownMenuItem>
-                        </Link>
+                                    <Button className=" bg-pink-500 hover:bg-white hover:border-2 hover:text-pink-500 hover:border-pink-500 cursor-pointer">
+                                        Login / Signup
+                                    </Button>
+                                </DropdownMenuItem>
+                            </Link>
 
-                        <Link href="">
-                            <DropdownMenuItem asChild>
-                                {/* <Sheet asChild>
+                            <Link href="">
+                                <DropdownMenuItem asChild>
+                                    {/* <Sheet asChild>
                                     <SheetTrigger onClick={userprofile} className="flex gap-2"><User className="h-[1.2rem] w-[1.2rem] mr-2"></User>Profile</SheetTrigger>
                                     <SheetContent>
                                         <SheetHeader>
@@ -653,160 +703,108 @@ export const Navbar = () => {
                                         </SheetHeader>
                                     </SheetContent>
                                 </Sheet> */}
-                                <Sheet asChild>
-                                    <SheetTrigger
-                                        onClick={userprofile}
-                                        className="flex items-center gap-2 cursor-pointer hover:text-pink-600 transition"
-                                    >
-                                        <User className="h-[1.2rem] w-[1.2rem]" />
-                                        Profile
-                                    </SheetTrigger>
+                                    <Sheet asChild>
+                                        <SheetTrigger
+                                            onClick={userprofile}
+                                            className="flex items-center gap-2 cursor-pointer hover:text-pink-600 transition"
+                                        >
+                                            <User className="h-[1.2rem] w-[1.2rem]" />
+                                            Profile
+                                        </SheetTrigger>
 
-                                    <SheetContent className="p-6 flex flex-col">
-                                        <SheetHeader>
-                                            <SheetTitle className="text-2xl font-semibold text-gray-800">My Profile</SheetTitle>
-                                            <SheetDescription className="text-gray-500">
-                                                Manage your account, view details, and access quick actions.
-                                            </SheetDescription>
-                                        </SheetHeader>
+                                        <SheetContent className="p-6 flex flex-col">
+                                            <SheetHeader>
+                                                <SheetTitle className="text-2xl font-semibold text-gray-800">My Profile</SheetTitle>
+                                                <SheetDescription className="text-gray-500">
+                                                    Manage your account, view details, and access quick actions.
+                                                </SheetDescription>
+                                            </SheetHeader>
 
-                                        {/* CONTENT */}
-                                        <div className="mt-6 flex-1 overflow-auto">
-                                            {profile.length > 0 ? (
-                                                profile.map((item, index) => (
-                                                    <div
-                                                        key={index}
-                                                        className="flex flex-col items-center gap-6 p-6 bg-white rounded-xl shadow-md border max-w-md mx-auto"
-                                                    >
-                                                        <div className="w-24 h-24 rounded-full bg-gradient-to-br from-pink-500 to-pink-300 flex items-center justify-center shadow-md">
-                                                            <UserCircle className="text-white w-14 h-14" />
+                                            {/* CONTENT */}
+                                            <div className="mt-6 flex-1 overflow-auto">
+                                                {profile.length > 0 ? (
+                                                    profile.map((item, index) => (
+                                                        <div
+                                                            key={index}
+                                                            className="flex flex-col items-center gap-6 p-6 bg-white rounded-xl shadow-md border max-w-md mx-auto"
+                                                        >
+                                                            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-pink-500 to-pink-300 flex items-center justify-center shadow-md">
+                                                                <UserCircle className="text-white w-14 h-14" />
+                                                            </div>
+
+                                                            <div className="w-full text-center">
+                                                                <p className="text-gray-500 text-xs uppercase tracking-wide">Email</p>
+                                                                <p className="text-lg font-medium text-gray-800 flex items-center justify-center gap-2 mt-1">
+                                                                    <Mail className="w-4 h-4 text-gray-500" /> {item.email}
+                                                                </p>
+                                                            </div>
+
+                                                            <div className="w-full text-center">
+                                                                <p className="text-gray-500 text-xs uppercase tracking-wide">Name</p>
+                                                                <p className="text-xl font-semibold text-gray-900">{item.name}</p>
+                                                            </div>
                                                         </div>
-
-                                                        <div className="w-full text-center">
-                                                            <p className="text-gray-500 text-xs uppercase tracking-wide">Email</p>
-                                                            <p className="text-lg font-medium text-gray-800 flex items-center justify-center gap-2 mt-1">
-                                                                <Mail className="w-4 h-4 text-gray-500" /> {item.email}
-                                                            </p>
-                                                        </div>
-
-                                                        <div className="w-full text-center">
-                                                            <p className="text-gray-500 text-xs uppercase tracking-wide">Name</p>
-                                                            <p className="text-xl font-semibold text-gray-900">{item.name}</p>
-                                                        </div>
+                                                    ))
+                                                ) : (
+                                                    // EMPTY PROFILE (Not Logged In)
+                                                    <div className="flex flex-col items-center justify-center h-full text-center mt-10">
+                                                        <UserCircle className="w-20 h-20 text-gray-400 mb-4" />
+                                                        <h2 className="text-xl font-semibold text-gray-800">You're not logged in</h2>
+                                                        <p className="text-gray-500 mt-2 mb-4">
+                                                            Please log in to view and manage your profile details.
+                                                        </p>
+                                                        <button
+                                                            onClick={() => router.push("/UserLogin")}
+                                                            className="px-5 py-2 bg-pink-600 text-white rounded-lg shadow hover:bg-pink-700 transition"
+                                                        >
+                                                            <LogIn className="w-4 h-4 inline mr-2" />
+                                                            Login
+                                                        </button>
                                                     </div>
-                                                ))
-                                            ) : (
-                                                // EMPTY PROFILE (Not Logged In)
-                                                <div className="flex flex-col items-center justify-center h-full text-center mt-10">
-                                                    <UserCircle className="w-20 h-20 text-gray-400 mb-4" />
-                                                    <h2 className="text-xl font-semibold text-gray-800">You're not logged in</h2>
-                                                    <p className="text-gray-500 mt-2 mb-4">
-                                                        Please log in to view and manage your profile details.
-                                                    </p>
+                                                )}
+                                            </div>
+
+                                            {/* FOOTER ACTIONS */}
+                                            {profile.length > 0 && (
+                                                <div className="mt-6 border-t pt-4">
                                                     <button
-                                                        onClick={() => router.push("/UserLogin")}
-                                                        className="px-5 py-2 bg-pink-600 text-white rounded-lg shadow hover:bg-pink-700 transition"
+                                                        onClick={logout}
+                                                        className="w-full flex items-center justify-center gap-2 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 transition"
                                                     >
-                                                        <LogIn className="w-4 h-4 inline mr-2" />
-                                                        Login
+                                                        <LogOut className="w-4 h-4" /> Logout
                                                     </button>
                                                 </div>
                                             )}
-                                        </div>
-
-                                        {/* FOOTER ACTIONS */}
-                                        {profile.length > 0 && (
-                                            <div className="mt-6 border-t pt-4">
-                                                <button
-                                                    onClick={logout}
-                                                    className="w-full flex items-center justify-center gap-2 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 transition"
-                                                >
-                                                    <LogOut className="w-4 h-4" /> Logout
-                                                </button>
-                                            </div>
-                                        )}
-                                    </SheetContent>
-                                </Sheet>
+                                        </SheetContent>
+                                    </Sheet>
 
 
-                            </DropdownMenuItem>
+                                </DropdownMenuItem>
 
-                        </Link>
+                            </Link>
 
-                        <Link href="/MyOrders">
-                            <DropdownMenuItem className="flex gap-2 ml-[-6px] hover:text-pink-500 cursor-pointer transition" >
-                                <Box className="h-[1.2rem] w-[1.2rem] hover:text-pink-500  transition"></Box>
-                                My Orders 
-                            </DropdownMenuItem>
-                        </Link>
-                        <DropdownMenuItem onClick={logout} variant="destructive" className="flex gap-2 ml-[-5px] font-semibold" >
-                            <LogOut className="h-[1.2rem] w-[1.2rem]"></LogOut>
-                            Logout</DropdownMenuItem>
+                            <Link href="/MyOrders">
+                                <DropdownMenuItem className="flex gap-2 ml-[-6px] hover:text-pink-500 cursor-pointer transition" >
+                                    <Box className="h-[1.2rem] w-[1.2rem] hover:text-pink-500  transition"></Box>
+                                    My Orders
+                                </DropdownMenuItem>
+                            </Link>
+                            <DropdownMenuItem onClick={logout} variant="destructive" className="flex gap-2 ml-[-5px] font-semibold" >
+                                <LogOut className="h-[1.2rem] w-[1.2rem]"></LogOut>
+                                Logout</DropdownMenuItem>
 
-                    </DropdownMenuContent>
-                </DropdownMenu>
-
-
-                <Link href="/WishList" className="relative inline-block justify-center  items-center">
-                    <GoHeartFill className=" md:w-7 md:h-7 h-6 w-6 text-rose-600" />
-                    {wishlist.length > 0 && (
-                        <Badge
-                            className="absolute -top-1 -right-2 rounded-full text-[10px] px-1.5 py-0.5 bg-red-500 text-white"
-                        >
-                            {wishlist.length}
-                        </Badge>
-                    )}
-                </Link>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
 
 
-                <div className="block lg:hidden">
-
-                    <Sheet>
-                        <SheetTrigger asChild>
-                            <MenuIcon ></MenuIcon>
-                        </SheetTrigger>
-
-                        {/* Sidebar Sheet */}
-                        <SheetContent side="left" className="w-72 p-0">
-                            <SheetHeader className="p-4 border-b">
-                                <SheetTitle>Shop Categories</SheetTitle>
-                            </SheetHeader>
-
-                            <nav className="p-2">
-                                <Accordion type="multiple" className="w-full">
-                                    {menuGroups.map((group) => (
-                                        <AccordionItem key={group.title} value={group.title}>
-                                            <AccordionTrigger className="px-3 py-2 text-base font-medium">
-                                                {group.title}
-                                            </AccordionTrigger>
-
-                                            <AccordionContent className="px-3 pb-2">
-                                                <ul className="space-y-1">
-                                                    {group.items.map((item) => (
-                                                        <li key={item}>
-                                                            <SheetClose asChild>
-                                                                <button
-                                                                    className="
-                                                                        flex items-center w-full text-left text-sm px-2 py-1.5 rounded-md hover:bg-accent hover:text-accent-foreground transition
-                                                                "
-                                                                >
-                                                                    <ChevronRight className="mr-2 h-4 w-4 text-muted-foreground" />
-                                                                    {item}
-                                                                </button>
-                                                            </SheetClose>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </AccordionContent>
-                                        </AccordionItem>
-                                    ))}
-                                </Accordion>
-                            </nav>
-                        </SheetContent>
-                    </Sheet>
 
                 </div>
 
+
+
+
+
+              
 
 
             </div>

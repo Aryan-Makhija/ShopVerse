@@ -1,6 +1,6 @@
 import { UsersignupForm } from '@/components/Admin-User/userSignup'
 import { Navbar } from '@/components/homepage/Navbar'
-
+import FooterNavbar from '@/components/homepage/FooterNav'
 
 const Signup = () => {
     return (
@@ -11,7 +11,7 @@ const Signup = () => {
                     <UsersignupForm></UsersignupForm>
                 </div>
             </div>
-
+  <FooterNavbar></FooterNavbar>
         </div>
     )
 }

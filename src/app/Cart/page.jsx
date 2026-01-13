@@ -1,6 +1,7 @@
 "use client"
 
 import Counter from "@/components/Counter"
+import FooterNavbar from "@/components/homepage/FooterNav"
 import { Navbar } from "@/components/homepage/Navbar"
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
 import { Button } from "@/components/ui/button"
@@ -23,7 +24,7 @@ const ShoppingCart = () => {
     const [loading, setloading] = useState(true)
 
 
-    
+
     const router = useRouter()
 
 
@@ -285,7 +286,7 @@ const ShoppingCart = () => {
 
 
             </div>
-
+            <FooterNavbar></FooterNavbar>
 
         </div >
     )

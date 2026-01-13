@@ -11,6 +11,7 @@ import {
     Truck,
     ShieldCheck,
 } from "lucide-react";
+import FooterNavbar from '@/components/homepage/FooterNav';
 
 const Sellerpage = () => {
     return (
@@ -135,7 +136,7 @@ const Sellerpage = () => {
                     </div>
                 </motion.section>
             </div>
-
+            <FooterNavbar></FooterNavbar>
             <Footer></Footer>
         </>
     )
