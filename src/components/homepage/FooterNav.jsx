@@ -48,11 +48,7 @@ const FooterNavbar = () => {
             link: "/", // home page URL
             isLink: true,
         },
-        {
-            id: "menu",
-            icon: Menu,
-            isSheet: true, // open menu sheet
-        },
+
         {
             id: "orders",
             icon: ShoppingBag,
@@ -64,12 +60,17 @@ const FooterNavbar = () => {
             icon: GoHeartFill,
             isWishlist: true, // special wishlist icon
         },
+        {
+            id: "menu",
+            icon: Menu,
+            isSheet: true, // open menu sheet
+        },
     ];
     const [search, setSearch] = useState("");
 
 
     const router = useRouter()
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!search.trim()) return;
