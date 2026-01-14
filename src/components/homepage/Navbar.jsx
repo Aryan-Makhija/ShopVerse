@@ -30,6 +30,7 @@ import { Badge } from "../ui/badge";
 import StaggeredMenu from "../StaggeredMenu";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import { toast } from "sonner";
+import Header from "./Header";
 
 export const Navbar = () => {
 
@@ -157,32 +158,27 @@ export const Navbar = () => {
 
     return (
 
-        <div className="flex sticky top-0 inset-x-0 justify-around items-center mx-auto z-50  shadow-xl shadow-gray-300 bg-primary-foreground w-full    ">
+
+        <div className="flex sticky  top-0    inset-x-0 justify-around items-center mx-auto z-50   w-full rounded-b-2xl   ">
 
             <Link href="/">
-                <div className="text-3xl font-serif font-bold px-8 py-3 text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600 drop-shadow-lg hidden lg:block">
+                <div className="text-3xl font-serif font-bold px-8 py-3 text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600 drop-shadow-lg hidden xl:block">
                     ShopVerse
                 </div>
-                {/* <div className="text-3xl font-serif font-bold px-4 py-3 text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600 drop-shadow-lg block lg:hidden">
-                    SV
-                </div> */}
-                {/* <div className="text-3xl font-serif font-bold px-8 py-3 text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600  block lg:hidden">
-                    <img src="https://i.fbcd.co/products/resized/resized-750-500/sv-letter-design-logos-2-600662b9731f9f6a97ecc281433d6645ce432f5bd252315c0b88529e99edec31.jpg" alt="" className="w-30 h-15" />
-                </div> */}
+            
             </Link>
 
 
-
-
-
             {/* Menu Item div  */}
-            <div className=" hidden xl:block   ">
-                <Menu setActive={setActive}>
+            <div className=" hidden xl:block relative z-[60]  ">
+
+
+                <Menu setActive={setActive} className="w-full">
 
 
                     <MenuItem setActive={setActive} active={active} item="Mens">
                         <p className="text-xl align-center text-pink-700 font-semibold">Mens</p>
-                        <div className="bg-white shadow-lg rounded-lg p-8 max-w-6xl mx-auto mt-10">
+                        <div className=" shadow-lg rounded-lg p-8 max-w-6xl mx-auto mt-10">
                             <div className="flex gap-10 justify-between items-start flex-wrap">
 
                                 {/* First Column Group */}
@@ -522,33 +518,7 @@ export const Navbar = () => {
 
 
             {/* Search Input  */}
-            {/* <div>
-                <form onSubmit={handleSubmit}>
-                    <InputGroup >
-                        <InputGroupInput
-                            type="text"
-                            placeholder="Search products..."
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                            onKeyDown={(e) => {
-                                if (e.key === 'Enter') {
-                                    e.preventDefault(); // optional: prevent double submit
-                                    handleSubmit(e);
-                                }
-                            }}
-                            className="border px-2 py-1"
-                        />
-                        <InputGroupAddon>
-                            <SearchIcon className="lg:block hidden align-center mr-2" />
-                            <div className="text-3xl font-serif font-bold px-1 py-3 text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600 drop-shadow-lg block lg:hidden">
-                                SV
-                            </div>
-                        </InputGroupAddon>
-                    </InputGroup>
 
-                </form>
-
-            </div> */}
 
             <div className="">
                 <form
@@ -804,7 +774,7 @@ export const Navbar = () => {
 
 
 
-              
+
 
 
             </div>
@@ -813,6 +783,7 @@ export const Navbar = () => {
 
 
         </div >
+
 
 
 
