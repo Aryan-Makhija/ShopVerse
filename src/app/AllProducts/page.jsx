@@ -3,6 +3,7 @@
 
 import DashBoardSidebar from "@/components/Dashboard/Sidebar"
 import FooterNavbar from "@/components/homepage/FooterNav"
+import Header from "@/components/homepage/Header"
 import { Navbar } from "@/components/homepage/Navbar"
 import { NewArrivalwomens } from "@/components/homepage/NewArrivalwomens"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
@@ -80,7 +81,7 @@ const AllProductsPage = () => {
 
     return (
         <div className="min-h-screen bg-primary-foreground max-w-screen">
-            <Navbar />
+            <Header></Header>
 
             <div className="w-full h-32 border-b border-gray-300 flex items-center justify-center shadow-sm">
                 <h2 className="text-xl font-medium text-gray-700">Search results for "{query}"</h2>
@@ -170,7 +171,7 @@ const AllProductsPage = () => {
                                     passHref
                                 >
                                     <a target="_blank" rel="noopener noreferrer">
-                                       
+
                                         <Card
                                             className="
                                             group relative w-full

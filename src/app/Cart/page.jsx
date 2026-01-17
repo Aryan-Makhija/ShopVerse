@@ -1,7 +1,9 @@
 "use client"
 
 import Counter from "@/components/Counter"
+import Footer from "@/components/homepage/Footer"
 import FooterNavbar from "@/components/homepage/FooterNav"
+import Header from "@/components/homepage/Header"
 import { Navbar } from "@/components/homepage/Navbar"
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
 import { Button } from "@/components/ui/button"
@@ -65,7 +67,7 @@ const ShoppingCart = () => {
 
         }, 1000)
         windows.location.relaod()
-        ro
+
         toast.success("Item Deleted From the Cart")
     }
 
@@ -85,8 +87,8 @@ const ShoppingCart = () => {
     return (
         <div className="min-h-screen bg-primary-foreground max-w-screen">
 
-            <Navbar />
 
+            <Header></Header>
             <div className="w-full min-h-screen p-8 bg-primary-foreground flex  gap-10 flex-col items-center">
                 <div className="w-full p-2 rounded bg-gray-200 shadow-md  text-center">
                     <h1 className="text-3xl font-serif  font-medium ">Shopping Cart 🛒</h1>
@@ -287,7 +289,7 @@ const ShoppingCart = () => {
 
             </div>
             <FooterNavbar></FooterNavbar>
-
+            <Footer></Footer>
         </div >
     )
 }

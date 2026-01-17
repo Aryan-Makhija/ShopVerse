@@ -4,6 +4,7 @@
 
 import Footer from "@/components/homepage/Footer";
 import FooterNavbar from "@/components/homepage/FooterNav";
+import Header from "@/components/homepage/Header";
 import { Navbar } from "@/components/homepage/Navbar";
 import Stepper, { Step } from "@/components/OrderStepper";
 import { AddressDetails } from "@/components/OrderSteps/AddressDetails";
@@ -21,7 +22,7 @@ const OrderPage = () => {
 
     <div>
 
-      <Navbar></Navbar>
+      <Header></Header>
 
       <div className="bg-muted flex min-h-svh flex-col items-center justify-center p-2 md:p-2 m-6">
         {/* ✅ Container with fixed width for the stepper */}
@@ -62,7 +63,7 @@ const OrderPage = () => {
           </div>
         </div>
       </div>
-<FooterNavbar></FooterNavbar>
+      <FooterNavbar></FooterNavbar>
       <Footer></Footer>
     </div>
   )

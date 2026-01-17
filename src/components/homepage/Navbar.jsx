@@ -14,7 +14,11 @@ import { InputGroup, InputGroupAddon, InputGroupInput } from "../ui/input-group"
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
 import {
     Sheet,
     SheetClose,
@@ -31,6 +35,7 @@ import StaggeredMenu from "../StaggeredMenu";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import { toast } from "sonner";
 import Header from "./Header";
+import { FlipWords } from "../ui/flip-words";
 
 export const Navbar = () => {
 
@@ -154,20 +159,40 @@ export const Navbar = () => {
         getwishlist()
     }, [])
 
+    const words = [
+        "Stay in Style",
+        "Trending Now",
+        "Everyday Elevated",
+    ];
 
 
     return (
 
 
-        <div className="flex sticky  top-0    inset-x-0 justify-around items-center mx-auto z-50   w-full rounded-b-2xl   ">
+        <div className="flex sticky   top-0  border-red-500   inset-x-0 justify-around items-center mx-auto z-50   w-full rounded-b-2xl   ">
 
-            <Link href="/">
+            {/* <Link href="/">
                 <div className="text-3xl font-serif font-bold px-8 py-3 text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-pink-600 drop-shadow-lg hidden xl:block">
+
                     ShopVerse
                 </div>
-            
-            </Link>
 
+            </Link> */}
+
+
+            <div
+                className="
+      hidden md:flex items-center
+      px-8 py-3
+      text-3xl font-serif font-bold
+      text-transparent bg-clip-text
+      bg-gradient-to-r  from-red-400 via-pink-500 to-pink-600
+      drop-shadow-lg
+      whitespace-nowrap
+    "
+            >
+                <FlipWords words={words} />
+            </div>
 
             {/* Menu Item div  */}
             <div className=" hidden xl:block relative z-[60]  ">
@@ -525,7 +550,7 @@ export const Navbar = () => {
                     onSubmit={handleSubmit}
                     className="w-[200px] sm:w-[280px] mx-2"
                 >
-                    <div className="relative flex items-center border rounded-full overflow-hidden shadow-sm bg-white focus-within:ring-2 focus-within:ring-pink-500 transition">
+                    <div className="relative flex items-center border rounded overflow-hidden shadow-sm bg-white focus-within:ring-2 focus-within:ring-pink-500 transition">
 
                         {/* Brand Logo SV */}
                         <div className="absolute left-2 flex items-center pointer-events-none">
@@ -567,8 +592,9 @@ export const Navbar = () => {
           px-2 py-1.5
           bg-pink-500 hover:bg-pink-600
           text-white
-          rounded-full
+          rounded
           transition
+          cursor-pointer
         "
                         >
                             <SearchIcon className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -597,7 +623,17 @@ export const Navbar = () => {
 
                     <Link href="/Cart" className="relative inline-block   justify-center items-center">
                         {/* Icon */}
-                        <IoBag className="  md:w-7 md:h-7 w-6 h-6 text-pink-400" />
+
+                        <Tooltip>
+                            <TooltipTrigger>
+
+                                <IoBag className="cursor-pointer  md:w-7 md:h-7 w-6 h-6 text-pink-400" />
+
+                            </TooltipTrigger>
+                            <TooltipContent >
+                                <p>Shopping Bag</p>
+                            </TooltipContent>
+                        </Tooltip>
 
                         {/* Badge */}
                         {cartitem.length > 0 && (
@@ -610,7 +646,18 @@ export const Navbar = () => {
                     </Link>
 
                     <Link href="/WishList" className=" relative inline-block justify-center  items-center">
-                        <GoHeartFill className=" md:w-7 md:h-7 h-6 w-6 text-rose-600" />
+
+
+                        <Tooltip>
+                            <TooltipTrigger>
+
+                                <GoHeartFill className=" cursor-pointer md:w-7 md:h-7 h-6 w-6 text-rose-600" />
+
+                            </TooltipTrigger>
+                            <TooltipContent>
+                                <p>Wishlist</p>
+                            </TooltipContent>
+                        </Tooltip>
                         {wishlist.length > 0 && (
                             <Badge
                                 className="absolute -top-1 -right-2 rounded-full text-[10px] px-1.5 py-0.5 bg-red-500 text-white"
@@ -621,10 +668,23 @@ export const Navbar = () => {
                     </Link>
 
                     <DropdownMenu className="w-40 h-30 ">
-                        <DropdownMenuTrigger><Avatar className="md:w-7 md:h-7 w-6 h-6 " >
-                            <AvatarImage src="https://github.com/shadcn.png" />
-                            <AvatarFallback>CN</AvatarFallback>
-                        </Avatar></DropdownMenuTrigger>
+                        <DropdownMenuTrigger>
+
+                            <Tooltip>
+                                <TooltipTrigger>
+
+
+                                    <Avatar className=" cursor-pointer md:w-7 md:h-7 w-6 h-6 " >
+                                        <AvatarImage src="https://github.com/shadcn.png" />
+                                        <AvatarFallback>CN</AvatarFallback>
+                                    </Avatar>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>Profile</p>
+                                </TooltipContent>
+                            </Tooltip>
+
+                        </DropdownMenuTrigger>
                         <DropdownMenuContent className="w-70 h-70">
                             <DropdownMenuLabel>Welcome</DropdownMenuLabel>
                             <DropdownMenuLabel className="text-sm ">To access and manage account</DropdownMenuLabel>

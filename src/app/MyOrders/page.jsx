@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { toast } from 'sonner'
 import FooterNavbar from '@/components/homepage/FooterNav'
 import Footer from '@/components/homepage/Footer'
+import Header from '@/components/homepage/Header'
 
 
 
@@ -66,7 +67,10 @@ const Myorders = () => {
 
 
     <div className="min-h-screen bg-gray-100 max-w-screen">
-      <Navbar />
+
+
+      <Header></Header>
+
 
       <div className="w-full min-h-screen p-8 bg-primary-foreground flex  gap-10 flex-col items-center">
         {/* Page Heading */}

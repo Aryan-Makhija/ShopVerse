@@ -1,7 +1,10 @@
 "use client"
 
+import Footer from "@/components/homepage/Footer"
 import FooterNavbar from "@/components/homepage/FooterNav"
+import Header from "@/components/homepage/Header"
 import { Navbar } from "@/components/homepage/Navbar"
+
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
 import { Button } from "@/components/ui/button"
 import { Trash2 } from "lucide-react"
@@ -81,8 +84,8 @@ const WishList = () => {
 
     return (
         <div className="min-h-screen bg-primary-foreground max-w-screen ">
-            <Navbar></Navbar>
-
+            {/* <Navbar></Navbar> */}
+            <Header></Header>
             <div className="  w-full min-h-screen p-8 bg-primary-foreground flex  gap-10 flex-col items-center">
                 <div className="w-full p-2 rounded bg-gray-200 shadow-md  text-center">
                     <h1 className="text-3xl font-serif  font-medium ">WishList ❤️</h1>
@@ -198,6 +201,7 @@ const WishList = () => {
             </div>
 
             <FooterNavbar></FooterNavbar>
+            <Footer></Footer>
         </div>
 
 

@@ -1,7 +1,9 @@
 "use client"
 import { Branding } from "@/components/homepage/Branding"
 import Footer from "@/components/homepage/Footer"
+import Header from "@/components/homepage/Header"
 import LatestProducts from "@/components/homepage/LatestProducts"
+import { Navbar } from "@/components/homepage/Navbar"
 import { NewArrivalmens } from "@/components/homepage/NewArrivalmens"
 import { NewArrivalwomens } from "@/components/homepage/NewArrivalwomens"
 import { AnimatedTestimonialsDemo, MarqueeDemo } from "@/components/homepage/Reviews"
@@ -27,7 +29,13 @@ const Home = () => {
     return (
         <div className="w-full">
 
-            <div className="bg-primary-foreground min-h-screen  flex flex-col items-center justify-center p-4 sm:p-6 md:p-10 border-2 w-full gap-40  ">
+          
+                <Header></Header>
+            {/* <div className="xl:block hidden">
+
+                <Navbar></Navbar>
+            </div> */}
+            <div className="bg-primary-foreground min-h-screen  flex flex-col items-center justify-center p-4 sm:p-6 md:p-10  w-full gap-40  ">
 
 
                 <div className="w-full max-w-md sm:max-w-md md:max-w-5xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-7xl flex flex-col gap-20">
@@ -49,7 +57,7 @@ const Home = () => {
             md:h-[380px] 
             lg:h-[450px]">
 
-                                       
+
                                         <img
                                             src="https://cms.landmarkshops.in/cdn-cgi/image/w=1232,q=85,fit=cover/MAX-Friday/MAX2.O/MAX-Uber-HP-Desktop-HeroBanner3-22OCT25A.png"
                                             alt="Hero Banner"
@@ -57,15 +65,15 @@ const Home = () => {
               sm:rounded-xl"
                                         />
 
-                                        
 
-                                   
+
+
                                         <div className="absolute 
               bottom-4 left-4 
               sm:bottom-8 sm:left-8 
               lg:left-20">
 
-                                        
+
                                         </div>
                                     </div>
                                 </CarouselItem>
@@ -76,7 +84,7 @@ const Home = () => {
             md:h-[380px] 
             lg:h-[450px]">
 
-                                
+
                                         <img
                                             src="https://max.a.bigcontent.io/v1/static/Hero-DT-Eng-100924-Men"
                                             alt="Hero Banner"
@@ -84,13 +92,13 @@ const Home = () => {
               sm:rounded-xl"
                                         />
 
-                                   
+
                                         <div className="absolute 
               bottom-4 left-4 
               sm:bottom-8 sm:left-8 
               lg:left-20">
 
-                                          
+
                                         </div>
                                     </div>
                                 </CarouselItem>
@@ -101,7 +109,7 @@ const Home = () => {
             md:h-[380px] 
             lg:h-[450px]">
 
-                                 
+
                                         <img
                                             src="https://media.maxfashion.com/i/max/1x2-New%20In-DT-En-201025-V2"
                                             alt="Hero Banner"
@@ -109,13 +117,13 @@ const Home = () => {
               sm:rounded-xl"
                                         />
 
-                               
+
                                         <div className="absolute 
               bottom-4 left-4 
               sm:bottom-8 sm:left-8 
               lg:left-20">
 
-                                      
+
                                         </div>
                                     </div>
                                 </CarouselItem>
@@ -126,7 +134,7 @@ const Home = () => {
             md:h-[380px] 
             lg:h-[450px]">
 
-                                 
+
                                         <img
                                             src="https://www.meijer.com/content/dam/meijer/digital/web-and-graphics/2022/clothing/site-assets/common-identity/09-september/D-CommonID-Hero-2x1-20220925.jpg"
                                             alt="Hero Banner"
@@ -134,7 +142,7 @@ const Home = () => {
               sm:rounded-xl"
                                         />
 
-                                    
+
                                         <div className="absolute 
               bottom-4 left-4 
               sm:bottom-8 sm:left-8 
@@ -150,7 +158,7 @@ const Home = () => {
             md:h-[380px] 
             lg:h-[450px]">
 
-                                 
+
                                         <img
                                             src="https://cms.landmarkshops.in/cdn-cgi/image/w=1232,q=85,fit=cover/MAX-Friday/MAX2.O/MAX-Uber-HP-Desktop-HeroBanner1-22OCT25.png"
                                             alt="Hero Banner"
@@ -169,12 +177,12 @@ const Home = () => {
 
                             </CarouselContent>
 
-                           
+
                         </Carousel>
                     </div>
 
 
-                 
+
                     <div
                         className="
     w-screen sm:w-full

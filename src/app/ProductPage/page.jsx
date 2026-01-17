@@ -2,6 +2,7 @@
 
 import Footer from "@/components/homepage/Footer";
 import FooterNavbar from "@/components/homepage/FooterNav";
+import Header from "@/components/homepage/Header";
 import LatestProducts from "@/components/homepage/LatestProducts";
 import { Navbar } from "@/components/homepage/Navbar"
 import { NewArrivalmens } from "@/components/homepage/NewArrivalmens";
@@ -164,7 +165,7 @@ const ProductPage = () => {
     return (
         <div>
 
-            <Navbar></Navbar>
+            <Header></Header>
 
 
 

@@ -12,13 +12,14 @@ import {
     ShieldCheck,
 } from "lucide-react";
 import FooterNavbar from '@/components/homepage/FooterNav';
+import Header from '@/components/homepage/Header';
 
 const Sellerpage = () => {
     return (
 
         <>
 
-            <Navbar></Navbar>
+            <Header></Header>
             <div className="min-h-screen bg-white flex items-center justify-center px-6">
                 <motion.section
                     initial={{ opacity: 0, y: 30 }}
