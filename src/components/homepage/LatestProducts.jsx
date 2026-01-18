@@ -64,7 +64,7 @@ const LatestProducts = () => {
     flex flex-col
   "
               >
-                {/* Image */}
+              
                 <div className="relative w-full h-[140px] sm:h-56 md:h-60 overflow-hidden">
                   <img
                     src={item?.variants?.[0].image?.[0]}
@@ -82,7 +82,7 @@ const LatestProducts = () => {
                   </div>
                 </div>
 
-                {/* Content */}
+             
                 <CardContent className="p-3 sm:p-4 flex flex-col flex-1 justify-between">
                   <div>
                     <h2 className="text-sm sm:text-md md:text-lg font-semibold text-gray-800 group-hover:text-pink-600 transition line-clamp-2">
@@ -102,7 +102,6 @@ const LatestProducts = () => {
                   </div>
                 </CardContent>
               </Card>
-
 
 
             </a>

@@ -118,7 +118,8 @@ const WishList = () => {
 
                         </div> : <div className="  w-11/12 max-w-7xl flex justify-center items-center flex-col lg:flex-row gap-8">
                             {/* Products Section */}
-                            <div className="w-full lg:w-3/5   p-4 sm:p-6 flex flex-col gap-6 max-h-[600px] ">
+                            <div className="w-full lg:w-3/5   p-4 sm:p-6 flex flex-col gap-6 max-h-[70vh] lg:max-h-[600px]
+  overflow-y-auto">
 
                                 <p className="font-semibold text-gray-700">
                                     Total WishList Items: {wishlist.length}
