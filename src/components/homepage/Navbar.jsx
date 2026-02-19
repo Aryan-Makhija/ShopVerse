@@ -162,7 +162,7 @@ export const Navbar = () => {
     const words = [
         "Stay in Style",
         "Trending Now",
-        "Everyday Elevated",
+        "Elevate Daily",
     ];
 
 
@@ -183,12 +183,13 @@ export const Navbar = () => {
             <div
                 className="
       hidden md:flex items-center
-      px-8 py-3
+      px-4 py-3
       text-3xl font-serif font-bold
       text-transparent bg-clip-text
       bg-gradient-to-r  from-red-400 via-pink-500 to-pink-600
       drop-shadow-lg
       whitespace-nowrap
+      
     "
             >
                 <FlipWords words={words} />
