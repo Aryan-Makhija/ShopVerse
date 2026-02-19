@@ -8,7 +8,17 @@ import {
     Tag,
     Truck,
     Heart,
-    ShieldCheck, RefreshCcw
+    ShieldCheck, RefreshCcw,
+    Trophy,
+    Star,
+    Clock,
+    ThumbsUp,
+    BadgeCheck,
+    BarChart3,
+    Percent,
+    Trash2,
+    Crown,
+    ShoppingBag
 } from "lucide-react";
 import React, { useEffect, useState } from 'react'
 
@@ -32,7 +42,7 @@ const Header = () => {
     }, []);
     return (
 
-    
+
         <div className="fixed sticky top-0 inset-x-0 z-50">
             <motion.header
                 initial={{ y: -30, opacity: 0 }}
@@ -175,4 +185,15 @@ const quickActions = [
     { label: "New Arrivals", icon: Sparkles },
     { label: "Deals", icon: Tag },
     { label: "Favorites", icon: Heart },
+    { label: "Best Sellers", icon: Trophy },        // icon name: Trophy
+    { label: "Featured", icon: Star },              // icon name: Star
+    { label: "Limited Edition", icon: Clock },      // icon name: Clock
+    { label: "Top Rated", icon: ThumbsUp },         // icon name: ThumbsUp
+    { label: "Recommended", icon: BadgeCheck },     // icon name: BadgeCheck
+    { label: "Popular", icon: BarChart3 },          // icon name: BarChart3
+    { label: "On Sale", icon: Percent },            // icon name: Percent
+    { label: "Clearance", icon: Trash2 },           // icon name: Trash2
+    { label: "Exclusive", icon: Crown },            // icon name: Crown
+    { label: "Just In", icon: ShoppingBag },        // icon name: ShoppingBag
+
 ];
