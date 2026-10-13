@@ -97,7 +97,7 @@ Installation & Setup
 Clone the Repository
 
 Bash
-git clone [https://github.com/your-username/shopverse.git](https://github.com/your-username/shopverse.git)
+git clone https://github.com/Aryan-Makhija/ShopVerse.git
 cd shopverse
 Install Dependencies
 
